@@ -1,0 +1,81 @@
+#welcome {
+  width: 100%;
+  /* position: relative; */
+  --height: calc(100vh - 3em);
+  min-height: var(--height);
+
+  background-color: #eee;
+  --logoWidth: 50vmin;
+  --logoTop: 40%;
+}
+hr {
+  margin: 0;
+}
+.logo {
+  position: absolute;
+  top: var(--logoTop);
+  left: 50%;
+  overflow: hidden;
+  width: var(--logoWidth);
+  transform: translate(-50%, -50%);
+  animation-fill-mode: backwards;
+}
+@keyframes logoa {
+  0% {
+    left: -100%;
+    opacity: 0;
+  }
+}
+@keyframes logob {
+  0% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+@keyframes logoc {
+  0% {
+    opacity: 0;
+  }
+}
+#logo-main,
+.tt {
+  position: absolute;
+  top: var(--logoTop);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: logoa 2s;
+}
+#logo-py {
+  animation: logob 1.5s 1s;
+  opacity: 1;
+  animation-fill-mode: backwards;
+}
+#logo-time {
+  animation: logoc 1s 2.2s;
+  animation-fill-mode: backwards;
+}
+#logo-circle {
+  animation: logoc 1s 2.8s;
+  animation-fill-mode: backwards;
+}
+#welcome .tt {
+  position: absolute;
+  top: var(--logoTop);
+  right: 50%;
+  left: 50%;
+  width: max-content;
+  margin: 0;
+  transform: translate(-50%, calc(var(--logoWidth) / 2));
+  animation: logoc 1s 2s;
+  opacity: 1;
+  animation-fill-mode: backwards;
+}
+@media (max-height: 350px) {
+  .imgs {
+    display: none;
+  }
+  #welcome .tt {
+    top: 20%;
+    transform: translate(-50%, 0);
+  }
+}

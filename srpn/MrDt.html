@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SRPN成员检测</title>
+    <link rel="stylesheet" href="../css/basic.css" />
+    <link rel="shortcut icon" href="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64&gt;/interlace/1/format/jpg" type="image/x-icon" />
+    <style>
+      .inp {
+        padding: 12px;
+        border-radius: 10px;
+        width: 160px;
+        border: 1px solid #000;
+        height: 16px;
+        background-color: #ffffff;
+        transition: all 0.3s;
+      }
+      .text {
+        position: relative;
+        top: 0;
+        left: calc(-175px);
+        color: #aaa;
+        font-weight: 100;
+        transition: all 0.3s;
+        user-select: none;
+        /* z-index: -1; */
+      }
+      .inp:focus + .text,
+      .inp:valid + .text {
+        top: calc(-18px);
+        font-size: 70%;
+        background-color: #fff;
+        padding: 0 4px;
+      }
+      .inp:focus {
+        outline: none;
+        background-color: #fff;
+      }
+    </style>
+  </head>
+  <body onload="if(window.location.search){document.getElementById('inp').value = (window.location.search).match(/(?<=number=).+/g)[0];search(document.getElementById('inp').value)}">
+    <main>
+      <h1>SRPN成员检测</h1>
+      <p>上次更新于20230518，数据更新于202302</p>
+      <noscript style="color: red">js未开启，需要js启用才能使用！<br /></noscript>
+      <div class="search">
+        <input type="text" class="inp" id="inp" required oninput="search(this.value)" name="number" />
+        <label class="text" for="inp">抖音号</label>
+        <p id="tsc">请把抖音号输入进输入框...</p>
+        <a href="../index.html">回到主页</a>
+      </div>
+      <div id="whynot" style="display: none">
+        <hr />
+        <p style="color: rgb(20, 73, 154)">显示未加入的原因：<br />1.非星球阁成员<br />2.此成员还未收录<br />3.成员改抖音号，网站未作更改<br />4.你查的是名字或者打错了<br />5.我录入抖音号的时候打错了</p>
+        <p>我搜的人是SRPN成员却显示未加入,<a href="https://v.douyin.com/FtTMvDN/">我要上报</a>!</p>
+      </div>
+      <hr />
+      <div>
+        <div id="why" style="color: #3b80ac">
+          <h4>为什么要开发成员检测器？</h4>
+          <strong><p style="font-size: 0.75em">星球阁开始变得知名，但总有人冒充自己加入了SRPN，并且以SRPN的名头惹事，导致我们背上莫须有的罪名，开发此工具就是为了防止这件事的发生</p></strong>
+        </div>
+        <small id="url"></small>
+        <p>
+          <small>结果<a style="color: red">仅供参考！！！</a>如果实在不确定，可以来问<a href="https://v.douyin.com/FtTMvDN/">Nsakrty</a></small>
+        </p>
+      </div>
+      <script>
+        /* 查询次数 */ var pattern;
+        function ts(str) {
+          pattern = /^(nsakrty|MWXPlutoSRPN|Earth2|Beta\.Libra\.A|yikeshuiyi\.SRPN|Maugfy|MICEJ|Betelgeuse_Saly|114514tcw|dianzanguanzhu11|114514jntmZhang|hc_2011935418|TB_SR|Bei_He_San_1145|betelgeuseSRPN|Jecair009877|glz518g|NaOH_Acubens\.A|tau_sgr30|atpxsrpn|NMESRPN|lron1967|chino_cocoa11|1145141919810v\.|SakuraZu750143|BigSunnnnnn|843263735|CESA080929|TWDFSY28|eta_uma_54188|BetaLibraZub|Rainbow20110402|TSSRSMSRPN|28877691068|yinxing\.SRPN|M\.atpx\.and\.srpn|Sgr2012|PistolStarSRPN|114514for1919810|qF\.134|Sun\.515626|tanyounsrpnhehu|Krptury'KPT'卡普坦'SRPN|Zrlain|vvCepheia|Nesge\.PWO|R136a1zb|983479295|114514tianezuo|Sharkearth4xp|tsy_SRPN|1145141919810ewe|Phairty114514|Muqiu\.114514|MTSRPhigros|1911dwh|ISRPNmember|xinglinEXO|SiriusBCap72|SRPNkp10114514|67897086846|Jntmsz666_xinxe|AmericaSB|DFRET00DL|ty114514_hgmt\.\.\.|haioujun|Solar\.Uranus|95726817560|SunstarQAQ13|76818268549|RSSKC\.V|zb114514|weilaichupin|TJF520MC|114514Alnitak|XHZsz666|tsy6666666yyds|ktmswrapsrpn|52143644660|bei\.he\.er\.Aa|Procyon_233|8xneptunex|60986259148|haiwanxingweirue|Sun2\.srpn|BD21946|qgylsaly|BAT99_98_2_SRPN|xiaoQ11451454188|blackhole_66666|KillpL2022|ZhangSRPN114514|yeee1145141|hcr_mc|Venusobserve|LibraBetaZub|Neptune8hwx|qmgtj|pgjmc666|FU630L|Eta_Carinae_|hv2112xingqiuge|R136A12SRPNYYDS|95726817560s|phigrosxcgg|935605201|YQ\.TLR149|49794713559|Betelgeuse_Sec|92703780525|woshinima_srpn|FNZSR0000AMGR|srpnnb|ctrljntmngmhhy|cout5418814250|earth1srpn|44736888969|163577067|SRPNBarnad|HZ300A|Minecraft_jizhen|XF_Earth\.1\.2\.3|22410739843|CESAMr\.star|23815867872|qing_yan_QY|Sunsqrt2\.srpn|Dawnk_Doon|68590706825|lengfeng5211314|E2srwater|92296844246|PPPA210913|msalrty1234|Saturntuxing|75618243144|42134608484|mfxgan|SRPN1145141991|ytxgan|520wangzixuan025|AXTLK0321|Iamyourfather663|198681365|qing35_|sbcxsrpn|lanyiwolaopo|MTAN3\.1415926\.\.\.|dyqk7kgxgxu9|pvz5578D|627752698|dyykw675ev5j|SPR_18693\.Is|Starship13|233\.7089725|kaipulei186f|dy7cd5t7uuw2|venus_srpn|starzero14|Regulus_er2074\.|huangaixing|wowuyule5202|4461600_SRPN|40199449207|SRPNpangzilong74|anszxhx|phekshuzhi666|minecraftfkj66|nehca_photograph|naozhou|dy1yrougb7zf|81857630495|27149615686|banguZFCbeiy|96820281082|Mkey84559|Castor_Aa\.SRPN|srpn\.castor_Ab|ScoAab2|shenxiouqi|346630027|rui\.sk\.srpn|xtlxtlxtlxtlxtl|47245090905|BT_SR|GiminiNorth2Aa|Judyshso|dyzrn9qrt60o|wdsxbfl|38526216702|NanJu078571|22538961121|Xingguang1367|Spr18693\.astro|SiriusA_SRPN|3838438233SB|UranusandNepture|Ancturus|dyykqb3hm5o0|24209773602|tianlangxingC|tuaisha50190|77112116742|NAIDOUG|Rigufy_SRPN_Saly)$/gi;
+          /* 正则 */ var result = pattern.test(str);
+          return result;
+        }
+        function search(str) {
+          document.getElementById("url").innerHTML = `${window.location.origin}${window.location.pathname}?number=${str}`;
+          if (ts(str) == true) {
+            document.getElementById("inp").style.border = "1px solid rgb(0,128,0)";
+            document.getElementById("tsc").innerHTML = `抖音号为 ${str} 的用户 是 SRPN 成员`;
+            document.getElementById("whynot").style.display = "none";
+            document.title = `SRPN成员检测 - ${str}`;
+          } else if (str != "") {
+            document.getElementById("inp").style.border = "1px solid rgb(255,0,0)";
+            document.getElementById("tsc").innerHTML = `抖音号为 ${str} 的用户 不是 SRPN 成员`;
+            document.getElementById("whynot").style.display = "block";
+            document.title = `SRPN成员检测 - ${str}`;
+          } else {
+            document.getElementById("inp").style.border = "1px solid rgb(255,0,0)";
+            document.getElementById("tsc").innerHTML = `请把抖音号输入进输入框...`;
+            document.getElementById("whynot").style.display = "none";
+            document.title = `SRPN成员检测`;
+          }
+        }
+      </script>
+    </main>
+  </body>
+</html>

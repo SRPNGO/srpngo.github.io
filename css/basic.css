@@ -1,0 +1,8 @@
+body {
+  font-family: sans-serif, arial;
+  color: #464849;
+  background-color: #ccf;
+}
+:root {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Refresh" content="3; url=https://srpn.rth1.vip" />
+    <link rel="Shortcut Icon" href="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64>/interlace/1/format/jpg" />
+    <title>404</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <!--取消优化-->
+    <link rel="stylesheet" href="css/basic.css">
+    <style>
+      .index {
+        text-align: center;
+      }
+    </style>
+    <script>
+      var t = 3;
+      setInterval(() => {
+        t--;
+        if (t != 0) {
+          document.getElementById("time").innerHTML = t;
+        } else {
+          document.getElementById("message").innerHTML = "跳转中...";
+        }
+      }, 1000);
+    </script>
+  </head>
+  <body>
+    <div class="index">
+      <h1>404 Not Found</h1>
+      <h3>找不到请求的网页文件</h3>
+      <p id="message">我们将在<a id="time">3</a>s后自动跳转回主网站</p>
+      <a href="https://srpn.rth1.vip">没有跳转？</a>
+    </div>
+  </body>
+</html>
