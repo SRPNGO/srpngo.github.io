@@ -43,7 +43,7 @@
   <body onload="if(window.location.search){document.getElementById('inp').value = (window.location.search).match(/(?<=number=).+/g)[0];search(document.getElementById('inp').value)}">
     <main>
       <h1>SRPN成员检测</h1>
-      <p>上次更新于20230518，数据更新于202302</p>
+      <p>上次更新于20230726，数据更新于202302</p>
       <noscript style="color: red">js未开启，需要js启用才能使用！<br /></noscript>
       <div class="search">
         <input type="text" class="inp" id="inp" required oninput="search(this.value)" name="number" />
@@ -71,12 +71,13 @@
         /* 查询次数 */ var pattern;
         function ts(str) {
           pattern = /^(nsakrty|MWXPlutoSRPN|Earth2|Beta\.Libra\.A|yikeshuiyi\.SRPN|Maugfy|MICEJ|Betelgeuse_Saly|114514tcw|dianzanguanzhu11|114514jntmZhang|hc_2011935418|TB_SR|Bei_He_San_1145|betelgeuseSRPN|Jecair009877|glz518g|NaOH_Acubens\.A|tau_sgr30|atpxsrpn|NMESRPN|lron1967|chino_cocoa11|1145141919810v\.|SakuraZu750143|BigSunnnnnn|843263735|CESA080929|TWDFSY28|eta_uma_54188|BetaLibraZub|Rainbow20110402|TSSRSMSRPN|28877691068|yinxing\.SRPN|M\.atpx\.and\.srpn|Sgr2012|PistolStarSRPN|114514for1919810|qF\.134|Sun\.515626|tanyounsrpnhehu|Krptury'KPT'卡普坦'SRPN|Zrlain|vvCepheia|Nesge\.PWO|R136a1zb|983479295|114514tianezuo|Sharkearth4xp|tsy_SRPN|1145141919810ewe|Phairty114514|Muqiu\.114514|MTSRPhigros|1911dwh|ISRPNmember|xinglinEXO|SiriusBCap72|SRPNkp10114514|67897086846|Jntmsz666_xinxe|AmericaSB|DFRET00DL|ty114514_hgmt\.\.\.|haioujun|Solar\.Uranus|95726817560|SunstarQAQ13|76818268549|RSSKC\.V|zb114514|weilaichupin|TJF520MC|114514Alnitak|XHZsz666|tsy6666666yyds|ktmswrapsrpn|52143644660|bei\.he\.er\.Aa|Procyon_233|8xneptunex|60986259148|haiwanxingweirue|Sun2\.srpn|BD21946|qgylsaly|BAT99_98_2_SRPN|xiaoQ11451454188|blackhole_66666|KillpL2022|ZhangSRPN114514|yeee1145141|hcr_mc|Venusobserve|LibraBetaZub|Neptune8hwx|qmgtj|pgjmc666|FU630L|Eta_Carinae_|hv2112xingqiuge|R136A12SRPNYYDS|95726817560s|phigrosxcgg|935605201|YQ\.TLR149|49794713559|Betelgeuse_Sec|92703780525|woshinima_srpn|FNZSR0000AMGR|srpnnb|ctrljntmngmhhy|cout5418814250|earth1srpn|44736888969|163577067|SRPNBarnad|HZ300A|Minecraft_jizhen|XF_Earth\.1\.2\.3|22410739843|CESAMr\.star|23815867872|qing_yan_QY|Sunsqrt2\.srpn|Dawnk_Doon|68590706825|lengfeng5211314|E2srwater|92296844246|PPPA210913|msalrty1234|Saturntuxing|75618243144|42134608484|mfxgan|SRPN1145141991|ytxgan|520wangzixuan025|AXTLK0321|Iamyourfather663|198681365|qing35_|sbcxsrpn|lanyiwolaopo|MTAN3\.1415926\.\.\.|dyqk7kgxgxu9|pvz5578D|627752698|dyykw675ev5j|SPR_18693\.Is|Starship13|233\.7089725|kaipulei186f|dy7cd5t7uuw2|venus_srpn|starzero14|Regulus_er2074\.|huangaixing|wowuyule5202|4461600_SRPN|40199449207|SRPNpangzilong74|anszxhx|phekshuzhi666|minecraftfkj66|nehca_photograph|naozhou|dy1yrougb7zf|81857630495|27149615686|banguZFCbeiy|96820281082|Mkey84559|Castor_Aa\.SRPN|srpn\.castor_Ab|ScoAab2|shenxiouqi|346630027|rui\.sk\.srpn|xtlxtlxtlxtlxtl|47245090905|BT_SR|GiminiNorth2Aa|Judyshso|dyzrn9qrt60o|wdsxbfl|38526216702|NanJu078571|22538961121|Xingguang1367|Spr18693\.astro|SiriusA_SRPN|3838438233SB|UranusandNepture|Ancturus|dyykqb3hm5o0|24209773602|tianlangxingC|tuaisha50190|77112116742|NAIDOUG|Rigufy_SRPN_Saly)$/gi;
-          /* 正则 */ var result = pattern.test(str);
+          var result = pattern.test(str);
           return result;
         }
         function search(str) {
+          str = (str.replace("<","&lt;")).replace(">","&gt;"); 
           document.getElementById("url").innerHTML = `${window.location.origin}${window.location.pathname}?number=${str}`;
-          if (ts(str) == true) {
+          if (ts(str)) {
             document.getElementById("inp").style.border = "1px solid rgb(0,128,0)";
             document.getElementById("tsc").innerHTML = `抖音号为 ${str} 的用户 是 SRPN 成员`;
             document.getElementById("whynot").style.display = "none";
