@@ -6,3 +6,15 @@ body {
 :root {
   scroll-behavior: smooth;
 }
+table {
+  margin: auto;
+  border-collapse: collapse;
+}
+th,
+tr,
+td {
+  padding: 4px;
+}
+table.RL td:last-child {
+  font-size: 8px;
+}

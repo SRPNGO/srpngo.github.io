@@ -9,28 +9,25 @@
     <!--取消优化-->
     <link rel="stylesheet" href="css/basic.css">
     <style>
-      .index {
+      main {
         text-align: center;
       }
     </style>
     <script>
       var t = 3;
       setInterval(() => {
-        t--;
-        if (t != 0) {
-          document.getElementById("time").innerHTML = t;
-        } else {
+        if (!(document.getElementById("time").innerHTML = --t)) {
           document.getElementById("message").innerHTML = "跳转中...";
         }
       }, 1000);
     </script>
   </head>
   <body>
-    <div class="index">
+    <main>
       <h1>404 Not Found</h1>
       <h3>找不到请求的网页文件</h3>
       <p id="message">我们将在<a id="time">3</a>s后自动跳转回主网站</p>
       <a href="http://srpn.top">没有跳转？</a>
-    </div>
+    </main>
   </body>
 </html>

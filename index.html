@@ -50,18 +50,6 @@
         font-size: 1rem;
         color: #666;
       }
-      table {
-        margin: auto;
-        border-collapse: collapse;
-      }
-      th,
-      tr,
-      td {
-        padding: 4px;
-      }
-      table.RL td:last-child {
-        font-size: 8px;
-      }
       .border {
         border-width: 2px;
         border-style: solid;
@@ -78,6 +66,9 @@
         position: sticky;
         left: 0;
       }
+      nav span.menu {
+        color: #000;
+      }
       nav span.menu a {
         line-height: 3em;
         display: inline-block;
@@ -85,10 +76,11 @@
         transition: all 0.2s;
         vertical-align: top;
         text-decoration: none;
-        color: #000;
+        color: inherit;
       }
       nav span.menu a:hover {
         background: #b0b0b0;
+        color: inherit;
       }
       .others {
         display: flex;
@@ -127,6 +119,10 @@
       .zjly li::marker {
         content: none;
       }
+      footer {
+        padding: 0.2em;
+        background-color: #eee;
+      }
       @media (max-width: 500px) {
         table {
           font-size: 0.5em;
@@ -140,16 +136,12 @@
           justify-content: center;
         }
       }
-      footer {
-        padding: 0.2em;
-        background-color: #eee;
-      }
     </style>
   </head>
   <body>
     <header>
       <nav>
-        <a href="index.html" id="SRPN的logo"><img src="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64&gt;/interlace/1/format/jpg" alt="SRPN" style="height: 3em; padding: 0px 4px; background-color: #fff" /></a>
+        <a href="index.html" id="SRPN的logo"><img src="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64&gt;/interlace/1/format/jpg" alt="SRPN的logo" style="height: 3em; padding: 0px 4px; background-color: #fff" /></a>
         <span class="menu">
           <a href="index.html">首页</a>
           <a href="srpn/TL.html">条例</a>
@@ -173,12 +165,7 @@
     </div>
     <hr />
     <main id="start">
-      <!-- <div class="notice">
-        <h2>NOTICE</h2>
-        <img src="https://p1.xywm.ltd/2023/07/18/e59ff496021f74e4ba3419842ed9fe5c.jpg" style="margin: 0 auto; display: block; height: 60vh" />
-        <p>你好，在你浏览星球阁官网前，希望你能关注这位冒充星球阁阁主、谎称自己为星球动画创始人、在主页背景图盗用星球阁logo的用户<a href="https://v.douyin.com/i5rScE3/">科学商所长</a>。</p>
-        <hr />
-      </div> -->
+      <div class="notice"></div>
       <div>
         <h2>星球阁是什么？</h2>
         <p>星球阁(Star Pavilion)是一个普普通通的集"绘画"和"天文"爱好者的组织，目前仅在抖音与bilibili招人</p>
@@ -275,7 +262,8 @@
         </div>
         <div>
           <h2>如何加入我们？</h2>
-          <p>在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去找以下几位审核员<del>(我们的摸鱼大队)</del>审核即可：</p>
+          <p>在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去找下表的几位审核员<del>(我们的摸鱼大队)</del>审核即可<br />然而，我们并不是什么时候都开放审核。</p>
+
           <table border="1" class="RL">
             <th>网名</th>
             <th>通常在线时间</th>
@@ -401,15 +389,6 @@
       <p>上次更新:<a id="sumtime" style="display: none"></a></p>
       <p>By <a href="https://nsakrty.rth1.link">nsakrty</a></p>
     </footer>
-    <script>
-      document.getElementById("sumtime").style.display = "inline";
-      time = document.lastModified;
-      rtime = [6, 7, 8, 9, ".", 0, 1, ".", 3, 4];
-      result = "";
-      rtime.forEach((i) => {
-        result += time[i] != undefined ? time[i] : ".";
-      });
-      document.getElementById("sumtime").innerHTML = `${result}`;
-    </script>
+    <script src="script/update.js"></script>
   </body>
 </html>
