@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Math</title>
+    <style>
+      body {
+        background: #000;
+      }
+      .Math-condition {
+        font-family: "MathJax_Main", "Consolas", monospace;
+        font-size: 2em;
+        color: #fff;
+        cursor: default;
+      }
+      .Math-condition > .Math-return {
+        opacity: 0;
+        transition: all 0.2s;
+        position: relative;
+        left: -1em;
+      }
+      .Math-condition:hover .Math-return {
+        opacity: 1;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <span class="Math-condition">
+      <span class="Math-condition-content" contenteditable>1+1</span>
+      <span class="Math-return"></span>
+    </span>
+    <script>
+      setInterval(() => {
+        mathConditions = document.querySelectorAll(".Math-condition");
+        mathConditions.forEach((mathCondition) => {
+          returnValue = Number(eval(mathCondition.querySelector(".Math-condition-content").innerHTML)) | "";
+          mathCondition.querySelector(".Math-return").innerHTML = `= ${returnValue}`;
+        });
+      }, 100);
+    </script>
+  </body>
+</html>
