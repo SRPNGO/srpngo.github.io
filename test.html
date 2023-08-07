@@ -1,84 +1,31 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-cn">
   <head>
-    <title>欢迎来到星球阁官网！</title>
-    <!-- meta区 -->
-    <meta name="keywords" content="星球阁官方网站, SRPN网, SRPN, 星球阁, star pavilion, 天文, 绘画, 组织, 星球阁官网" />
-    <meta name="description" content="您可以从这里了解到SRPN的相关知识" />
-    <meta name="author" content="nsakrty" />
-    <!-- meta区 -->
-    <link rel="Shortcut Icon" href="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64>/interlace/1/format/jpg" />
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <!--取消优化-->
-    <link rel="stylesheet" href="css/basic.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>音乐测试！</title>
     <style>
       body {
-        margin: 0;
-        padding: 0;
-      }
-      h1,
-      table,
-      #a,
-      h2,
-      p {
-        text-align: center;
-      }
-      p {
-        margin: 5px;
-      }
-     
-      nav {
-        overflow-x: auto;
-        overflow-y: hidden;
-        width: 100%;
-        height: 3em;
-        white-space: nowrap; /* 防止 item 换行 */
-        background: #fff;
-        #logo {
-          position: sticky;
-          left: 0;
-        }
-        & span.menu a {
-          line-height: 3em;
-          display: inline-block;
-          padding: 0 1em;
-          transition: all 0.2s;
-          vertical-align: top;
-          text-decoration: none;
-          color: #000;
-        }
-        & span.menu a:hover {
-          background: #b0b0b0;
-        }
+        background: #000;
+        color: #fff;
+        font-family: consolas;
       }
     </style>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="index.html" id="SRPNlogo"><img src="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64&gt;/interlace/1/format/jpg" alt="SRPN" style="height: 3em; padding: 0px 4px; background-color: #fff" /></a>
-        <span class="menu">
-          <a href="index.html">首页</a>
-          <a href="srpn/TL.html">条例</a>
-          <a href="#history">历史</a>
-          <a href="srpn/MrDt.html">成员检测</a>
-          <a href="#stmp">SiteMap</a>
-        </span>
-      </nav>
-    </header>
-      <div class="tt">
-        <h1>欢迎来到SRPN测试网站！</h1>
-      </div>
+    <audio muted loop src="https://dl.stream.qqmusic.qq.com/C400000F78ZF15ac8c.m4a?guid=4275662319&vkey=64FB405956210AEF2D2D1901C658320FB96CD74A11AD8D06C3EF67081CE9D8D1FC8FF64383956CDAC86D42C19EB5124C3C051F8953BB46CA&uin=2671593500&fromtag=120032" id="k"></audio>
+    <div id="box">
+      <a>正在播放:Excute - C418</a>
+      <button onclick="k.play();k.muted=false;this.style.display='none'" id="a">取消静音</button>
     </div>
     <hr />
-    <main id="start">
-      <p>你好，这里是一个测试网站，听说原生css支持嵌套了，所以我做了一个测试网站，如果你看到顶部导航栏的样式是正常的，那就证明你的设备支持嵌套css</p>
-      <p>
-        <a href="index.html">click me to return index.html</a>
-
-      </p>
-    </main>
-    <hr />
+    <h1>欢迎来到SRPN的测试网站</h1>
+    <p>这次进行的是音乐测试！</p>
+    <script>
+      k = document.getElementById("k");
+      k.play();
+      k.muted = false;
+      !document.getElementById("k").paused ? (document.getElementById("a").style.display = "none") : void 0;
+    </script>
   </body>
 </html>
