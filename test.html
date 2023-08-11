@@ -70,34 +70,33 @@
       }
     </style>
     <script>
-      var k = 0;
-      var srht;
+      var clickTimes = 0;
+      var menuHt;
       function fun() {
-        sr = document.getElementById("START").style;
-        sr.display = "block";
-        if (k == 0) {
-          srht = document.getElementById("START").clientHeight;
-          document.documentElement.style.setProperty("--toht", srht);
+        menu = document.getElementById("START").style;
+        menu.display = "block";
+        if (clickTimes == 0) {
+          menuHt = document.getElementById("START").clientHeight;
+          document.documentElement.style.setProperty("--toht", menuHt);
         }
-        sr.height = srht + "px";
-        k++;
-        if (k % 2 == 1) {
+        menu.height = menuHt + "px";
+        if (++clickTimes % 2) {
           document.getElementById("button").innerHTML = "收起目录";
           {
-            sr.animation = "expand 2s";
+            menu.animation = "expand 2s";
             switchButtonState(2000);
           }
-          sr.display = "block";
-          sr.height = srht + "px";
+          menu.display = "block";
+          menu.height = menuHt + "px";
         } else {
           document.getElementById("button").innerHTML = "展开目录";
           {
-            sr.animation = "shrink 2s";
+            menu.animation = "shrink 2s";
             switchButtonState(2000);
           }
-          sr.height = "0px";
+          menu.height = "0px";
         }
-        // sr:菜单的style,srht:菜单高度,k:点击次数
+        // menu:菜单的style,menuHt:菜单高度,k:点击次数
       }
       function setFastJump() {
         // 加载快速跳转区，若未开启就不会加载，一行noscript会代替它
