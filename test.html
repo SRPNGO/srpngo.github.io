@@ -1,31 +1,296 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>音乐测试！</title>
+    <link rel="Shortcut Icon" href="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64>/interlace/1/format/jpg" />
+    <title>星球阁简史</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="description" content="这里是SRPN的历史" />
+    <meta name="keywords" content="星球阁, SRPN, 历史, 怎么了, 星球阁历史, SRPN历史" />
+    <link rel="stylesheet" href="css/basic.css" />
+    <link rel="stylesheet" href="css/article.css" />
+    <!--取消优化-->
     <style>
-      body {
-        background: #000;
-        color: #fff;
-        font-family: consolas;
+      article,
+      #fastJump {
+        max-width: 40rem;
+        margin: 0 auto;
+      }
+      h1,
+      h2,
+      .center {
+        text-align: center;
+      }
+      noscript {
+        display: block;
+        text-align: center;
+      }
+      .start a {
+        display: block;
+      }
+      h4 {
+        position: sticky;
+        top: 0;
+        background-color: #ccf;
+      }
+      #START {
+        display: none;
+        overflow: hidden;
+      }
+      :root {
+        --toht: 0;
+      }
+      .history a[href] {
+        color: #0088ff;
+        text-decoration: none;
+      }
+      .history :is(a[href="javascript:void(0)"], a[href=""]) {
+        color: #b84d4d;
+      }
+      .history a[href]:hover {
+        text-decoration: underline;
+      }
+      @keyframes expand {
+        0% {
+          height: 0;
+        }
+        100% {
+          height: calc(var(--toht) * 1px);
+        }
+      }
+      @keyframes shrink {
+        0% {
+          height: calc(var(--toht) * 1px);
+        }
+        100% {
+          display: none;
+
+          height: 0;
+        }
       }
     </style>
-  </head>
-  <body>
-    <audio muted loop src="https://dl.stream.qqmusic.qq.com/C400000F78ZF15ac8c.m4a?guid=4275662319&vkey=64FB405956210AEF2D2D1901C658320FB96CD74A11AD8D06C3EF67081CE9D8D1FC8FF64383956CDAC86D42C19EB5124C3C051F8953BB46CA&uin=2671593500&fromtag=120032" id="k"></audio>
-    <div id="box">
-      <a>正在播放:Excute - C418</a>
-      <button onclick="k.play();k.muted=false;this.style.display='none'" id="a">取消静音</button>
-    </div>
-    <hr />
-    <h1>欢迎来到SRPN的测试网站</h1>
-    <p>这次进行的是音乐测试！</p>
     <script>
-      k = document.getElementById("k");
-      k.play();
-      k.muted = false;
-      !document.getElementById("k").paused ? (document.getElementById("a").style.display = "none") : void 0;
+      var k = 0;
+      var srht;
+      function fun() {
+        sr = document.getElementById("START").style;
+        sr.display = "block";
+        if (k == 0) {
+          srht = document.getElementById("START").clientHeight;
+          document.documentElement.style.setProperty("--toht", srht);
+        }
+        sr.height = srht + "px";
+        k++;
+        if (k % 2 == 1) {
+          document.getElementById("button").innerHTML = "收起目录";
+          {
+            sr.animation = "expand 2s";
+            switchButtonState(2000);
+          }
+          sr.display = "block";
+          sr.height = srht + "px";
+        } else {
+          document.getElementById("button").innerHTML = "展开目录";
+          {
+            sr.animation = "shrink 2s";
+            switchButtonState(2000);
+          }
+          sr.height = "0px";
+        }
+        // sr:菜单的style,srht:菜单高度,k:点击次数
+      }
+      function setFastJump() {
+        // 加载快速跳转区，若未开启就不会加载，一行noscript会代替它
+        document.getElementById("fastJump").style.display = "block";
+      }
+      function switchButtonState(time) {
+        // 让按钮禁用一段时间后恢复
+        var button = document.getElementById("button");
+        button.setAttribute("disabled", "");
+        setTimeout(() => {
+          button.removeAttribute("disabled");
+        }, time);
+      }
     </script>
+  </head>
+  <body onload="setFastJump()" contenteditable="false">
+    <div>
+      <h1>欢迎来到SRPN简史网!</h1>
+      <p class="center">这里记载了有关SRPN的历史,您可以在这里了解SRPN的状况。</p>
+    </div>
+    <div id="fastJump" style="display: block">
+      <h3>快捷跳转</h3>
+      <noscript style="color: red">javascript不可用!您无法使用跳转功能!</noscript>
+      <button onclick="fun()" id="button">展开目录</button>
+      <div class="start" id="START">
+        <h4>目录</h4>
+        <a href="#start">从头开始</a>
+        <h4>星球家族</h4>
+        <a href="#20190304">20190304--星球家族的建立</a>
+        <a href="#20190427">20190427--星球家族的发展</a>
+        <a href="#20190608">20190608--星球家族的审核制度与招人计划</a>
+        <a href="#201906-20191021">201906~20191021--星球家族的巅峰与衰落</a>
+        <h4>前星球阁</h4>
+        <a href="#20191026">20191028--星球阁的建立</a>
+        <a href="#20191026+">20191028+--星球阁建立后面临的情况</a>
+        <a href="#20200404">20200404--星球阁的审核制度</a>
+        <h4>后星球阁</h4>
+        <a href="#20200529">20200529--新星球家族(短暂且意义重大)</a>
+        <a href="#20200621">20200621--后星球阁的建立</a>
+        <a href="#20210228">20210228--星球阁的分组织与星球阁长久的混乱</a>
+        <a href="#20210827">20210827--星球阁影响力的再次提升和圈子的初步形成</a>
+        <a href="#20220611">20220611--星球阁与天文圈的交流以及知名度的快速增加</a>
+        <a href="#20221220+">20221220+--星球阁的短暂混乱和圈子低质化、低俗化的开始</a>
+        <a href="#20230410+">20230410+--星球圈的低质化、低俗化与星球阁的反应</a>
+      </div>
+    </div>
+    <article class="history">
+      <h2 id="start">星球阁简史</h2>
+      <h3>星球家族</h3>
+      <div>
+        <h4 id="20190304">星球家族的建立</h4>
+        <p>2019年3月4日，<a href="https://v.douyin.com/icGGKtH">星零</a>建立了星球家族(SRCN,Star Clan)并发布<a href="https://p1.xywm.ltd/2023/04/30/b172399c357b39f91b9b60d3e806ee17.png">宣传视频</a>。几天之后，第二个成员<a href="javascript:void(0)">太阳系</a>便加入了这个组织，但这个组织还是冷冷清清。</p>
+      </div>
+      <div>
+        <h4 id="20190427">星球家族的发展</h4>
+        <p>4月27日，<a href="https://v.douyin.com/NFYeNtm/">Nsakrty</a>加入星球家族，由于其更新速度快，视频内容有趣，没多久就火了起来。这一做法引得星零也开始这么做。这样，短短十几天，星球家族便出现了两个粉丝过万的人。</p>
+      </div>
+      <div>
+        <h4 id="20190608">星球家族的审核制度与招人计划</h4>
+        <p>5月30日，Nsakrty发布了星球家族的<a href="javascript:void(0)">招人视频</a>。6月8日，Nsakrty制定了该组织的<a href="https://p1.xywm.ltd/2022/12/23/63a5ae20ea831.png">加入条件</a>，29日又制定了试卷（<a href="https://p1.xywm.ltd/2022/10/05/633d38a927ce2.jpeg">星球家族调查问卷</a>）。</p>
+        <p>加入条件为：加入成员的获赞量（大于500得10分）、粉丝数（大于50得10分）、绘画（50分）、试卷得分（30分）的总和≥60分</p>
+        <p>试卷为固定试卷，共六题，选择题二题，三道选择题与一道画图题。审核制度起到筛选作用，使得星球家族内的成员更加高质。</p>
+        <p>除此以外，Nsakrty还在之后制定了各种计划，星球家族更强大了。</p>
+      </div>
+      <div>
+        <h4 id="201906-20191021">星球家族的巅峰与衰落</h4>
+        <p>6月，星球家族的总粉丝数破了10w，成员规模达到70人。6月下旬，Nsakrty升为副族长。</p>
+        <p>7月22日，星零粉丝破了10w，Nsakrty的粉丝也到了8w，星球家族进入巅峰时期。</p>
+        <p>2019年8月中旬，星球家族群聊由<a href="https://v.douyin.com/iPV7RqD/">青芒君（最佳鸽子）</a>创建。</p>
+        <p>好景不长，9月，星球家族开始衰落：Nsakrty停更了3个月，星零失去更新的兴趣并在7日将族长转给Nsakrty，星球家族的发展陷入了停滞。10月，星球家族内部的斗争愈演愈烈，成员关系紧张。10月20日前后，星球家族解散。组织内一片混乱。</p>
+      </div>
+      <h3>前星球阁</h3>
+      <div>
+        <h4 id="20191026">星球阁的建立</h4>
+        <p>2019年10月26日前后，原星球家族成员<a href="javascript:void(0)">史小坑</a>（此史小坑非彼史小坑）建立起了一个新组织——星球阁(SRPN,Star Pavilion)。或是因为他想取代星球家族、或是因为好玩而建立、或是因为来“避难”，总之，建立它的原因还是个谜。</p>
+        <p>那些在混乱中中还没退出星球家族的成员纷纷加入了星球阁，同时也迎来了几个新成员。</p>
+      </div>
+      <div>
+        <h4 id="20191026+">星球阁建立后面临的情况</h4>
+        <p>在接下来的几个月中，Nsakrty和星零都掉了粉，只有部分成员还在缓慢的涨粉。星球阁此时也并没有什么大作为。</p>
+        <p>2020年2月2日，Nsakrty<a href="https://p1.xywm.ltd/2022/12/23/63a5b04fcdc1e.jpeg">当上星球阁阁主</a>。</p>
+        <p>2月29日，Nsakrty尝试制作粉丝数量统计视频，但以失败告终。</p>
+        <p>2020年2月中旬，星球阁主群创建。</p>
+        <p>3月28日，Nsakrty为星球阁设计出了<a href="https://p1.xywm.ltd/2023/01/17/63c57e436984c.jpeg">第一代logo</a>。几天后，Nsakrty、<a href="javascript:void(0)">天体君(OceanHalo)</a>、<a href="javascript:void(0)">水货</a>等成员开始共同设计星球阁的<a href="http://user-assets.sxlcdn.com/images/703562/FnFaZfQ80flJ7_413OEACyuPOWV4.jpg?imageMogr2/strip/auto-orient/thumbnail/1200x9000>/interlace/1/format/jpeg">第二代logo</a>，此logo于4月7日制定完成。</p>
+        <p>5月，改变发生了。Nsakrty的一条<a href="https://v.douyin.com/iPqU4bc/">视频</a>让他在6月破了10w粉丝，同时，其他成员也开始火了起来。但星零在此时注销了她那有12.7w粉丝的账号。</p>
+      </div>
+      <div>
+        <h4 id="20200404">星球阁的审核制度</h4>
+        <p>4月4日，星球阁自主研发出试卷生成器，其目的是防止别有用心之人记录答案发给别人，该试卷生成器在 iPhone 上的快捷指令应用上运行，入阁试卷完全随机生成，通过分标准约为总分的75%。入阁试卷主要分为：天文题，道德题，画图题。</p>
+      </div>
+      <h3>后星球阁</h3>
+      <div>
+        <h4 id="20200529">新星球家族（短暂且意义重大）</h4>
+        <p>2020年5月29日前后，Nsakrty宣布<a href="https://p1.xywm.ltd/2022/12/23/63a5b21947f0b.jpeg">解散星球阁</a>，一天内，就有那么一群人<a href="https://p1.xywm.ltd/2022/12/23/63a5b27a6acc6.png">自发拯救这个组织</a>，创建了新星球家族(New Star Clan)，定下了以下标准：</p>
+        <p>1.禁止有违规内容</p>
+        <p>2.要团结一心</p>
+        <p>3.素质要好</p>
+        <p>4.新组织不要分级，要人人平等</p>
+        <p><del>把Nsakrty看得泪流满面，又加入回来了。</del></p>
+        <p>在规矩制定后，新星球家族实行投票制，然而效率并不高，进入新星球阁时期后后，投票制的地位逐步下降。但不可否认的是，这些规矩为初代星球阁条例奠定了基础。</p>
+      </div>
+      <div>
+        <h4 id="20200621">后星球阁的建立</h4>
+        <p>2020年6月21日前后，新星球家族改名为星球阁(SRPN,Star Pavilion)。</p>
+        <p>7月10日，星球阁搭建自己的<a href="https://xingqiuge.mysxl.cn">网站</a>。这个网站是星球阁的第一代网站。</p>
+        <p>9月中旬，星球阁对新星球家族的规定进行完善，制定<a href="https://p1.xywm.ltd/2022/12/23/63a5b4fdb3414.png">《星球阁条例》</a>，最早的星球阁条例规定了组织的性质、成员的行为和视频的制作，对星球阁未来的走向产生了影响。时至今日，你仍能从现在的《星球阁条例》中看见第一代条例的影子。</p>
+        <p>9月末，Nsakrty成功制作了<a href="javascript:void(0)">第一版粉丝数量统计视频</a>。</p>
+        <p>10月10日前后，星球阁的缩写正式被定为SRPN，也是在这几天，SRPN开始用来标记星球阁成员网名(Nsakrty带的头)。</p>
+        <p>11月8日，<a href="javascript:void(0)">狗头君花粉</a><a href="https://p1.xywm.ltd/2023/07/13/cef031325cc8c68cc74ee7cc2acf94bc.png">申请加入星球阁</a>，虽然他有20w粉，但他的加入过程并不顺利，一个月后，他终于成功通过了星球阁的审核。而此时的他，粉丝数已经达到了50w，他的加入，让星球阁的总粉丝数破了100w，并且还在继续提高，星球阁的成员数也随着他的粉丝增长而快速增加。可是，随着时间的推移，狗头君花粉多次违反《星球阁条例》，成员们越来越忍受不了他，2021年春节前夕，经投票，狗头君花粉被永久踢出。</p>
+        <p>t出狗头君花粉的那十几天，各种骂声随即而来，而Nsakrty因为是传播信息的主要人物，所以成为这次事件的焦点。</p>
+        <p>2021年1月31日，<a href="../index.html">SRPN网</a>建立。<del>然而此时这个网站的排版和样式都极其烂XD</del>。这是星球阁的第二代网站。</p>
+        <p>2021年2月10日，星球阁总部迁移，建立了新的主群，这个群用到了2022年1月1日。</p>
+      </div>
+      <div>
+        <h4 id="20210228">星球阁的分组织与星球阁长久的混乱</h4>
+        <p>2月28日，波兰星球(SRPB,Star PolandBall)——星球阁的分组织成立，领导人为<a href="javascript:void(0)">血泪</a>，可是没过几天，这个小组织就因规则迟迟不制定并且邀请一大堆人免试加入，导致组织内部一片混乱，一周不到解散了。3月3日，星球编程(SRPG,Star Programming)建立，领导人为Nsakrty。</p>
+        <p>7月9日，星球阁新增第二个审核员<a href="https://v.douyin.com/NFYSD1o/">Atpx</a>。</p>
+        <p>7月中旬~8月末，发生了血泪事件。</p>
+        <p>8月24日，Nsakrty写了有关于星球阁迁移计划的决定，主要是用<a href="https://v.douyin.com/NFFc7G7/">蜻延</a>提出的“空城计”让血泪对星球阁失去兴趣，也就是将活跃成员拉进另一个群进行讨论交流，久而久之，计划果然生效，血泪退群，大家回到了总群。</p>
+        <p>7月以后直到11月，无新成员加入。</p>
+      </div>
+      <div>
+        <h4 id="20210827">星球阁影响力的再次提升和星球圈的初步形成</h4>
+        <p>8月27日，<a href="https://v.douyin.com/NFY8Lsw/">Earth-2</a>模仿<a href="https://www.youtube.com/watch?v=521omVSc8kM">Dogepro</a>，制作了<a href="https://v.douyin.com/hpbYDK3/">星球阁第一个恒星发展历程的视频</a>，没多久便大火，星球阁再次进入网友们的视线。在这之后，越来越多的人开始制作恒星生命历程的视频。这也是星球阁走向巅峰的开始。</p>
+        <p>12月1日，Nsakrty将阁主交给蜻延。</p>
+        <p>2021年12月前后，《星球阁简史》重写完成。(就是你正在看的)</p>
+        <p>2022年1月1日，Nsakrty试图把星球阁群聊的群主换成自己的小号，但是因bug，群主意外转成了别人，失去了群聊控制权，Nsakrty只好重新建群，并邀请原群中的成员进来。</p>
+        <p>1月中旬，发生了<a href="javascript:void(0)">怀壹事件</a>。</p>
+        <p>2月以后，星球阁影响力变得更大，并且一些类似的组织也开始破土而出，Nsakrty认为：创建可以，模仿可以，但是绝对不允许照搬或者抄袭星球阁的制度，包括但不限于条例，名称（包含星球阁三字），入阁试卷等。对于这类组织，Nsakrty表示强烈谴责。星球圈也是在这时开始形成的。</p>
+        <p>2月16日，Nsakrty制作试卷生成器安卓移植版，结束了生成试卷只能用 iPhone 的限制。</p>
+        <p>3月4日下午，SRPN网进行了一次大更新，样式做了全面更改，在5日还加入了logo图标，提高了阅读体验。</p>
+        <p>4月6日，星球阁一个附属组织——星球摄影(SRPY,Star Photography)成立。组织领导人为<a href="https://v.douyin.com/NpHXqGY/">新智彗星</a>。</p>
+        <p>4月25日，SRPN网开始使用javascript。同日SRPY网成立。</p>
+        <p>5月14日，因热度降低、错误较多、制作时间长等，Earth-2<a href="https://v.douyin.com/hpbgxV3">宣布停止更新恒星生命历程</a>，开始转而更新其他系列。同日9:50，星球阁二群由蜻延创立。</p>
+        <p>5月26日，因成员冒充现象频出，Nsakrty开发星球阁成员检测器。</p>
+      </div>
+      <div>
+        <h4 id="20220611">星球阁与天文圈的交流以及知名度的快速增加</h4>
+        <p>6月11日，<a href="https://p1.xywm.ltd/2022/12/23/63a5b765eb740.png">星球阁开始在b站试行审核</a>。</p>
+        <p>6月末，“<a href="https://space.bilibili.com/483704842">Dogepro首席打假员</a>”认为Earth-2、<a href="https://v.douyin.com/SXo52ND/">Maugfy</a>等天文圈成员未经授权在视频中使用了Dogepro的音乐，不久后“Dogepro首席打假员”便联系上了Dogepro本人，随后Dogepro发表<a href="https://www.bilibili.com/opus/677437731414999079">声明</a>：不要去抄袭、盗用他的音乐作品。不久，Earth-2等人与Dogepro首席打假员取得联系，并积极解决此事，后于7月13日<a href="https://www.bilibili.com/opus/682412506174455861">获得授权</a>，可以在标注的情况下合法使用Dogepro的音乐。</p>
+        <p>7月9日，星球阁创建一个测试群(新智彗星创建后转让群主给Nsakrty)。中午，该群成为临时主群。此群容量应该为200人，若假设成立，该群将立刻作为星球阁新主群，并废止其他星球阁群。但是经过20多天的测试，可得该群实际容量仍为100人，所以在7月27号，此群的使命结束。</p>
+        <p>7月18日，由“<a href="https://v.douyin.com/h3tRAP4/">青菜</a>”为Earth-2、星零、她自己以及Nsakrty的MC皮肤在《我的世界》上陆续上线。</p>
+        <p>7月26日，星球阁采用新的审核标准，新审核标准将试卷拆成两卷，第一卷（非画图题）一审通过分为标准的78%，画图题满分35，通过分22，只有两卷得分均通过标准才可进入，这么做对所有考生都更公平了（以前的标准只对试卷总分高的人友好，具体原因略）。</p>
+        <p>8月14日，又一个附属组织星球历史(史书阁,SRPH)成立。</p>
+        <p>8月21日，Nsakrty开发新一代试卷生成器，该生成器完全由JavaScript编写，在这之后除了它，所有的试卷生成器都将停止更新。</p>
+        <p>9月25日，星球摄影(SRPY)改名为星球观测(SRON)。</p>
+        <p>10月下旬，一些星球阁成员入驻快手，这些入驻的成员的绝大部分都火了，甚至在几天内出现了破万的up，不久后快手星球动画圈形成，一些人<a href="https://p1.xywm.ltd/2023/08/08/fd78d3aa3859f18c6a3cedfdade8ed24.jpg">认为</a>，这一行为在无意间促进了它的形成。同时，星球阁内一名成员违反条例辱骂一b站用户，<a href="https://p1.xywm.ltd/2022/12/23/63a5ccf7e218c.jpeg">事件</a>在b站发酵。这次事件是星球阁名声下跌的开始。</p>
+        <p>2022年11月5日，蜻延与Nsakrty共同担任星球阁阁主，7天后，经成员投票，阁主转为Nsakrty，副阁主为蜻延和青菜。</p>
+        <p>12月9日，星球理科(SRMP)成立，11日被列入星球阁分组织。</p>
+        <p>12月，是星球阁在b站知名度增长的最快的一个月。7日，Earth-2在一个关于星球阁的投票下发布引战言论，后引起众怒，骂声不断。Earth-2与该作者的<a href="https://p1.xywm.ltd/2022/12/23/63a5ccf7e218c.jpeg">事情</a>解决后，Earth-2宣布离开b站<del>（但是在12月17日又回来了）</del>。13日，由青菜是只屑恒星制作的SRPN周边商品在抖音上架，此事很快传到b站天文圈，反响很不好，随后青菜删除了此商品的宣传视频。然而，一些天文圈的成员打着以“净化圈子环境，提高整体天文水平”的旗号，一方面恶意攻击星球阁成员，给视频“捉虫”以及对作者进行嘲讽，另一方面又对一些同水平的圈子成员的错误相当宽容，这种行为引来了一些人的不满。</p>
+        <p>12月23日21时，<a href="https://v.douyin.com/hpXQevb/">SRPN首个破百万点赞的视频</a>出现。但是在几天之后被恶意举报删除。</p>
+      </div>
+      <div>
+        <h4 id="20221220+">星球阁的短暂混乱和圈子低质低俗化的开始</h4>
+        <p>12月末，CNSA地月系注销账号，但向Nsakrty表示了1月1日会回归的消息。在当时由于二人想给其他成员制造惊喜，所以选择了“演戏”的方法(假装一个新成员回到SRPN，并在1月1日当天公布自己的身份），但在这期间由于CNSA地月系和Nsakrty的失误，意外引起了审核员新智彗星对CNSA地月系的不满。</p>
+        <p>2023年1月3日，因群主新智彗星<a href="https://p1.xywm.ltd/2023/01/17/63c581081a113.jpeg">受刺激</a>，星球阁主群<a href="https://p1.xywm.ltd/2023/01/17/63c5805a1bc91.jpeg">于12:14被解散</a>，并且退出星球阁、带走附属组织SRON(并于21:18<a href="https://p1.xywm.ltd/2023/01/17/63c6042903b33.png">解散</a>该组织)，Nsakrty等人将能联系上的成员转移到新主群。这一天，多人退阁意愿增长，并有一成员(Mr.Liu)退阁，成员情绪普遍低落，星球阁审核暂停。此事件被称为"彗星事件"，它和之后的LESH事件是星球阁历史以来遇上的破坏性最强、影响力最大的事件。在这之后，许多类似星球阁的组织诞生。而这次事件也成为了随后爆发的LESH事件(Mr.Liu、Earth-1、海稻、石浪事件)的导火索，LESH事件使得星球阁的阁内舆论氛围变得很差，并且导致了许多圈内成员退圈。好在约两个月后，事件平息。</p>
+        <p>1月中旬，有人开始在抖音发布了带有低俗元素的“星球视频”，接着，又有许多人跟着一起发布这种视频。此类视频质量极低(星球全部用的网图)、内容低俗但却很火，对圈子产生了极大的负面影响，多个星球阁成员举报了此类视频。</p>
+        <p>1月24日，SRPN网换网址成www.srpn.top，到期时间为2024年1月24日。同时原网址所对应的网站停止更新。</p>
+        <p>1月26日，SRPN新增一个新的于1月3日由<a href="https://v.douyin.com/kE9RW8C/">KillpL佰玖</a>创立的分组织：星辰阁(SRDC)。</p>
+        <p>1月27日15时，<a href="https://space.bilibili.com/1170714365">Maugfy的b站账号</a>破一万粉丝，成为了在b站有号的星球阁成员中第一个破万的人。</p>
+        <p>2月12日，因LESH事件带来的影响，星球阁主群开始长时间禁言，该政策持续了两个周直到2月23日晚，长期禁言引起了部分成员的不满，但是在这期间冲突减少了很多。同期，新智彗星回到星球阁，新智彗星事件结束。</p>
+        <p>2月18日，星球阁试卷改良完成，调整了天文题的难度等并恢复审核。</p>
+        <p>截至3月10日，Earth-1早已回到星球阁，Mr.Liu淡出了这次事件（后于7月正式宣布了不反对SRPN），石浪和海稻的反sr行为减少。LESH事件结束。</p>
+        <p>3月18日，SRPN网第二次样式更新，主要是排版方面上的。</p>
+        <h4 id="20230410+">星球圈的低质低俗化与星球阁的反应</h4>
+        <p>4月中旬，一些来自星球动画圈的低创低俗视频被大量上传到抖音、b站，给圈子造成了不良影响，部分星球阁成员开始发文、发视频抵制这些视频，石浪也开始加入反对这些视频的阵营。然而，效果不是特别好。与此同时，因道德题对筛查的作用效果较差，星球阁入阁试卷移除了它。</p>
+        <p>4月28日，因博主“<a href="https://v.douyin.com/i5rScE3/">科学商所长</a>”发布了一些星球动画视频，星球圈的一些成员和他发生了舆论冲突，主要是关于视频质量方面的。</p>
+        <p>4月30日，SRPN第一代官网下线，SRPN网更名为星球阁官网，<a href="https://srpn.rth1.link">旧SRPN网</a>更名为星球阁官网备份网站。</p>
+        <p>2023年5月1日22:08，Earth-2成为星球阁粉丝数最高的成员，接过了待在Nsakrty身上近2年的称号。</p>
+        <p>5月2日，为提高圈子视频质量，Nsakrty制定<a href="../article/ptcd.html">《星球圈绘画守则(征求意见稿)》</a>，然而由于宣传力度不足，此规定起到的作用微乎其微，管理范围仅限星球阁阁内。</p>
+        <p>6月7日，星球观测SRON由新智彗星重建。</p>
+        <p>6月16日，因Nsakrty将要中考，学业压力开始增大，阁主再次换为蜻延。</p>
+        <p>6月22日，SRPN网第三次样式更新，首页加入动效。</p>
+        <p>6月末，星球阁成员发现快手星球动画圈的博主“疯狂的宇宙”以2元的售价售卖星球动画的制作教程。然而因为一些原因，圈内有相当数量的人反对。</p>
+        <p>6月27日，青菜开始制作3D星球视频，不一会此技术便在星球阁内传开。</p>
+        <p>7月6日，星辰阁和恒星阁、星火阁合并，成立<a href="https://skdc.rth1.link/">星联阁</a>，合并后，星联阁的总人数达到了约130人。然而在28天后，因“中子星事件”带来的影响，星联阁解体。</p>
+        <p>7月13日，此时已有80万粉丝的“科学商所长”突然修改简介，称自己为星球阁阁主，后引起不满，后以青菜、Nsakrty为首的二人与其交流。然而科学商所长并没有同意青菜所提出的把简介修改回去的请求。14日，科学商所长在主页背景图挂上了星球阁的logo，并且开始在评论区内宣称自己是星球阁阁主，还在<a href="https://p1.xywm.ltd/2023/07/18/e59ff496021f74e4ba3419842ed9fe5c.jpg">主页</a>写明加入他的粉丝群即算作星球阁成员。Nsakrty多次与其交涉，希望其换下logo以及修改简介，然而并没有成功。18日，科学商所长拉黑了Nsakrty。19日，科学商所长将背景图和简介均修改回原状。这次事件是首次发生在星球阁身上的侵权事件，尽管对双方的影响均不是很大，但一些人凭自己粉丝多影响力大而去欺压小博主的行为，我们将永远铭刻在心。</p>
+        <p>7月中下旬，可能是因一星球圈成员引战，快手突然掀起了一股反星球圈的热潮，许多人对星球圈低俗低质严重、素质低下的现状以及“疯狂的宇宙”售卖低质量星球动画教程的行为进行了批判。由于圈子的混乱，截至8月9日，已有超过50人退圈。</p>
+        <p>7月下旬，成员“<a href="https://v.douyin.com/iJN8PyGM/">中子星</a>”因多次违反条例，并且其言行引来了成员反感，所以被t出星球阁。7月31日，成员“<a href="javascript:void(0)">Zhang</a>”对中子星极其不满，于是辱骂了他，由于近半年来星球动画圈的壮大，阁内成员对中子星的看法不一，导致出现了混乱。一天后，Zhang道歉。同期，中子星在被t出星球阁后于7月26日建立了光启阁，并在半个月内发展成抖音星球圈内人数最多的组织，这也导致了其成为抖音星球动画圈成员的主要聚集地。然而外界对其的评价并不是很好。这个事件被称为“中子星事件”。</p>
+      </div>
+      <div>
+        <h4>最后：</h4>
+        <p>希望这个圈子的小鬼能早日离开。</p>
+        <p>---Nsakrty <a id="sumtime"></a></p>
+        <br />
+      </div>
+    </article>
+
+    <div>
+      <h2>更多操作</h2>
+      <p class="center"><a href="../index.html">返回主界面</a></p>
+      <p class="center"><a href="https://www.bilibili.com/video/BV1vG411M7gu/?from=search&amp;seid=12061242712162997816&amp;spm_id_from=333.337.0.0&amp;vd_source=e1bf17e3ffb8ee0eeedad782ab30789a">查看星球阁粉丝数发展史</a></p>
+    </div>
+    <script src="../script/update.js"></script>
   </body>
 </html>
