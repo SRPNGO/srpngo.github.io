@@ -20,22 +20,30 @@ hr {
   transform: translate(-50%, -50%);
   animation-fill-mode: backwards;
 }
-@keyframes logoa {
+@keyframes fromLeftInto {
   0% {
     left: -100%;
     opacity: 0;
   }
 }
-@keyframes logob {
+@keyframes fromTopInto {
   0% {
     top: 100vh;
     opacity: 0;
   }
 }
-@keyframes logoc {
+@keyframes opacityAdd {
   0% {
     opacity: 0;
   }
+}
+@keyframes tensile {
+  0% {
+    letter-spacing: 0.3em;
+  }
+}
+#welcome-title {
+  animation: tensile 1s 1.8s;
 }
 #logo-main,
 .tt {
@@ -43,19 +51,19 @@ hr {
   top: var(--logoTop);
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: logoa 2s;
+  animation: fromLeftInto 2s;
 }
 #logo-py {
-  animation: logob 1.5s 1s;
+  animation: fromTopInto 1.5s 1s;
   opacity: 1;
   animation-fill-mode: backwards;
 }
 #logo-time {
-  animation: logoc 1s 2.2s;
+  animation: opacityAdd 1s 2.2s;
   animation-fill-mode: backwards;
 }
 #logo-circle {
-  animation: logoc 1s 2.8s;
+  animation: opacityAdd 1s 2.8s;
   animation-fill-mode: backwards;
 }
 #welcome .tt {
@@ -66,7 +74,7 @@ hr {
   width: max-content;
   margin: 0;
   transform: translate(-50%, calc(var(--logoWidth) / 2));
-  animation: logoc 1s 2s;
+  animation: opacityAdd 1s 2s;
   opacity: 1;
   animation-fill-mode: backwards;
 }
