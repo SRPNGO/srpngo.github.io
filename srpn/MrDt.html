@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SRPN成员检测</title>
     <link rel="stylesheet" href="../css/basic.css" />
-    <link rel="shortcut icon" href="https://user-assets.sxlcdn.com/images/703562/Fu2HV9A-vqwVbKoCjNPG1CmqWe9j.jpg?imageMogr2/strip/auto-orient/thumbnail/64x64&gt;/interlace/1/format/jpg" type="image/x-icon" />
+    <link rel="Shortcut Icon" href="../image/logo.png" />
     <style>
       .inp {
         padding: 12px;
@@ -27,8 +27,7 @@
         user-select: none;
         /* z-index: -1; */
       }
-      .inp:focus + .text,
-      .inp:valid + .text {
+      .inp:is(:focus, :valid) + .text {
         top: calc(-18px);
         font-size: 70%;
         background-color: #fff;
@@ -43,7 +42,7 @@
   <body onload="if(window.location.search){document.getElementById('inp').value = (window.location.search).match(/(?<=number=).+/g)[0];search(document.getElementById('inp').value)}">
     <main>
       <h1>SRPN成员检测</h1>
-      <p>上次更新于20230726，数据更新于202302</p>
+      <p>上次更新于<a id="sumtime"></a>，数据更新于2023.02</p>
       <noscript style="color: red">js未开启，需要js启用才能使用！<br /></noscript>
       <div class="search">
         <input type="text" class="inp" id="inp" required oninput="search(this.value)" name="number" />
@@ -75,7 +74,7 @@
           return result;
         }
         function search(str) {
-          str = (str.replace("<","&lt;")).replace(">","&gt;"); 
+          str = str.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
           document.getElementById("url").innerHTML = `${window.location.origin}${window.location.pathname}?number=${str}`;
           if (ts(str)) {
             document.getElementById("inp").style.border = "1px solid rgb(0,128,0)";
@@ -95,6 +94,7 @@
           }
         }
       </script>
+      <script src="../script/update.js"></script>
     </main>
   </body>
 </html>
