@@ -74,7 +74,7 @@
           return result;
         }
         function search(str) {
-          str = str.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+          str = str.replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll(" ", "")
           document.getElementById("url").innerHTML = `${window.location.origin}${window.location.pathname}?number=${str}`;
           if (ts(str)) {
             document.getElementById("inp").style.border = "1px solid rgb(0,128,0)";
