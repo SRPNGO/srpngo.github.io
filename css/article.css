@@ -17,12 +17,9 @@ body {
 }
 img {
   max-width: 200px;
-  width: 30vw;
+  width: 40%;
   position: relative;
   z-index: 1;
   float: right;
+  margin: 4px;
 }
-img:nth-of-type(2n) {
-  float: left;
-}
-
