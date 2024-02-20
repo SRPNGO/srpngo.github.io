@@ -21,5 +21,5 @@ img {
   position: relative;
   z-index: 1;
   float: right;
-  margin: 4px;
+  /* margin: 4px; */
 }
