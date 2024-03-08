@@ -16,6 +16,13 @@ body {
   max-width: 600px;
   margin: 0 auto;
 }
+/* article > div:has(img[style]){display: inline-block;} */
+article > div{
+  display: inline-block;
+}
+h4{
+  z-index: 3;
+}
 img {
   max-width: 200px;
   width: 40%;
