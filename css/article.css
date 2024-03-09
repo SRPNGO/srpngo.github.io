@@ -12,3 +12,22 @@ a {
 article p {
   text-indent: 1cm;
 }
+body {
+  max-width: 600px;
+  margin: 0 auto;
+}
+/* article > div:has(img[style]){display: inline-block;} */
+article > div{
+  display: inline-block;
+}
+h4{
+  z-index: 3;
+}
+img {
+  max-width: 200px;
+  width: 40%;
+  position: relative;
+  z-index: 1;
+  float: right;
+  margin: 4px;
+}
