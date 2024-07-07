@@ -31,3 +31,13 @@ img {
   float: right;
   margin: 4px;
 }
+article a[href] {
+  color: #0088ff;
+  text-decoration: none;
+}
+article :is(a[href="javascript:void(0)"]) {
+  color: #b84d4d;
+}
+article a[href]:hover {
+  text-decoration: underline;
+}
