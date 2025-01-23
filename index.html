@@ -31,6 +31,10 @@
       p {
         margin: 5px;
       }
+      main>*{
+        max-width: 80%;
+        margin: 0 auto;
+      }
       .Statistics {
         display: flex;
         align-items: center;
@@ -44,6 +48,7 @@
         background-color: #fff8;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.102);
       }
+
       .Statistics__value {
         font-size: 2rem;
         font-weight: bold;
@@ -52,10 +57,6 @@
       .Statistics__label {
         font-size: 1rem;
         color: #666;
-      }
-      .border {
-        border-width: 2px;
-        border-style: solid;
       }
       nav {
         overflow-x: auto;
@@ -133,7 +134,7 @@
           border: 0.5px solid #000;
         }
       }
-      @media (min-width: 650px) {
+      @media (min-width: 750px) {
         .wb {
           display: flex;
           justify-content: center;
@@ -173,8 +174,8 @@
         <h2>星球阁是什么？</h2>
         <!-- 星球阁的历史可以追溯到2019年。2019年，星零创建了星球家族，经历了短暂的快速发展后又走向衰落。星球家族解散前夕，星球阁成立。历经几年发展后，2021年，星球阁成员Earth-2制作的的恒星演化视频收获了大量点赞，以星球阁为中心的星球圈逐渐形成。2022年，青菜引领的“画质爆炸”使得星球阁成员的视频质量出现大提升，星球阁也在此时迎来了巅峰。尽管2023年以来，阁内圈内的混乱严重打击了星球阁成员的积极性，但我们仍在坚持。 -->
         <p>星球阁(Star Pavilion)是一个普普通通的集"绘画"和"天文"爱好者的组织，目前仅在抖音与bilibili招人</p>
-        <p>星球阁更新星球视频，比如说星球小剧场和科普之类的东西</p>
-        <p>星球阁是目前圈内最早制作星球视频的组织，对此类视频制作方法的探索已有数年，视频质量在圈内属于中上水平</p>
+        <p>星球阁成员曾主要更新星球视频，如星球小剧场和科普；如今主要更新知识类(抽象)科普。</p>
+        <p>星球阁是星球圈最早制作星球视频的组织，拥有多年探索经验，视频质量处于圈内中上水平。随着转型运动推进，星球阁进军知识区，部分成员也广受欢迎。</p>
       </div>
       <div>
         <h2>我们有哪些成员？</h2>
@@ -186,19 +187,20 @@
               <th>备注</th>
             </tr>
             <tr>
-              <td><a href="https://v.douyin.com/h3tL238/">水益</a></td>
-              <td rowspan="3">都刚上任<br />我也不知道写什么</td>
-              <td>副阁主</td>
+              <td><a href="https://v.douyin.com/SXo52ND/">Maugfy</a></td>
+              <td>星球阁粉丝最多的成员</td>
+              <td></td>
             </tr>
             <tr>
-              <td><a href="https://v.douyin.com/ieMQb5YQ/">极光</a></td>
-              <!-- <td></td> -->
-              <td>副阁主</td>
+              <td><a href=" https://v.douyin.com/ifUEq6dn/">AcuBens-A</a></td>
+              <td>擅长整活(?</td>
+              <td></td>
             </tr>
+
             <tr>
-              <td><a href="https://v.douyin.com/iNemBHf7/">天白</a></td>
-              <!-- <td></td> -->
-              <td>副阁主</td>
+              <td><a href="https://v.douyin.com/NFY8Lsw/">Earth-2</a></td>
+              <td>老成员之一，现在更新知识科普</td>
+              <td></td>
             </tr>
             <tr>
               <td><a href="https://v.douyin.com/NFYeNtm/">Nsakrty</a></td>
@@ -206,25 +208,26 @@
               <td>网站开发<br />前副阁主</td>
             </tr>
             <tr>
-              <td><a href="https://v.douyin.com/NFY8Lsw/">Earth-2</a></td>
-              <td>星球阁粉丝最多的成员</td>
-              <td>审核员</td>
-            </tr>
-            <tr>
               <td><a href="https://v.douyin.com/h3tRAP4/">青菜</a></td>
               <td>星 球 阁 画 质 进 步 第 一</td>
               <td></td>
             </tr>
             <tr>
-              <td><a href="https://v.douyin.com/NFFc7G7/">qn</a></td>
-              <td><img src="https://s1.imagehub.cc/images/2024/02/20/25b145fe33a23b015f0cf9ed52ace4fa.png" style="width: min(100%, 300px)" alt="呼吸正常(??" /></td>
-              <td>前阁主</td>
+              <td><a href="https://v.douyin.com/iNemBHf7/">天白</a></td>
+              <td>抽象带师</td>
+              <td>副阁主</td>
             </tr>
             <tr>
-              <td><a href="https://v.douyin.com/SXo52ND/">Maugfy</a></td>
-              <td></td>
-              <td></td>
+              <td><a href="https://v.douyin.com/h3tL238/">水益</a></td>
+              <td rowspan="2"></td>
+              <td>副阁主</td>
             </tr>
+            <tr>
+              <td><a href="https://v.douyin.com/ieMQb5YQ/">极光</a></td>
+              <!-- <td></td> -->
+              <td>副阁主</td>
+            </tr>
+
             <tr>
               <td>还有更多...</td>
               <td>各有各的特点</td>
@@ -260,7 +263,7 @@
             >
             <span
               ><div class="Statistics">
-                <div class="Statistics__value"><p>140w+</p></div>
+                <div class="Statistics__value"><p>200w+</p></div>
                 <div class="Statistics__label"><p>总粉丝数</p></div>
               </div>
             </span>
@@ -272,7 +275,7 @@
             </span>
             <span>
               <div class="Statistics">
-                <div class="Statistics__value"><p>18</p></div>
+                <div class="Statistics__value"><p>20+</p></div>
                 <div class="Statistics__label"><p>粉丝破万成员数</p></div>
               </div>
             </span>
@@ -365,15 +368,15 @@
         <div class="wb">
           <div class="friend-links">
             <p>友情链接</p>
-            <p><a href="https://e2.rth10.com">Earth-2的网站</a></p>
-            <p><a href="https://Maugfy.rth10.com">Maugfy的网站</a></p>
+            <p><a href="https://e2.rth1.xyz">Earth-2的网站</a></p>
+            <p><a href="https://Maugfy.rth1.xyz">Maugfy的网站</a></p>
             <p><a href="https://yi0528.mysxl.cn">水益的网站</a></p>
-            <p><a href="https://zubeneschamali.rth10.com/">青菜的网站</a></p>
+            <p><a href="https://zubeneschamali.rth1.xyz/">青菜的网站</a></p>
             <p><a href="https://tau-sgr.mysxl.cn/">斗宿五的网站</a></p>
-            <p><a href="https://huixing.rth10.com/">新智彗星的网站</a></p>
-            <p><a href="https://zqxb.rth10.com">蒸気雪豹的网站</a></p>
+            <p><a href="https://huixing.rth1.xyz/">新智彗星的网站</a></p>
+            <p><a href="https://zqxb.rth1.xyz">蒸気雪豹的网站</a></p>
             <p><a href="https://swpn.mysxl.cn">星水阁官网</a></p>
-            <p><a href="https://skdc.rth10.com/">星联阁官网</a></p>
+            <p><a href="https://skdc.rth1.xyz/">星联阁官网</a></p>
           </div>
           <div>
             <p>其它链接</p>
@@ -387,7 +390,7 @@
             <p>
               <del><a href="https://xingqiuge.mysxl.cn">xingqiuge.mysxl.cn</a></del>
             </p>
-            <p><a href="https://srpn.rth10.com">srpn.rth10.com</a></p>
+            <p><a href="https://srpn.rth1.xyz">srpn.rth1.xyz</a></p>
             <p>
               <del><a href="https://srpngo.github.io/">srpngo.github.io</a></del>
             </p>
