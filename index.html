@@ -31,11 +31,11 @@
       p {
         margin: 5px;
       }
-      main>*{
+      main > * {
         max-width: 80%;
         margin: 0 auto;
       }
-      .Statistics {
+      .card {
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -45,16 +45,16 @@
         margin: 1rem;
         padding: 1rem;
         border-radius: 0.25rem;
-        background-color: #fff8;
+        background-color: #fffe;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.102);
       }
 
-      .Statistics__value {
+      .card__value {
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 0.5rem;
       }
-      .Statistics__label {
+      .card__label {
         font-size: 1rem;
         color: #666;
       }
@@ -83,31 +83,21 @@
         color: inherit;
       }
       nav span.menu a:hover {
-        background: #b0b0b0;
+        text-decoration: none;
         color: inherit;
+        background: #b0b0b0;
       }
       .others {
         display: flex;
         justify-content: center;
       }
-      .btn {
-        padding: 0.5em;
-        transition: all 0.2s;
-        text-decoration: none;
-        color: #fff;
-        border-radius: 8px;
-        background: #9cc;
-      }
-      .btn:hover {
-        background: #477;
-      }
-      .wb p a::after {
+      .external p a::after {
         content: "←";
       }
-      .wb p a::before {
+      .external p a::before {
         content: "→";
       }
-      .wb div p:last-child {
+      .external div p:last-child {
         margin: 0 0 1em 0;
       }
       .data {
@@ -127,18 +117,21 @@
         padding: 0.2em;
         background-color: #eee;
       }
-      @media (max-width: 500px) {
-        table {
-          font-size: 0.5em;
 
-          border: 0.5px solid #000;
-        }
-      }
       @media (min-width: 750px) {
-        .wb {
+        .external {
           display: flex;
           justify-content: center;
         }
+      }
+    </style>
+    <style>
+      main > div {
+        margin: 24px auto;
+        padding: 8px;
+        border-radius: 32px;
+        background-color: #fafafa;
+        /* box-shadow: #0f0f0f22 0 0 8px; */
       }
     </style>
   </head>
@@ -165,7 +158,8 @@
       </div>
       <div class="tt">
         <h1 id="welcome-title">欢迎来到SRPN网！</h1>
-        <div style="display: flex; justify-content: center"><a href="#start" class="btn">开始探索吧</a></div>
+        <!-- <div style="display: flex; justify-content: center"><a href="#start" class="btn">开始探索吧</a></div> -->
+        <button style="display: block; margin: 0 auto" onclick="location.href='#start'">开始探索吧</button>
       </div>
     </div>
     <hr />
@@ -173,9 +167,11 @@
       <div>
         <h2>星球阁是什么？</h2>
         <!-- 星球阁的历史可以追溯到2019年。2019年，星零创建了星球家族，经历了短暂的快速发展后又走向衰落。星球家族解散前夕，星球阁成立。历经几年发展后，2021年，星球阁成员Earth-2制作的的恒星演化视频收获了大量点赞，以星球阁为中心的星球圈逐渐形成。2022年，青菜引领的“画质爆炸”使得星球阁成员的视频质量出现大提升，星球阁也在此时迎来了巅峰。尽管2023年以来，阁内圈内的混乱严重打击了星球阁成员的积极性，但我们仍在坚持。 -->
-        <p>星球阁(Star Pavilion)是一个普普通通的集"绘画"和"天文"爱好者的组织，目前仅在抖音与bilibili招人</p>
-        <p>星球阁成员曾主要更新星球视频，如星球小剧场和科普；如今主要更新知识类(抽象)科普。</p>
-        <p>星球阁是星球圈最早制作星球视频的组织，拥有多年探索经验，视频质量处于圈内中上水平。随着转型运动推进，星球阁进军知识区，部分成员也广受欢迎。</p>
+        <span>
+          <p>星球阁(Star Pavilion)是一个普普通通的集"绘画"和"天文"爱好者的组织，目前仅在抖音与bilibili招人</p>
+          <p>星球阁成员曾主要更新星球视频，如星球小剧场和科普；如今主要更新知识类(抽象)科普</p>
+          <p>星球阁是星球圈最早制作星球视频的组织，拥有多年探索经验，视频质量处于圈内中上水平。随着转型运动推进，星球阁进军知识区，部分成员也广受欢迎</p>
+        </span>
       </div>
       <div>
         <h2>我们有哪些成员？</h2>
@@ -204,7 +200,8 @@
             </tr>
             <tr>
               <td><a href="https://v.douyin.com/NFYeNtm/">Nsakrty</a></td>
-              <td><img src="https://s1.imagehub.cc/images/2024/02/20/6e85dfcc8ac8c5ecc73d86e1f08d0436.gif" style="width: 3em" /></td>
+              <!-- <td><img src="https://s1.imagehub.cc/images/2024/02/20/6e85dfcc8ac8c5ecc73d86e1f08d0436.gif" style="width: 3em" /></td> -->
+              <td>多才多艺，画画除外</td>
               <td>网站开发<br />前副阁主</td>
             </tr>
             <tr>
@@ -219,12 +216,12 @@
             </tr>
             <tr>
               <td><a href="https://v.douyin.com/h3tL238/">水益</a></td>
-              <td rowspan="2"></td>
+              <td></td>
               <td>副阁主</td>
             </tr>
             <tr>
               <td><a href="https://v.douyin.com/ieMQb5YQ/">极光</a></td>
-              <!-- <td></td> -->
+              <td></td>
               <td>副阁主</td>
             </tr>
 
@@ -238,53 +235,53 @@
       </div>
       <div id="history">
         <h2>我们的历史</h2>
-        <p>从2019到现在，我们经历了许多，你可以通过这个由<a href="srpn/history.html">星球阁历史</a>页面提取出来的表格来快速了解我们的历史。</p>
-        <div><iframe src="srpn/bigdeal.html" frameborder="0" style="width: 100%; height: 80vh; margin: 0 auto; display: block; overflow: visible; border: 1px solid #000; border-radius: 10px"></iframe></div>
+        <p>从2019到现在，我们经历了许多，你可以通过这个由<a href="srpn/history.html">星球阁历史</a>页面提取出来的表格来快速了解我们的历史</p>
+        <div><iframe src="srpn/bigdeal.html" frameborder="0" style="width: 100%; height: 80vh; margin: 0 auto; display: block; overflow: visible;"></iframe></div>
         <p><a href="srpn/bigdeal.html">srpn/bigdeal.html</a></p>
         <br />
         <p>当然了也有很多人感兴趣的星球阁成员粉丝数变化</p>
         <div>
-          <iframe importance="low" src="https://flo.uri.sh/visualisation/10781705/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width:100%;height: 80vh; margin: 0 auto; display: block; overflow: visible; border: 1px solid #000; border-radius: 10px" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+          <iframe importance="low" src="https://flo.uri.sh/visualisation/10781705/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width: 100%; height: 80vh; margin: 0 auto; display: block; overflow: visible;" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
           <p><a href="https://flo.uri.sh/visualisation/10781705/embed">https://flo.uri.sh/visualisation/10781705/embed</a></p>
         </div>
         <br />
         <p>当然了，看星球阁历史原文是了解我们的更好选择，不是吗？</p>
-        <div style="display: flex; justify-content: center"><a href="srpn/history.html" class="btn">探索</a></div>
+        <!-- <div style="display: flex; justify-content: center"><a href="srpn/history.html" class="btn">探索</a></div> -->
+        <button style="display: block; margin: 0 auto" onclick="window.location.href='srpn/history.html'">探索</button>
       </div>
       <div>
-        <div>
-          <h2>拿数据说话</h2>
-          <span style="text-align: center" class="data">
-            <span
-              ><div class="Statistics">
-                <div class="Statistics__value"><p>180+</p></div>
-                <div class="Statistics__label"><p>成员数量</p></div>
-              </div></span
-            >
-            <span
-              ><div class="Statistics">
-                <div class="Statistics__value"><p>200w+</p></div>
-                <div class="Statistics__label"><p>总粉丝数</p></div>
-              </div>
-            </span>
-            <span
-              ><div class="Statistics">
-                <div class="Statistics__value"><p>2019.03.04</p></div>
-                <div class="Statistics__label"><p>成立时间</p></div>
-              </div>
-            </span>
-            <span>
-              <div class="Statistics">
-                <div class="Statistics__value"><p>20+</p></div>
-                <div class="Statistics__label"><p>粉丝破万成员数</p></div>
-              </div>
-            </span>
+        <h2>拿数据说话</h2>
+        <span style="text-align: center" class="data">
+          <span
+            ><div class="card">
+              <div class="card__value"><p>180+</p></div>
+              <div class="card__label"><p>成员数量</p></div>
+            </div></span
+          >
+          <span
+            ><div class="card">
+              <div class="card__value"><p>200w+</p></div>
+              <div class="card__label"><p>总粉丝数</p></div>
+            </div>
           </span>
-        </div>
-        <div id="join">
-          <h2>如何加入我们？</h2>
-          <p>由于现在审核放宽，在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去<a href="https://v.douyin.com/NFYeNtm/">Nsakrty的主页</a>就能找到并加入星球阁群。</p>
-          <!-- <p>在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去找下表的几位审核员<del>(我们的摸鱼大队)</del></p>
+          <span
+            ><div class="card">
+              <div class="card__value"><p>2019.03.04</p></div>
+              <div class="card__label"><p>成立时间</p></div>
+            </div>
+          </span>
+          <span>
+            <div class="card">
+              <div class="card__value"><p>20+</p></div>
+              <div class="card__label"><p>粉丝破万成员数</p></div>
+            </div>
+          </span>
+        </span>
+      </div>
+      <div id="join">
+        <h2>如何加入我们？</h2>
+        <p>由于现在审核放宽，在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去<a href="https://v.douyin.com/NFYeNtm/">Nsakrty的主页</a>就能找到并加入星球阁群</p>
+        <!-- <p>在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去找下表的几位审核员<del>(我们的摸鱼大队)</del></p>
           <table border="1" class="RL">
             <tbody>
               <tr>
@@ -325,7 +322,8 @@
               </tr>
             </tbody>
           </table> -->
-        </div>
+      </div>
+      <div>
         <h2>SiteMap</h2>
         <div class="others" id="stmp">
           <ul>
@@ -345,7 +343,7 @@
                 <li>
                   历史
                   <ul>
-                    <li><a href="srpn/history.html">历史</a></li>
+                    <li><a href="srpn/history.html">简史</a></li>
                     <li><a href="srpn/bigdeal.html">大事年表</a></li>
                     <li><a href="srpn/hisgw.html">文言文历史(娱乐)</a></li>
                     <li><a href="article/sl2.html">在冲突中走向沉寂的星球圈</a></li>
@@ -365,9 +363,11 @@
             </li>
           </ul>
         </div>
+      </div>
+      <div>
         <h2>外部链接</h2>
-        <div class="wb">
-          <div class="friend-links">
+        <div  class="external">
+          <div>
             <p>友情链接</p>
             <p><a href="https://e2.rth1.xyz">Earth-2的网站</a></p>
             <p><a href="https://Maugfy.rth1.xyz">Maugfy的网站</a></p>
@@ -406,14 +406,14 @@
     <footer>
       <ol class="zjly">
         最新留言:
-        <li>希望星球圈能恢复从前的繁荣与稳定。</li>
+        <li>希望星球圈能恢复从前的繁荣与稳定</li>
       </ol>
       <p>星球阁官方网站</p>
       <p>建立时间:2021.01.31</p>
       <p>上次更新:<a id="sumtime" style="display: inline">2023.08.23</a></p>
       <p>By Nsakrty</p>
       <p>内容贡献者:<a href="https://v.douyin.com/hWfRVaA/">Nsakrty</a>,<a href="https://v.douyin.com/iNemFoES/">水益</a>,<a href="https://v.douyin.com/kE9RW8C/">佰玖</a></p>
-      <p>代码贡献者:<a href="https://github.com/Nsakrty">Nsakrty</a>,<a href="https://github.com/QY114514">清野</a>,<a href="https://github.com/neowiseq">新智彗星</a>,<del>ChatGPT</del></p>
+      <p>代码贡献者:<a href="https://github.com/Nsakrty">Nsakrty</a>,<a href="https://github.com/QY114514">清野</a>,<a href="https://github.com/neowiseq">新智彗星</a>,<a href="https://v.douyin.com/irWrBwB9/">Hliva</a>,<del>ChatGPT</del></p>
     </footer>
     <script src="script/update.js"></script>
   </body>
