@@ -14,49 +14,12 @@
     <link rel="stylesheet" href="css/basic.css" />
     <link rel="stylesheet" href="css/welcome.css" />
     <style>
-      a {
-        overflow-wrap: break-word;
-      }
       body {
         margin: 0;
         padding: 0;
       }
-      h1,
-      table,
-      #a,
-      h2,
-      p {
-        text-align: center;
-      }
-      p {
-        margin: 5px;
-      }
-      main > * {
-        max-width: 80%;
-        margin: 0 auto;
-      }
-      .card {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        width: 10em;
-        min-width: 150px;
-        margin: 1rem;
-        padding: 1rem;
-        border-radius: 0.25rem;
-        background-color: #fffe;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.102);
-      }
-
-      .card__value {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 0.5rem;
-      }
-      .card__label {
-        font-size: 1rem;
-        color: #666;
+      a {
+        overflow-wrap: break-word;
       }
       nav {
         overflow-x: auto;
@@ -87,6 +50,56 @@
         color: inherit;
         background: #b0b0b0;
       }
+      main > div {
+        margin: 24px auto;
+        padding: 8px;
+        border-radius: 32px;
+        background-color: #fafafa;
+        box-shadow: #0f0f0f11 0 0 8px;
+      }
+      h1,
+      table,
+      #a,
+      h2,
+      p {
+        text-align: center;
+      }
+      p {
+        margin: 5px;
+      }
+      main > * {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+      .data {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 2rem;
+      }
+      .card {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        width: 10em;
+        min-width: 150px;
+        margin: 1rem;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        background-color: #fffe;
+        /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10); */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.10),0 4px 8px rgba(0, 0, 0, 0.05),0 8px 16px rgba(0, 0, 0, 0.02),0 16px 32px rgba(0, 0, 0, 0.01);
+      }
+      .card__value {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+      .card__label {
+        font-size: 1rem;
+        color: #666;
+      }
       .others {
         display: flex;
         justify-content: center;
@@ -100,24 +113,17 @@
       .external div p:last-child {
         margin: 0 0 1em 0;
       }
-      .data {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 2rem;
-      }
-      .zjly {
+      .message {
         padding: 0;
         text-align: center;
       }
-      .zjly li::marker {
+      .message li::marker {
         content: none;
       }
       footer {
         padding: 0.2em;
         background-color: #eee;
       }
-
       @media (min-width: 750px) {
         .external {
           display: flex;
@@ -125,20 +131,11 @@
         }
       }
     </style>
-    <style>
-      main > div {
-        margin: 24px auto;
-        padding: 8px;
-        border-radius: 32px;
-        background-color: #fafafa;
-        /* box-shadow: #0f0f0f22 0 0 8px; */
-      }
-    </style>
   </head>
   <body>
     <header>
       <nav>
-        <a href="index.html" id="SRPN的logo"><img src="https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png" alt="SRPN的logo" style="height: 2.7em; padding: 0.15em 4px; background-color: #fff" /></a>
+        <a href="index.html" id="SRPN-logo"><img src="https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png" alt="SRPN的logo" style="height: 2.7em; padding: 0.15em 4px; background-color: #fff" /></a>
         <span class="menu">
           <a href="index.html">首页</a>
           <a href="srpn/TL.html">条例</a>
@@ -166,16 +163,15 @@
     <main id="start">
       <div>
         <h2>星球阁是什么？</h2>
-        <!-- 星球阁的历史可以追溯到2019年。2019年，星零创建了星球家族，经历了短暂的快速发展后又走向衰落。星球家族解散前夕，星球阁成立。历经几年发展后，2021年，星球阁成员Earth-2制作的的恒星演化视频收获了大量点赞，以星球阁为中心的星球圈逐渐形成。2022年，青菜引领的“画质爆炸”使得星球阁成员的视频质量出现大提升，星球阁也在此时迎来了巅峰。尽管2023年以来，阁内圈内的混乱严重打击了星球阁成员的积极性，但我们仍在坚持。 -->
         <span>
-          <p>星球阁(Star Pavilion)是一个普普通通的集"绘画"和"天文"爱好者的组织，目前仅在抖音与bilibili招人</p>
-          <p>星球阁成员曾主要更新星球视频，如星球小剧场和科普；如今主要更新知识类(抽象)科普</p>
+          <p>星球阁(Star Pavilion)是一个普普通通的集绘画和天文爱好者的组织，目前仅在抖音与bilibili招人</p>
+          <p>星球阁成员曾主要更新星球视频，如星球小剧场和科普；如今主要更新(抽象)科普</p>
           <p>星球阁是星球圈最早制作星球视频的组织，拥有多年探索经验，视频质量处于圈内中上水平。随着转型运动推进，星球阁进军知识区，部分成员也广受欢迎</p>
         </span>
       </div>
       <div>
         <h2>我们有哪些成员？</h2>
-        <table border="1">
+        <table>
           <tbody>
             <tr>
               <th>成员名</th>
@@ -236,12 +232,12 @@
       <div id="history">
         <h2>我们的历史</h2>
         <p>从2019到现在，我们经历了许多，你可以通过这个由<a href="srpn/history.html">星球阁历史</a>页面提取出来的表格来快速了解我们的历史</p>
-        <div><iframe src="srpn/bigdeal.html" frameborder="0" style="width: 100%; height: 80vh; margin: 0 auto; display: block; overflow: visible;"></iframe></div>
+        <div><iframe src="srpn/bigdeal.html" frameborder="0" style="width: 100%; height: 80vh; margin: 0 auto; display: block; overflow: visible"></iframe></div>
         <p><a href="srpn/bigdeal.html">srpn/bigdeal.html</a></p>
         <br />
         <p>当然了也有很多人感兴趣的星球阁成员粉丝数变化</p>
         <div>
-          <iframe importance="low" src="https://flo.uri.sh/visualisation/10781705/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width: 100%; height: 80vh; margin: 0 auto; display: block; overflow: visible;" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
+          <iframe importance="low" src="https://flo.uri.sh/visualisation/10781705/embed" title="Interactive or visual content" class="flourish-embed-iframe" frameborder="0" scrolling="no" style="width: 100%; height: 80vh; margin: 0 auto; display: block; overflow: visible" sandbox="allow-same-origin allow-forms allow-scripts allow-downloads allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"></iframe>
           <p><a href="https://flo.uri.sh/visualisation/10781705/embed">https://flo.uri.sh/visualisation/10781705/embed</a></p>
         </div>
         <br />
@@ -260,7 +256,7 @@
           >
           <span
             ><div class="card">
-              <div class="card__value"><p>200w+</p></div>
+              <div class="card__value"><p>220w+</p></div>
               <div class="card__label"><p>总粉丝数</p></div>
             </div>
           </span>
@@ -282,7 +278,7 @@
         <h2>如何加入我们？</h2>
         <p>由于现在审核放宽，在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去<a href="https://v.douyin.com/NFYeNtm/">Nsakrty的主页</a>就能找到并加入星球阁群</p>
         <!-- <p>在阅读完<a href="srpn/TL.html">《星球阁条例》</a>后<br />去找下表的几位审核员<del>(我们的摸鱼大队)</del></p>
-          <table border="1" class="RL">
+          <table class="RL">
             <tbody>
               <tr>
                 <th>网名</th>
@@ -366,7 +362,7 @@
       </div>
       <div>
         <h2>外部链接</h2>
-        <div  class="external">
+        <div class="external">
           <div>
             <p>友情链接</p>
             <p><a href="https://e2.rth1.xyz">Earth-2的网站</a></p>
@@ -404,7 +400,7 @@
     </main>
     <hr />
     <footer>
-      <ol class="zjly">
+      <ol class="message">
         最新留言:
         <li>希望星球圈能恢复从前的繁荣与稳定</li>
       </ol>
