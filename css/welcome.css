@@ -3,7 +3,6 @@
   /* position: relative; */
   --height: calc(100vh - 3em);
   min-height: var(--height);
-
   background-color: #eee;
   --logoWidth: 50vmin;
   --logoTop: 40%;
@@ -17,6 +16,7 @@ hr {
   left: 50%;
   overflow: hidden;
   width: var(--logoWidth);
+  max-width: 600px;
   transform: translate(-50%, -50%);
   animation-fill-mode: backwards;
 }
