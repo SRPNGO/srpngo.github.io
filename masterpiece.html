@@ -2,65 +2,452 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link
+      rel="Shortcut Icon"
+      href="https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png" />
     <meta name="description" content="星球阁代表作" />
     <meta name="author" content="Nsakrty" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>星球阁的代表作品</title>
     <link rel="stylesheet" href="css/basic.css" />
+    <style>
+      body {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+      }
+
+      .work-item {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
+        margin-bottom: 15px;
+        background-color: #fafafa;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+
+      .work-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .work-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50;
+        margin-bottom: 8px;
+      }
+
+      .work-title a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .work-title a:hover {
+        color: #3498db;
+      }
+
+      .work-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        color: #666;
+      }
+
+      .author {
+        font-weight: bold;
+      }
+
+      .class-tag {
+        background-color: #3498db;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .hot-tag {
+        background-color: #e74c3c;
+        color: white;
+        padding: 2px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        gap: 10px;
+      }
+
+      .pagination button {
+        padding: 8px 15px;
+        border: 1px solid #ddd;
+        background-color: white;
+        color: #333;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      .pagination button:hover:not(:disabled) {
+        background-color: #f0f0f0;
+      }
+
+      .pagination button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .pagination .active {
+        background-color: #3498db;
+        color: white;
+        border-color: #3498db;
+      }
+
+      .page-info {
+        margin: 20px 0;
+        text-align: center;
+        color: #666;
+      }
+
+      .no-data {
+        text-align: center;
+        color: #999;
+        font-style: italic;
+        padding: 40px;
+      }
+    </style>
   </head>
+
   <body>
-    <h1>星球阁的代表作品</h1>
-    <p>注：顺序不定</p>
-    <hr />
-    <div>
-      <p>一百万赞以上：</p>
-      <ul>
-        <li>
-          <a href="javascript:void(0)" target="_blank"
-            >《速背元素周期表40位》</a
-          >
-          -- Earth-2
-        </li>
-        <li>
-          <a href="https://v.douyin.com/CeinsT8D/ 08/01" target="_blank"
-            >水循环</a
-          >
-          -- Maugfy
-        </li>
-        <li>
-          <a href="https://v.douyin.com/b9eDz9SplFg" target="_blank"
-            >海岸地貌</a
-          >
-          -- Maugfy
-        </li>
-        <li>
-          <a href="https://v.douyin.com/qynZzR1vF-w/" target="_blank"
-            >“物理？”</a
-          >
-          -- Acubens-A
-        </li>
-        <li>
-          <a href="https://v.douyin.com/LgB_GJ0mjp4/" target="_blank"
-            >“小曲一响，理科登场”</a
-          >
-          -- Acubens-A & Nsakrty
-        </li>
-        <li>
-          <a href="https://v.douyin.com/faiixYBJxBg/" target="_blank"
-            >地理——我国气候</a
-          >
-          -- 水益
-        </li>
-      </ul>
-      <hr />
-      <p>数据仍在更新中...快来向我(Nsakrty)投稿你认为的“星球阁代表作品”吧~</p>
-      <p>
-        上次更新：
-        <a id="sumtime"></a>
-      </p>
-      <p><a href="../index.html">返回主界面</a></p>
+    <script>
+      const sortMode = ["time", "hot", "author", "class"];
+      const sortModeText = ["时间排序", "热度排序", "作者排序", "类型排序"];
+      let currentSortMode = sortMode[0];
+      function changeSort() {
+        const currentIndex = sortMode.indexOf(currentSortMode);
+        currentSortMode = sortMode[(currentIndex + 1) % sortMode.length];
+        document.querySelector("button").textContent =
+          sortModeText[(currentIndex + 1) % sortMode.length];
+        worksPagination.sort(currentSortMode);
+      }
+    </script>
+    <div class="container">
+      <h1>星球阁代表作品</h1>
+      <button onclick="changeSort()">时间排序</button>
+      <div class="page-info">
+        <span id="pageInfo"></span>
+      </div>
+
+      <div id="worksList"></div>
+
+      <div class="pagination" id="pagination"></div>
     </div>
-    <script src="../script/update.js"></script>
+    <hr />
+    <p>数据仍在更新中...快来向我(Nsakrty)投稿你认为的“星球阁代表作品”吧~</p>
+    <p>
+      上次更新：
+      <a id="sumtime"></a>
+    </p>
+    <p><a href="./index.html">返回主界面</a></p>
+    <script src="./script/update.js"></script>
+
+    <script>
+      let works = [
+        {
+          title: "《速背元素周期表40位》",
+          author: "Earth-2",
+          class: "知识-化学",
+          hot: "🔥🔥🔥",
+          time: "2022.11.30",
+        },
+        {
+          title: "水循环",
+          url: "https://v.douyin.com/CeinsT8D/ 08/01",
+          author: "Maugfy",
+          class: "知识-地理",
+          hot: "🔥🔥🔥",
+          time: "2024.10.26",
+        },
+        {
+          title: "海岸地貌",
+          url: "https://v.douyin.com/b9eDz9SplFg",
+          author: "Maugfy",
+          class: "知识-地理",
+          hot: "🔥🔥🔥",
+          time: "2024.12.13",
+        },
+        {
+          title: '"物理？"',
+          url: "https://v.douyin.com/qynZzR1vF-w/",
+          author: "Acubens-A",
+          class: "知识-物理",
+          hot: "🔥🔥🔥",
+          time: "2025.01.21",
+        },
+        {
+          title: '"小曲一响，理科登场"',
+          url: "https://v.douyin.com/LgB_GJ0mjp4/",
+          author: "Acubens-A & Nsakrty",
+          class: "知识-数理",
+          hot: "🔥🔥🔥",
+          time: "2025.03.09",
+        },
+        {
+          title: "地理——我国气候",
+          url: "https://v.douyin.com/faiixYBJxBg/",
+          author: "水益",
+          class: "知识-地理",
+          hot: "🔥🔥🔥",
+          time: "2025.05.16",
+        },
+        {
+          title: "《⚡️天体物理⚡️》",
+          url: "https://v.douyin.com/humgoXBfPjY/",
+          author: "天白",
+          class: "知识-物理",
+          hot: "🔥🔥",
+          time: "2024.11.17",
+        },
+        {
+          title: "K型恒星的生命历程 ",
+          url: "https://b23.tv/dANYlxz",
+          author: "Earth-2",
+          class: "知识-天文",
+          // hot: "",
+          time: "2021.08.27",
+        },
+        {
+          title: "力学（part 1）",
+          url: "https://v.douyin.com/ULix-mH6tJo/",
+          author: "XF",
+          class: "知识-物理",
+          hot: "🔥🔥",
+          time: "2025.03.08",
+        },
+        {
+          title: "地球：草",
+          url: "https://v.douyin.com/o1TRDDyaX-g/",
+          author: "Nsakrty",
+          class: "星球-娱乐",
+          hot: "🔥🔥",
+          time: "2020.12.14",
+        },
+      ];
+    </script>
+    <script>
+      class WorksPagination {
+        constructor(data, itemsPerPage = 10) {
+          this.data = data;
+          this.originalData = [...data]; // 保存原始数据顺序
+          this.itemsPerPage = itemsPerPage;
+          this.currentPage = 1;
+          this.totalPages = Math.ceil(data.length / itemsPerPage);
+          this.sort("time")
+          this.init();
+        }
+
+        init() {
+          this.render();
+          this.renderPagination();
+        }
+
+        getCurrentPageData() {
+          const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+          const endIndex = startIndex + this.itemsPerPage;
+          return this.data.slice(startIndex, endIndex);
+        }
+
+        render() {
+          const worksList = document.getElementById("worksList");
+          const pageInfo = document.getElementById("pageInfo");
+          const currentData = this.getCurrentPageData();
+
+          // 更新页面信息
+          const startItem = (this.currentPage - 1) * this.itemsPerPage + 1;
+          const endItem = Math.min(
+            this.currentPage * this.itemsPerPage,
+            this.data.length
+          );
+          pageInfo.textContent = `显示 ${startItem}-${endItem} 项，共 ${this.data.length} 项`;
+
+          if (currentData.length === 0) {
+            worksList.innerHTML = '<div class="no-data">暂无数据</div>';
+            return;
+          }
+
+          worksList.innerHTML = currentData
+            .map(
+              (work) => `
+                    <div class="work-item">
+                        <div class="work-title">
+                            <a href="${work.url ?? ""}" target="_blank">${
+                work.title ?? ""
+              }</a>
+                        </div>
+                        <div class="work-meta">
+                            <div>
+                                <span class="author">作者：${
+                                  work.author ?? "未知"
+                                }</span>
+                                <span class="time"><br>${work.time ?? ""}</span>
+                            </div>
+                            <div>
+                                <span class="class-tag">${
+                                  work.class ?? "未分类"
+                                }</span>
+                                <span class="hot-tag">${
+                                  work.hot ?? "未分类"
+                                }</span>
+                            </div>
+                        </div>
+                    </div>
+                `
+            )
+            .join("");
+        }
+
+        renderPagination() {
+          const pagination = document.getElementById("pagination");
+
+          if (this.totalPages <= 1) {
+            pagination.innerHTML = "";
+            return;
+          }
+
+          let paginationHTML = "";
+
+          // 上一页按钮
+          paginationHTML += `
+                    <button ${this.currentPage === 1 ? "disabled" : ""} 
+                            onclick="worksPagination.goToPage(${
+                              this.currentPage - 1
+                            })">
+                        上一页
+                    </button>
+                `;
+
+          // 页码按钮
+          const startPage = Math.max(1, this.currentPage - 2);
+          const endPage = Math.min(this.totalPages, this.currentPage + 2);
+
+          if (startPage > 1) {
+            paginationHTML += `<button onclick="worksPagination.goToPage(1)">1</button>`;
+            if (startPage > 2) {
+              paginationHTML += `<span>...</span>`;
+            }
+          }
+
+          for (let i = startPage; i <= endPage; i++) {
+            paginationHTML += `
+                        <button class="${
+                          i === this.currentPage ? "active" : ""
+                        }" 
+                                onclick="worksPagination.goToPage(${i})">
+                            ${i}
+                        </button>
+                    `;
+          }
+
+          if (endPage < this.totalPages) {
+            if (endPage < this.totalPages - 1) {
+              paginationHTML += `<span>...</span>`;
+            }
+            paginationHTML += `<button onclick="worksPagination.goToPage(${this.totalPages})">${this.totalPages}</button>`;
+          }
+
+          // 下一页按钮
+          paginationHTML += `
+                    <button ${
+                      this.currentPage === this.totalPages ? "disabled" : ""
+                    } 
+                            onclick="worksPagination.goToPage(${
+                              this.currentPage + 1
+                            })">
+                        下一页
+                    </button>
+                `;
+
+          pagination.innerHTML = paginationHTML;
+        }
+        sort(type) {
+          if (!type) {
+            // 恢复原始顺序
+            return;
+          } else if (type === "time") {
+            // 按时间倒序排序
+            this.data.sort((a, b) => {
+              try {
+                return new Date(b.time || 0) - new Date(a.time || 0);
+              } catch {
+                return 0;
+              }
+            });
+          } else if (type === "hot") {
+            // 按热度倒序排序（数火苗数量）
+            this.data.sort((a, b) => {
+              const getHotLevel = (hot) => {
+                if (!hot) return -1; // 没有hot属性的排到最后
+                const matches = hot.match(/🔥/g);
+                return matches ? matches.length : -1; // 没有火苗的也排到最后
+              };
+              return getHotLevel(b.hot) - getHotLevel(a.hot);
+            });
+          } else if (type === "author") {
+            // 按作者名称字母顺序排序
+            this.data.sort((a, b) =>
+              (a.author || "").localeCompare(b.author || "")
+            );
+          } else if (type === "class") {
+            // 按第一级分类（-之前）字母顺序排序
+            this.data.sort((a, b) => {
+              const classA = a.class?.split("-")[0] || "";
+              const classB = b.class?.split("-")[0] || "";
+              return classA.localeCompare(classB);
+            });
+          }
+
+          // 重置到第一页并重新渲染
+          this.currentPage = 1;
+          this.init();
+        }
+
+        goToPage(page) {
+          if (page < 1 || page > this.totalPages || page === this.currentPage) {
+            return;
+          }
+
+          this.currentPage = page;
+          this.render();
+          this.renderPagination();
+
+          // 滚动到顶部
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+      }
+    </script>
+    <script>
+      // 初始化分页器（每页显示10条，你可以根据需要修改）
+      const worksPagination = new WorksPagination(works, 10);
+    </script>
   </body>
 </html>
