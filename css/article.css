@@ -41,6 +41,8 @@ img {
   float: right;
   padding: 4px;
   margin: 2px;
+  width: 40%;
+  max-width: 200px;
 }
 .imageContainer>a{
   font-size: small;
