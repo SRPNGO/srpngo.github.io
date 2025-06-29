@@ -2,9 +2,7 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <link
-      rel="Shortcut Icon"
-      href="icon/SRPNlogo.svg" />
+    <link rel="Shortcut Icon" href="icon/SRPNlogo.svg" />
     <meta name="description" content="星球阁代表作" />
     <meta name="author" content="Nsakrty" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -150,6 +148,13 @@
           sortModeText[(currentIndex + 1) % sortMode.length];
         worksPagination.sort(currentSortMode);
       }
+      function parseTimeString(timeStr) {
+        if (!timeStr) return 0;
+        // 把所有非数字和非字母的分隔符统一成'-'
+        const normalized = timeStr.trim().replace(/[./]/g, "-");
+        const timestamp = Date.parse(normalized);
+        return isNaN(timestamp) ? 0 : timestamp;
+      }
     </script>
     <div class="container">
       <h1>星球阁代表作品</h1>
@@ -254,11 +259,11 @@
         },
         {
           title: "SRPN危机",
-          url:"https://v.douyin.com/rjnK4cY5yoE/",
+          url: "https://v.douyin.com/rjnK4cY5yoE/",
           author: "大Q是只屑行星",
           class: "转载",
-          time:"2024.06.29"
-        }
+          time: "2024.06.29",
+        },
       ];
     </script>
     <script>
@@ -269,7 +274,7 @@
           this.itemsPerPage = itemsPerPage;
           this.currentPage = 1;
           this.totalPages = Math.ceil(data.length / itemsPerPage);
-          this.sort("time")
+          this.sort("time");
           this.init();
         }
 
@@ -401,13 +406,8 @@
             // 恢复原始顺序
             return;
           } else if (type === "time") {
-            // 按时间倒序排序
             this.data.sort((a, b) => {
-              try {
-                return new Date(b.time || 0) - new Date(a.time || 0);
-              } catch {
-                return 0;
-              }
+              return parseTimeString(b.time) - parseTimeString(a.time);
             });
           } else if (type === "hot") {
             // 按热度倒序排序（数火苗数量）
