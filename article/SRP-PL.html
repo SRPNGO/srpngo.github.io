@@ -8,40 +8,64 @@
       * {
         margin: 2px;
       }
-      body {
+      /* body {
         background-color: #ccf;
-      }
+      } */
       p {
         text-indent: 2em;
       }
       code {
         text-indent: 0px;
         font-family: "Consolas", "Courier New", monospace;
-        background: #f2f1f1;
-        /* color: #fff; */
+        background: #4448;
+        color: #fff;
         border-radius: 5px;
         padding: 2px 5px;
         display: inline-block;
       }
     </style>
+    <link rel="stylesheet" href="../css/article.css">
+    <link rel="stylesheet" href="../css/basic.css">
   </head>
   <body>
+    <div style="background: #e3f2fd; padding: 10px; text-align: center">
+      本文属于非官方文章，已迁移至
+      <a href="https://oc.srpn.top" style="font-weight: bold; color: #1976d2"
+        >oc.srpn.top</a
+      >，内容同步更新中。<br />
+      注：此页面将于2025年10月4日删除。
+    </div>
     <article>
       <h1>SRP语言协议文档</h1>
       <div>
         <h2>介绍</h2>
         <h3>前言</h3>
-        <p>你好，这里是Nsakrty，最近闲的没事干，搞了一个“所谓的编程语言”，把它当个乐子看就行了:D。</p>
+        <p>
+          你好，这里是Nsakrty，最近闲的没事干，搞了一个“所谓的编程语言”，把它当个乐子看就行了:D。
+        </p>
         <h3>下载</h3>
-        <a href="https://www.icloud.com/shortcuts/3561cffda9ad46e4987b4c3bb7ef4c61">SRP语言(230527)</a>
+        <a
+          href="https://www.icloud.com/shortcuts/3561cffda9ad46e4987b4c3bb7ef4c61"
+          >SRP语言(230527)</a
+        >
         <h3>名字来源</h3>
-        <p>如你所见，这个语言叫做SRP语言，名字来源于我加入的一个组织SRPG的前三个字。</p>
+        <p>
+          如你所见，这个语言叫做SRP语言，名字来源于我加入的一个组织SRPG的前三个字。
+        </p>
         <h3>基于谁编写？运行速度如何？</h3>
-        <p>由于它基于苹果的“快捷指令”app开发，所以它的运行速度必然很低，也就6.64行/s(23.01.08)（？。</p>
+        <p>
+          由于它基于苹果的“快捷指令”app开发，所以它的运行速度必然很低，也就6.64行/s(23.01.08)（？。
+        </p>
         <h3>特点</h3>
         <ol>
-          <li>SRP语言的目的就是为了改善”快捷指令”的开发体验（不得不说，ios15的快捷指令的编写体验简直离谱，bug经常出现，好在ios16好些了）以及让我在闲的没事的时候玩玩（？，所以SRP语言只能在“快捷指令”app运行，非常垃圾。</li>
-          <li>SRP语言的语法很明显不同于其他语言，以Javascript为例，要输出"hello,world"只需要输入<code>console.log("hello,world");</code>，但是在SRP语言里却是<code>print<span>&lt;&lt;</span>hello,wolrd</code>，在js给定义变量a并且赋值10是<code>let a = 10;</code>，而SRP语言则是<code>var<span>&lt;&lt;</span>a<span>&lt;&lt;</span>10</code>，并且SRP语言没有if，只有goto...(?</li>
+          <li>
+            SRP语言的目的就是为了改善”快捷指令”的开发体验（不得不说，ios15的快捷指令的编写体验简直离谱，bug经常出现，好在ios16好些了）以及让我在闲的没事的时候玩玩（？，所以SRP语言只能在“快捷指令”app运行，非常垃圾。
+          </li>
+          <li>
+            SRP语言的语法很明显不同于其他语言，以Javascript为例，要输出"hello,world"只需要输入<code>console.log("hello,world");</code>，但是在SRP语言里却是<code>print<span>&lt;&lt;</span>hello,wolrd</code>，在js给定义变量a并且赋值10是<code
+              >let a = 10;</code
+            >，而SRP语言则是<code>var<span>&lt;&lt;</span>a<span>&lt;&lt;</span>10</code>，并且SRP语言没有if，只有goto...(?
+          </li>
         </ol>
       </div>
       <hr />
@@ -50,10 +74,16 @@
         <h3>大小写</h3>
         <p>SRP语言区分大小写，<var>A</var>和<var>a</var>是不同的变量</p>
         <h3>语句</h3>
-        <p>SRP语言中的指令被成为语句，用行进行分割，一条语句只能独占一行，因此，语句末尾不需要加分号。但请注意，SRP语言中的<span>&lt;&lt;</span>和其他东西不能存在空格。</p>
+        <p>
+          SRP语言中的指令被成为语句，用行进行分割，一条语句只能独占一行，因此，语句末尾不需要加分号。但请注意，SRP语言中的<span>&lt;&lt;</span>和其他东西不能存在空格。
+        </p>
         <h3>注释</h3>
         <p>
-          SRP语言的注释并无规定该怎么写，只要你此行的文本的第一个<span>&lt;&lt;</span>前的单词不是所有函数中的其中一个即可，所以<br /><code>//我是注释<br /><span>&lt;</span>!-- 我也是注释 --<span>&gt;</span><br />我看起来不像是SRP注释，但我真的是一个SRP注释<br />print可以输出信息(我也是注释)<br />input<span>&lt;&lt;</span>hi! 可以请求用户输入，并且输入框文字是:hi!(我不是注释)</code>
+          SRP语言的注释并无规定该怎么写，只要你此行的文本的第一个<span>&lt;&lt;</span>前的单词不是所有函数中的其中一个即可，所以<br /><code
+            >//我是注释<br /><span>&lt;</span>!-- 我也是注释 --<span>&gt;</span
+            ><br />我看起来不像是SRP注释，但我真的是一个SRP注释<br />print可以输出信息(我也是注释)<br />input<span>&lt;&lt;</span>hi!
+            可以请求用户输入，并且输入框文字是:hi!(我不是注释)</code
+          >
           如果编译器遇到注释，会自动跳过处理。
         </p>
         <h3>标签</h3>
@@ -62,36 +92,70 @@
           >表示，标签独占一行，标签对goto等语句来说很重要
         </p>
         <h3>变量</h3>
-        <p>SRP语言的变量可以以大小写字母、中文、下划线和绝大多数标点符号开头，%除外，%不能出现在变量名中。</p>
-        <p>SRP语言的变量声明格式如下:<br /><code>var<span>&lt;&lt;</span>name<span>&lt;&lt;</span>value</code>，name和value都必须填上，如果你在声明的时候不想让变量有值，请把value设为0，如果不填value，那么本语句就相当于把name的value赋给临时变量temp</p>
-        <p>在SRP语言，要读取变量很简单:<code>%name%</code>，在运行程序时，编译器会自动把它替换成对应变量的值，如果这个变量未声明，则会替换成空值。</p>
-        <p>在SRP语言，很多语句的结果都会赋给临时变量<var>temp</var>，读取<var>temp</var>的方法和普通变量完全一致。SRP语言中的一些操作会用到<var>temp</var>的值，如果你需要把某个变量的值赋给temp，可以直接这么写:<code>var<span>&lt;&lt;</span>name</code></p>
+        <p>
+          SRP语言的变量可以以大小写字母、中文、下划线和绝大多数标点符号开头，%除外，%不能出现在变量名中。
+        </p>
+        <p>
+          SRP语言的变量声明格式如下:<br /><code
+            >var<span>&lt;&lt;</span>name<span>&lt;&lt;</span>value</code
+          >，name和value都必须填上，如果你在声明的时候不想让变量有值，请把value设为0，如果不填value，那么本语句就相当于把name的value赋给临时变量temp
+        </p>
+        <p>
+          在SRP语言，要读取变量很简单:<code>%name%</code>，在运行程序时，编译器会自动把它替换成对应变量的值，如果这个变量未声明，则会替换成空值。
+        </p>
+        <p>
+          在SRP语言，很多语句的结果都会赋给临时变量<var>temp</var>，读取<var>temp</var>的方法和普通变量完全一致。SRP语言中的一些操作会用到<var>temp</var>的值，如果你需要把某个变量的值赋给temp，可以直接这么写:<code
+            >var<span>&lt;&lt;</span>name</code
+          >
+        </p>
         <p>SRP语言中的变量只能是全局变量</p>
         <h3>数据类型</h3>
-        <p>SRP语言是弱类型语言，你不需要做任何的类型转换，从编译器的角度来讲，任何东西到了这都是string类型（编译器不能区分东西的类型），但是你依然可以把它分为string(字符串),number(数字),list(列表)几种类型。</p>
+        <p>
+          SRP语言是弱类型语言，你不需要做任何的类型转换，从编译器的角度来讲，任何东西到了这都是string类型（编译器不能区分东西的类型），但是你依然可以把它分为string(字符串),number(数字),list(列表)几种类型。
+        </p>
         <ul>
-          <li>string:字符串类型，一串文本序列，支持储存多行文字，用\n来换行，还有，字符串类型不加引号。</li>
-          <li>number:数字类型，在计算表达式的时候参数会自动转换成number类型，然而，编译器不能识别出来。有效范围是±99 999 999 999，如果不在这个范围，超出这个范围会导致数字“失真”</li>
-          <li>list:列表类型，列表项用",,"分开，js中的<code>a = [4,3,9,"y"]</code>等同于SRP的<code>var<span>&lt;&lt;</span>a<span>&lt;&lt;</span>4,,3,,9,,y</code></li>
+          <li>
+            string:字符串类型，一串文本序列，支持储存多行文字，用\n来换行，还有，字符串类型不加引号。
+          </li>
+          <li>
+            number:数字类型，在计算表达式的时候参数会自动转换成number类型，然而，编译器不能识别出来。有效范围是±99
+            999 999 999，如果不在这个范围，超出这个范围会导致数字“失真”
+          </li>
+          <li>
+            list:列表类型，列表项用",,"分开，js中的<code>a = [4,3,9,"y"]</code
+            >等同于SRP的<code
+              >var<span>&lt;&lt;</span>a<span>&lt;&lt;</span>4,,3,,9,,y</code
+            >
+          </li>
         </ul>
       </div>
       <hr />
       <div>
         <h2>计算</h2>
         <p>
-          表达式的计算统一在number函数进行，请注意，除这个以外，其他要参数的地方不能填表达式！特别是gotoi函数会出现这种情况！表达式计算只能在number函数进行。还有，SRP语言不支持计算条件表达式。这里列举几个常见的错误写法:<br /><code>var<span>&lt;&lt;</span>a<span>&lt;&lt;</span>number<span>&lt;&lt;</span>3+5<br />gotoi<span>&lt;&lt;</span>a&gt;&gt;3<span>&lt;&lt;</span>yes</code>
+          表达式的计算统一在number函数进行，请注意，除这个以外，其他要参数的地方不能填表达式！特别是gotoi函数会出现这种情况！表达式计算只能在number函数进行。还有，SRP语言不支持计算条件表达式。这里列举几个常见的错误写法:<br /><code
+            >var<span>&lt;&lt;</span>a<span>&lt;&lt;</span>number<span>&lt;&lt;</span>3+5<br />gotoi<span>&lt;&lt;</span>a&gt;&gt;3<span>&lt;&lt;</span>yes</code
+          >
         </p>
       </div>
       <hr />
       <div>
         <h2>函数</h2>
-        <p>注意，*表示选填，如果是有一个括号扩着多个参数并且加*的，表示括号内的参数必须同时出现或不出现。</p>
+        <p>
+          注意，*表示选填，如果是有一个括号扩着多个参数并且加*的，表示括号内的参数必须同时出现或不出现。
+        </p>
         <h3>alert</h3>
         <p>alert函数可以显示一个警告框，用来显示文本(content)</p>
         <p>写法:<code>alert<span>&lt;&lt;</span>content</code></p>
         <h3>choose</h3>
-        <p>choose函数可以在列表(list)中的项目选择一项，参数有列表(list)和提示词(title)。结果返回到temp中。</p>
-        <p>写法:<code>choose<span>&lt;&lt;</span>list<span>&lt;&lt;</span>title*</code></p>
+        <p>
+          choose函数可以在列表(list)中的项目选择一项，参数有列表(list)和提示词(title)。结果返回到temp中。
+        </p>
+        <p>
+          写法:<code
+            >choose<span>&lt;&lt;</span>list<span>&lt;&lt;</span>title*</code
+          >
+        </p>
         <h3>round</h3>
         <p>round函数可以对一个数字(number)进行四舍五入。结果返回到temp中。</p>
         <p>写法:<code>round<span>&lt;&lt;</span>number</code></p>
@@ -99,8 +163,14 @@
         <p>getDate函数可以获取当前的日期信息。</p>
         <p>写法:<code>getDate</code></p>
         <h3>getItem</h3>
-        <p>getItem函数可以从列表(list)中获取一个项目，参数有列表(list)、最小值(min)和最大值(max)，如果最大值不填，则获取列表的第min项，请注意，列表项的序号从0开始。</p>
-        <p>写法:<code>getItem<span>&lt;&lt;</span>list<span>&lt;&lt;</span>min<span>&lt;&lt;</span>max*</code></p>
+        <p>
+          getItem函数可以从列表(list)中获取一个项目，参数有列表(list)、最小值(min)和最大值(max)，如果最大值不填，则获取列表的第min项，请注意，列表项的序号从0开始。
+        </p>
+        <p>
+          写法:<code
+            >getItem<span>&lt;&lt;</span>list<span>&lt;&lt;</span>min<span>&lt;&lt;</span>max*</code
+          >
+        </p>
         <h3>getPlace</h3>
         <p>getPlace函数可以获取当前的位置信息。</p>
         <p>写法:<code>getPlace</code></p>
@@ -111,8 +181,14 @@
         <p>goton函数可以跳转到指定的标签(id)处，如果temp为负则跳转。</p>
         <p>写法:<code>goton<span>&lt;&lt;</span>id</code></p>
         <h3>gotoi</h3>
-        <p>gotoi函数可以跳转到指定的标签(id)处，参数有value和标签(id)，如果temp和value相等(化为字符串后相等)则跳转，强调：value不能填表达式，表达式计算只能在number函数进行。</p>
-        <p>写法:<code>gotoi<span>&lt;&lt;</span>value<span>&lt;&lt;</span>id</code></p>
+        <p>
+          gotoi函数可以跳转到指定的标签(id)处，参数有value和标签(id)，如果temp和value相等(化为字符串后相等)则跳转，强调：value不能填表达式，表达式计算只能在number函数进行。
+        </p>
+        <p>
+          写法:<code
+            >gotoi<span>&lt;&lt;</span>value<span>&lt;&lt;</span>id</code
+          >
+        </p>
         <h3>gotop</h3>
         <p>gotop函数可以跳转到指定的标签(id)处，如果temp为正则跳转。</p>
         <p>写法:<code>gotop<span>&lt;&lt;</span>id</code></p>
@@ -123,32 +199,66 @@
         <p>hash函数可以让一个东西进行MD5运算</p>
         <p>写法:<code>hash<span>&lt;&lt;</span>content</code></p>
         <h3>inform</h3>
-        <p>inform函数可以显示一个通知框，用来创建通知，参数有内容(content)和标题(title)。</p>
-        <p>写法:<code>inform<span>&lt;&lt;</span>content<span>&lt;&lt;</span>title</code></p>
+        <p>
+          inform函数可以显示一个通知框，用来创建通知，参数有内容(content)和标题(title)。
+        </p>
+        <p>
+          写法:<code
+            >inform<span>&lt;&lt;</span>content<span>&lt;&lt;</span>title</code
+          >
+        </p>
         <h3>input</h3>
-        <p>input函数用来获取输入，参数有问题(question)和回答时的默认值(value)。结果返回到temp中。</p>
-        <p>写法:<code>input<span>&lt;&lt;</span>question<span>&lt;&lt;</span>value</code></p>
+        <p>
+          input函数用来获取输入，参数有问题(question)和回答时的默认值(value)。结果返回到temp中。
+        </p>
+        <p>
+          写法:<code
+            >input<span>&lt;&lt;</span>question<span>&lt;&lt;</span>value</code
+          >
+        </p>
         <h3>length</h3>
         <p>length函数可以获取列表的长度（项数）</p>
         <p>写法:<code>length<span>&lt;&lt;</span>list</code></p>
         <h3>number</h3>
-        <p>number函数可以对数值表达式(expression)进行运算。结果返回到temp中。</p>
+        <p>
+          number函数可以对数值表达式(expression)进行运算。结果返回到temp中。
+        </p>
         <p>写法:<code>number<span>&lt;&lt;</span>expression</code></p>
         <h3>random</h3>
-        <p>random函数可以生成一个随机数，参数有最小值(min)和最大值(max)，如果不填，则输出一个0~1的浮点数。结果返回到temp中。</p>
-        <p>写法:<code>random<span>&lt;&lt;</span>(min<span>&lt;&lt;</span>max)</code></p>
+        <p>
+          random函数可以生成一个随机数，参数有最小值(min)和最大值(max)，如果不填，则输出一个0~1的浮点数。结果返回到temp中。
+        </p>
+        <p>
+          写法:<code
+            >random<span>&lt;&lt;</span>(min<span>&lt;&lt;</span>max)</code
+          >
+        </p>
         <h3>run</h3>
-        <p>run函数可以运行一个快捷指令，参数有快捷指令名称(shortcutName)和参数(parameter)。结果返回到temp中。</p>
-        <p>写法:<code>run<span>&lt;&lt;</span>shortcutName<span>&lt;&lt;</span>parameter</code></p>
+        <p>
+          run函数可以运行一个快捷指令，参数有快捷指令名称(shortcutName)和参数(parameter)。结果返回到temp中。
+        </p>
+        <p>
+          写法:<code
+            >run<span>&lt;&lt;</span>shortcutName<span>&lt;&lt;</span>parameter</code
+          >
+        </p>
         <h3>stop</h3>
-        <p>stop函数可以停止当前程序并输出值。在程序的末尾必须写这个，但是在其他地方也可以写。</p>
+        <p>
+          stop函数可以停止当前程序并输出值。在程序的末尾必须写这个，但是在其他地方也可以写。
+        </p>
         <p>写法:<code>stop<span>&lt;&lt;</span>value</code></p>
         <h3>temp</h3>
         <p>temp函数可以快捷地修改temp变量的值，参数仅有value。</p>
         <p>写法:<code>temp<span>&lt;&lt;</span>value</code></p>
         <h3>var</h3>
-        <p>var函数用来创建一个变量以及给变量赋值，参数有名称(name)和值(value)。如果你在声明的时候不想让变量有值，可不填value。请注意，你只能在这个地方对变量赋值。</p>
-        <p>写法:<code>var<span>&lt;&lt;</span>name<span>&lt;&lt;</span>value</code></p>
+        <p>
+          var函数用来创建一个变量以及给变量赋值，参数有名称(name)和值(value)。如果你在声明的时候不想让变量有值，可不填value。请注意，你只能在这个地方对变量赋值。
+        </p>
+        <p>
+          写法:<code
+            >var<span>&lt;&lt;</span>name<span>&lt;&lt;</span>value</code
+          >
+        </p>
       </div>
       <hr />
       <div>
