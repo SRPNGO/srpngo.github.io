@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <link rel="Shortcut Icon" href="./icon/SRPNlogo.svg" />
+    <link
+      rel="Shortcut Icon"
+      href="https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png" />
+    <title>网页统计页面</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="../css/basic.css" />
+    <link rel="stylesheet" href="../css/article.css" />
+    <style>
+      /* 新增可视化样式 */
+      .stats-container {
+        max-width: 800px;
+        margin: 20px auto;
+      }
+      .stats-header {
+        margin-bottom: 20px;
+      }
+      .data-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .data-card {
+        background: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border-top: 3px solid;
+        transition: transform 0.2s;
+      }
+      .data-card:hover {
+        transform: translateY(-3px);
+      }
+      .card-pv {
+        border-top-color: #4286f4; /* 访问量(PV)用蓝色标识 */
+      }
+      .card-uv {
+        border-top-color: #34a853; /* 访客数(UV)用绿色标识 */
+      }
+      .card-title {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+      .card-title::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      .card-pv .card-title::before {
+        background: #4286f4;
+      }
+      .card-uv .card-title::before {
+        background: #34a853;
+      }
+      .card-value {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        line-height: 1.2;
+      }
+      .loading {
+        color: #999;
+        font-style: italic;
+        font-size: 16px;
+      }
+      .stats-note {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #666;
+        padding: 10px;
+        background: #f9f9f9;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>网页计数器测试</h1>
+    <p>数据来源:不蒜子</p>
+
+    <div class="stats-container">
+      <div class="data-cards">
+        <!-- 本站总访问量(PV) -->
+        <div class="data-card card-pv">
+          <div class="card-title">本站总访问量</div>
+          <div class="card-value">
+            <span id="busuanzi_site_pv" class="loading">加载中...</span> 次
+          </div>
+        </div>
+
+        <!-- 本站总访客数(UV) -->
+        <div class="data-card card-uv">
+          <div class="card-title">本站总访客数</div>
+          <div class="card-value">
+            <span id="busuanzi_site_uv" class="loading">加载中...</span> 人
+          </div>
+        </div>
+
+        <!-- 本站今日访问量(PV) -->
+        <div class="data-card card-pv">
+          <div class="card-title">本站今日访问量</div>
+          <div class="card-value">
+            <span id="busuanzi_today_site_pv" class="loading">加载中...</span>
+            次
+          </div>
+        </div>
+
+        <!-- 本站今日访客数(UV) -->
+        <div class="data-card card-uv">
+          <div class="card-title">本站今日访客数</div>
+          <div class="card-value">
+            <span id="busuanzi_today_site_uv" class="loading">加载中...</span>
+            人
+          </div>
+        </div>
+      </div>
+
+      <!-- 指标说明 -->
+      <div class="stats-note">
+        <p>• 访问量(PV)：页面被打开的总次数，同一用户多次访问会重复计数</p>
+        <p>• 访客数(UV)：独立访问用户数，同一用户多次访问仅计数1次</p>
+      </div>
+    </div>
+    <div>
+      <h2>返回主界面</h2>
+      <p id="a"><a href="../index.html">点我返回</a></p>
+    </div>
+    <script src="//www.busuanzi.cc/static/3.6.9/busuanzi.min.js" defer></script>
+  </body>
+</html>
