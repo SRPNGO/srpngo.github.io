@@ -88,7 +88,7 @@
   <body>
     <h1>网页计数器测试</h1>
     <p>数据来源:不蒜子</p>
-    
+
     <div class="stats-container">
       <div class="data-cards">
         <!-- 本站总访问量(PV) -->
@@ -137,5 +137,37 @@
       <p id="a"><a href="./index.html">点我返回</a></p>
     </div>
     <script src="//www.busuanzi.cc/static/3.6.9/busuanzi.min.js" defer></script>
+    <script>
+      window.addEventListener("load", function () {
+        // 延时确保不蒜子数据已加载
+        setTimeout(() => {
+          const pvTotal = parseInt(
+            document.getElementById("busuanzi_site_pv")?.innerText || 0
+          );
+          const uvTotal = parseInt(
+            document.getElementById("busuanzi_site_uv")?.innerText || 0
+          );
+          const pvToday = parseInt(
+            document.getElementById("busuanzi_today_site_pv")?.innerText || 0
+          );
+          const uvToday = parseInt(
+            document.getElementById("busuanzi_today_site_uv")?.innerText || 0
+          );
+
+          // 计算 UV/PV 比率（保留两位小数）
+          const ratioTotal = uvTotal ? (pvTotal / uvTotal).toFixed(2) : "N/A";
+          const ratioToday = uvToday ? (pvToday / uvToday).toFixed(2) : "N/A";
+
+          // 创建并插入 DOM 元素
+          const statsNote = document.querySelector(".stats-note");
+          const div = document.createElement("div");
+          div.innerHTML = `
+        <p>• 本站总访问深度（PV/UV）：<strong>${ratioTotal}</strong></p>
+        <p>• 今日访问深度（PV/UV）：<strong>${ratioToday}</strong></p>
+      `;
+          statsNote.appendChild(div);
+        }, 500); // 稍微延迟，确保 busuanzi 加载完成
+      });
+    </script>
   </body>
 </html>
