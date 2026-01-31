@@ -1,6 +1,25 @@
 ---
 title: 星球阁的附属组织
+articleStyle: true
 ---
+<style>
+h1,
+h2,
+p,
+#a,
+table {
+  text-align: center;
+}
+table {
+  margin: auto;
+}
+@media (max-width: 500px) {
+  table :is(td, th):nth-child(4) {
+    display: none;
+  }
+}
+</style>
+
 
 ## 这是星球阁的分组织列表
 星球阁条例规定：星球阁不是其他组织的附属组织/分组织，但拥有以下分组织（按活跃度排序）。请注意，一些长期现状未知的分组织可能会被移出此列表。
@@ -9,14 +28,14 @@ title: 星球阁的附属组织
 
 ---
 
-| 组织名                | 英文缩写 | 现领导人               | 建立日     | 备注       |
+| 组织名    | 英文缩写 | 现领导人   | 建立日     | 备注 |
 | :-------------------- | :------- | :--------------------- | :--------- | :--------- |
 | [星球地理](./srpg.html) | SRPG     | [银杏](https://v.douyin.com/iJn8VSEf/) | 2023.05.07 | 正常运作   |
 | [星球编程](https://github.com/SRPNGO) | SRPG     | [Nsakrty](https://v.douyin.com/hWfRVaA/) | 2021.03.03 | 正常运作   |
 | [星联阁](https://skdc.rth1.vip/)•星辰阁 | SRDC     | [KillpL佰玖](https://v.douyin.com/kE9RW8C/) | 2023.01.26 | 不稳定     |
-| [星球观测](https://srpn.top/sron) | SRON     | 新智彗星               | 2022.04.06 | 无比沉默   |
-| 星球化学              | SRCY     | [桃十四](https://v.douyin.com/iJn8PGaK/) | 2023.07.28 | 现状未知   |
-| 史书阁(星球历史)      | SRPH     | [比邻星b-2](https://v.douyin.com/jkfKvgh/) | 2022.08.14 | 现状未知   |
+| [星球观测](https://srpn.top/sron) | SRON     | 新智彗星   | 2022.04.06 | 无比沉默   |
+| 星球化学  | SRCY     | [桃十四](https://v.douyin.com/iJn8PGaK/) | 2023.07.28 | 现状未知   |
+| 史书阁(星球历史)| SRPH     | [比邻星b-2](https://v.douyin.com/jkfKvgh/) | 2022.08.14 | 现状未知   |
 
 ---
 

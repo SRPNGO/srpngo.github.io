@@ -1,6 +1,8 @@
 ---
 title: 星球地理：探索地理奥秘的趣味组织
-customExtraContent: |  # 这个竖线|必须加，保留后续HTML格式
+logoUrl: https://s1.imagehub.cc/images/2025/02/04/a0b579f5dd559d61589c9331b5593ea0.png
+articleStyle: true
+customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
   <a href="../affiliateed/affiliateed.html">返回星球阁分组织页面</a>
 ---
 
@@ -11,6 +13,7 @@ customExtraContent: |  # 这个竖线|必须加，保留后续HTML格式
 ![SRPG logo](https://s1.imagehub.cc/images/2025/02/04/a0b579f5dd559d61589c9331b5593ea0.png)
 
 ## 介绍
+
 星球地理(SRPG)是一个以地理为主题的趣味组织，成员规模约30人。这里汇聚了一群热爱地理、热衷于探索世界奥秘的志同道合者。无论是山川河流的壮丽景观，还是城市乡村的人文风貌，我们始终怀着对地理的无限热情，用独特的视角去解读这个多彩的世界。
 
 星球地理不仅是一个学习与交流地理知识的平台，更是一个充满活力的社群。组织不定期举办丰富多彩的活动，其中最引人注目的是基于热门游戏["图寻"](https://tuxun.fun)的比赛。这些比赛不仅考验参与者的地理知识储备，还挑战他们的观察力、推理能力和团队协作能力，并且带来无穷的惊喜与乐趣。
@@ -20,14 +23,18 @@ customExtraContent: |  # 这个竖线|必须加，保留后续HTML格式
 ---
 
 ## 近期活动
+
 ### 第六届星球地理杯
+
 比赛圆满结束！现公布赛事结果。
 
 本届赛事二强：
+
 - Earth-2
 - 天白
 
 本届赛事四强：
+
 - 冥王星
 - 海山二
 
@@ -75,6 +82,7 @@ customExtraContent: |  # 这个竖线|必须加，保留后续HTML格式
 ---
 
 ## 我们的历史
+
 - 2023年
   - 5月7日，星球地理成立
   - 8月3日，全员建议时期，大部分[星球阁](../index.html)图寻群成员迁移至此
@@ -91,7 +99,7 @@ customExtraContent: |  # 这个竖线|必须加，保留后续HTML格式
 ---
 
 ## 加入我们
-      
+
 <button onclick="window.location.href='https:\/\/v.douyin.com/ifTUVRA6/'">联系社长</button>
 
 ---

@@ -5,10 +5,10 @@
     <title>{{ page.title }}</title>
     <link
       rel="Shortcut Icon"
-      href="{{ '/icon/SRPNlogo.svg' | relative_url }}" />
+      href="{{ page.logoUrl | default: '/icon/SRPNlogo.svg' }}" />
     <link
       rel="Shortcut Icon"
-      href="{{ 'https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png' | relative_url }}" />
+      href="{{ page.logoUrl | default: 'https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png' }}" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -43,8 +43,7 @@
       <h2>返回</h2>
       <p><a href="/index.html">返回主界面</a></p>
       {% if page.customExtraContent %}
-      <div
-        class="custom-extra-content">
+      <div class="custom-extra-content">
         {{ page.customExtraContent | raw }}
       </div>
       {% endif %}
