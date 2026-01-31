@@ -5,10 +5,10 @@
     <title>{{ page.title }}</title>
     <link
       rel="Shortcut Icon"
-      href="{{ '/icon/SRPNlogo.svg' | relative_url }}" />
+      href="{{ page.logoUrl | default: '/icon/SRPNlogo.svg' }}" />
     <link
       rel="Shortcut Icon"
-      href="{{ 'https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png' | relative_url }}" />
+      href="{{ page.logoUrl | default: 'https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png' }}" />
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -21,7 +21,9 @@
       name="keywords"
       content="{{ page.keywords | default: 'SRPN, 星球阁'}}" />
     <link rel="stylesheet" href="../css/basic.css" />
+    {% if page.articleStyle %}
     <link rel="stylesheet" href="../css/article.css" />
+    {% endif %}
     <!-- 可选样式 -->
     <style>
       /* 样式 */
@@ -29,16 +31,23 @@
   </head>
   <body>
     <header>
-      <h1>{{ page.title }}</h1>
-      <h2>{{ page.subtitle | default: ''}}</h2>
-      <p>作者：{{page.author | default: '?'}}</p>
-      <hr />
+      <!-- <h1>{{ page.title }}</h1> -->
+      <!-- <h2>{{ page.subtitle | default: ''}}</h2>
+      {% if page.author %}
+      <p>作者：{{ page.author }}</p>
+      {% endif %} -->
+      <!-- <hr /> -->
     </header>
     <article>{{ content }}</article>
-    <div>
+    <footer>
       <h2>返回</h2>
       <p><a href="/index.html">返回主界面</a></p>
-    </div>
+      {% if page.customExtraContent %}
+      <div class="custom-extra-content">
+        {{ page.customExtraContent | raw }}
+      </div>
+      {% endif %}
+    </footer>
     <script
       src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js"
       defer></script>
