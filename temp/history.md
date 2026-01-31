@@ -104,7 +104,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
       }
     </script>
 
-<div>
+<div markdown="1">
   <h1>欢迎来到SRPN历史网!</h1>
   <p class="center">
     这里记载了有关星球阁和少量关于星球圈的历史,您可以在这里了解它们的状况。
@@ -157,7 +157,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 ### 星球家族
 
-<div>
+<div markdown="1">
 
 #### <a name="星球家族的建立与发展"></a>星球家族的建立与发展
 
@@ -169,7 +169,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球家族的审核制度"></a>星球家族的审核制度
 
@@ -190,7 +190,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球家族的巅峰与衰落"></a>星球家族的巅峰与衰落
 
@@ -206,7 +206,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 ### 星球阁
 
-<div>
+<div markdown="1">
 
 #### <a name="星球阁的建立"></a>星球阁的建立
 
@@ -232,7 +232,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球阁的成立之初的审核制度"></a>星球阁的成立之初的审核制度
 
@@ -242,7 +242,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="新星球家族"></a>新星球家族
 
@@ -259,7 +259,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球阁的继续发展"></a>星球阁的继续发展
 
@@ -295,7 +295,7 @@ t出狗头君花粉的那十几天，各种骂声随即而来，而Nsakrty因为
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球阁影响力的再次提升和星球圈的形成"></a>星球阁影响力的再次提升和星球圈的形成
 
@@ -329,7 +329,7 @@ t出狗头君花粉的那十几天，各种骂声随即而来，而Nsakrty因为
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球阁与天文圈的交流以及知名度的快速增加"></a>星球阁与天文圈的交流以及知名度的快速增加
 
@@ -363,7 +363,7 @@ t出狗头君花粉的那十几天，各种骂声随即而来，而Nsakrty因为
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球阁的短暂混乱和星球圈低质低俗化的开始"></a>星球阁的短暂混乱和星球圈低质低俗化的开始
 
@@ -393,7 +393,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球圈的低质低俗化与星球阁的圈内地位的下降"></a>星球圈的低质低俗化与星球阁的圈内地位的下降
 
@@ -435,7 +435,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="中子星事件、科普君事件"></a>中子星事件、科普君事件
 
@@ -461,7 +461,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 </div>
 
-<div>
+<div markdown="1">
 
 #### <a name="星球圈的沉寂和转型伏笔"></a>星球圈的沉寂和转型伏笔
 
@@ -483,7 +483,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 </div>
 
-<div>
+<div markdown="1">
 
 ### 转型运动的兴起与受阻
 
@@ -563,7 +563,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 ---Nsakrty 
 
-<div>
+<div markdown="1">
   <h2>更多操作</h2>
   <p class="center"><a href="#start">返回开头</a></p>
   <p class="center"><a href="../index.html">返回主界面</a></p>
