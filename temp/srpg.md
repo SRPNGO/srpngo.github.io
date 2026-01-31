@@ -6,7 +6,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
   <a href="../affiliateed/affiliateed.html">返回星球阁分组织页面</a>
 ---
 
-## 星球地理：探索地理奥秘的趣味组织
+# 星球地理：探索地理奥秘的趣味组织
 
 ---
 

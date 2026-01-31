@@ -69,6 +69,7 @@ button {
   color: #f0f0f0;
   border-radius: 8px;
   background: var(--buttonColor);
+  text-indent: 0;
 }
 button:hover {
   background: var(--buttonHoverColor);
