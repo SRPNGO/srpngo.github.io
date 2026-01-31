@@ -5,7 +5,7 @@ keywords: 星球阁, SRPN, 历史, 怎么了, 星球阁历史, SRPN历史
 description: 这里记载了有关星球阁和少量关于星球圈的历史，您可以在这里了解它们的状况。
 articleStyle: true
 customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
-  <p class="center"><a href="../index.html">返回主界面</a></p><p class="center"><a href="https://www.bilibili.com/video/BV1vG411M7gu/?from=search&amp;seid=12061242712162997816&amp;spm_id_from=333.337.0.0&amp;vd_source=e1bf17e3ffb8ee0eeedad782ab30789a">查看星球阁粉丝数发展史</a></p>
+  <p class="center"><a href="https://www.bilibili.com/video/BV1vG411M7gu/?from=search&amp;seid=12061242712162997816&amp;spm_id_from=333.337.0.0&amp;vd_source=e1bf17e3ffb8ee0eeedad782ab30789a">查看星球阁粉丝数发展史</a></p>
 
 ---
 
@@ -42,7 +42,7 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
       :root {
         --toht: 0;
       }
-      #footer {
+      footer {
         text-align: center;
       }
       @keyframes expand {
