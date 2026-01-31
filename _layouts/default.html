@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cn">
+  <meta charset="utf-8" />
+  <head>
+    <title>{{ page.title }}</title>
+    <link
+      rel="Shortcut Icon"
+      href="{{ '/icon/SRPNlogo.svg' | relative_url }}" />
+    <link
+      rel="Shortcut Icon"
+      href="{{ 'https://s1.imagehub.cc/images/2024/02/20/79130709905453796af9c9c876e6cb90.png' | relative_url }}" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta
+      name="description"
+      content="{{ page.description | default: '星球阁官网文章' }}" />
+    <meta name="author" content="{{page.author}}" />
+    <meta
+      name="keywords"
+      content="{{ page.keywords | default: 'SRPN, 星球阁'}}" />
+    <link rel="stylesheet" href="../css/basic.css" />
+    <link rel="stylesheet" href="../css/article.css" />
+    <!-- 可选样式 -->
+    <style>
+      /* 样式 */
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>{{ page.title }}</h1>
+      <h2>{{ page.subtitle | default: ''}}</h2>
+      <p>作者：{{page.author | default: '?'}}</p>
+      <hr />
+    </header>
+    <article>{{ content }}</article>
+    <div>
+      <h2>返回</h2>
+      <p><a href="/index.html">返回主界面</a></p>
+    </div>
+    <script
+      src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js"
+      defer></script>
+  </body>
+</html>
