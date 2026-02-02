@@ -1,4 +1,4 @@
 markdown: kramdown
 kramdown:
-  smart_quotes: false # 关闭智能引号
+  smart_quotes: ["apos", "apos", "quot", "quot"]
   typographer: false
