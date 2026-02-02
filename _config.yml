@@ -1,3 +1,4 @@
 markdown: kramdown
 kramdown:
   smart_quotes: false # 关闭智能引号
+  typographer: false
