@@ -10,60 +10,62 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 ---
 
 <style>
-      body {
-        margin: 0 auto;
-        padding: 0 8px;
-      }
-      #START ul {
-        margin: 0;
-      }
-      h1,
-      h2,
-      .center {
-        text-align: center;
-      }
-      noscript {
-        display: block;
-        text-align: center;
-      }
-      #START a {
-        display: block;
-      }
-      h4 {
-        position: sticky;
-        top: 0;
-        background-color: var(--bgColor);
-        display: block;
-      }
-      #START {
-        display: none;
-        overflow: hidden;
-      }
-      :root {
-        --toht: 0;
-      }
-      footer {
-        text-align: center;
-      }
-      @keyframes expand {
-        0% {
-          height: 0;
-        }
-        100% {
-          height: calc(var(--toht) * 1px);
-        }
-      }
-      @keyframes shrink {
-        0% {
-          height: calc(var(--toht) * 1px);
-        }
-        100% {
-          display: none;
-
-          height: 0;
-        }
-      }
-    </style>
+body {
+  margin: 0 auto;
+  padding: 0 8px;
+}
+#START ul {
+  margin: 0;
+}
+h1,
+h2,
+.center {
+  text-align: center;
+}
+noscript {
+  display: block;
+  text-align: center;
+}
+#START a {
+  display: block;
+}
+h4 {
+  position: sticky;
+  top: 0;
+  background-color: var(--bgColor);
+  display: block;
+}
+#START {
+  display: none;
+  overflow: hidden;
+}
+:root {
+  --toht: 0;
+}
+footer {
+  text-align: center;
+}
+ul{
+  display: inline-block;
+}
+@keyframes expand {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: calc(var(--toht) * 1px);
+  }
+}
+@keyframes shrink {
+  0% {
+    height: calc(var(--toht) * 1px);
+  }
+  100% {
+    display: none;
+    height: 0;
+  }
+}
+</style>
 
 <script>
       var clickTimes = 0;
@@ -490,7 +492,9 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 #### <a name="转型运动的兴起与受阻"></a>转型运动的兴起与受阻
 
-经历近两年动乱，星球阁已几乎丧失原先在星球圈的地位和话语权，这两年组织粉丝总量净增长不足5万，受星球动画挤压，几乎全部的成员都选择了淡圈或停更的道路。但与之不同的是，也有一些成员自发的去寻找新的出路，2023年末以来Acubens-A所创作的新型物理科普视频使得其流量与粉丝数量一直稳步增长，至转型运动前夕，Acubens-A已获得近10万粉丝；2024年8月末，[天白](https://v.douyin.com/iNemBHf7/)发布了几期类似[B大附中](https://space.bilibili.com/499453755)的抽象鬼畜视频，获得了少量流量，走上了抽象的道路。两者虽在个人层面成效明显，但也仍未引发真正"运动"层面的转型。与此同时，Earth-2吸收了这两种视频创作模式，首次将鬼畜音效与知识科普结合<small>（争议观点，待考证）</small>，发布了第一期真正意义上的"抽象科普"视频——《暴力制氧》。但这期视频也因照搬天白早些时候一视频呈现形式而引发阁内成员的批判。10月19日，Earth-2粉丝突破20万，这是自Nsakrty2022年1月中旬掉出20万粉丝以来，星球阁再次出现20万粉丝以上的成员。
+![](https://s1.imagehub.cc/images/2026/02/02/25c30816300b44ebca4b450d44eb7d10.jpg)
+
+经历近两年动乱，星球阁已几乎丧失原先在星球圈的地位和话语权，这两年组织粉丝总量净增长不足5万，受星球动画挤压，几乎全部的成员都选择了淡圈或停更的道路。但与之不同的是，也有一些成员自发的去寻找新的出路，2023年末以来Acubens-A所创作的新型物理科普视频使得其流量与粉丝数量一直稳步增长，至转型运动前夕，Acubens-A已获得近10万粉丝。2024年8月末，[天白](https://v.douyin.com/iNemBHf7/)发布了几期类似[B大附中](https://space.bilibili.com/499453755)的抽象鬼畜视频，获得了少量流量，走上了抽象的道路。两者虽在个人层面成效明显，但也仍未引发真正"运动"层面的转型。与此同时，Earth-2吸收了这两种视频创作模式，首次将鬼畜音效与知识科普结合<small>（争议观点，待考证）</small>，发布了第一期真正意义上的"抽象科普"视频——《暴力制氧》。但这期视频也因照搬天白早些时候一视频呈现形式而引发阁内成员的批判。10月19日，Earth-2粉丝突破20万，这是自Nsakrty2022年1月中旬掉出20万粉丝以来，星球阁再次出现20万粉丝以上的成员。
 
 巨大的流量前景在星球阁内拉开了转型的序幕，在这之后，天白吸收了科普的创作模式，Acubens-A则在视频内融入了部分搞笑、鬼畜音效，改进视频风格后的两人都获得了巨大的收益。10月26日，[Maugfy](https://v.douyin.com/SXo52ND/)所发布的一期同为抽象科普的《水循环》取得大火，在他11月2日突破10万粉丝的约一周后，这期视频也成为了星球阁历史上[第二个破百万点赞的视频](https://v.douyin.com/CeinsT8D/ 08/01)，给当时的其他星球阁成员带来了巨大的动力，真正颇具规模的转型运动开始展开，[水益](https://v.douyin.com/iNemFoES/)，[海山二](https://v.douyin.com/QCI08PdlBjs/)，[Earth-5](https://v.douyin.com/iJf3UUTu/)等都开始制作与之类似的视频。月末，Maugfy粉丝超过Earth-2，成为星球阁粉丝数最高的成员。12月15日，Maugfy在其[星球阁第三个破百万视频](https://v.douyin.com/b9eDz9SplFg)《海岸地貌》热度的加持下破了30万粉丝，星球阁粉丝增长速率创下自2022年以来的最高水平，整体流量呈现出一片繁荣景象。
 
@@ -542,8 +546,6 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 7月19日，本站子站点[星球阁非官方文档汇总站(oc.srpn.top)](https://oc.srpn.top)正式上线，站长为Nsakrty，并将星球阁非官方立场的文章整理于此。这助推了星球阁网站生态内容的多元化和立场的丰富性，有助于对星球阁的进一步了解。24日，水益正式成为其编辑。
 
 29日，星球阁官网和星球阁非官方文档汇总站开始使用流量统计功能。
-
-7月，由于暑假的到来，学习氛围的淡化加上学科燃剪同质化的冲击，对正进行大规模转型的星球阁各成员流量造成明显影响，这个月星球阁总粉丝数出现了自转型运动以来的首次负增长，逐渐走低的流量也使得原本被埋没掉的成员矛盾重新显现出来。该现象也反映了转型的部分弊端，学科燃剪逐渐走向没落，流量呈现总体下行的局面。虽然8月末数据面板类视频短暂兴起，但却遭遇了无比迅速，猛烈的同质化，这种同质化与单一化的问题使得星球阁成员开始意识到转变的必要性。这也标志着转型运动第三阶段的开始。
 
 7月，由于暑假的到来，学习氛围的淡化加上学科燃剪同质化的冲击，对正进行大规模转型的星球阁各成员流量造成明显影响，这个月星球阁总粉丝数出现了自转型运动以来的首次负增长，逐渐走低的流量也使得原本被埋没掉的成员矛盾重新显现出来。该现象也反映了转型的部分弊端，学科燃剪逐渐走向没落，流量呈现总体下行的局面。虽然8月末数据面板类视频短暂兴起，但却遭遇了无比迅速，猛烈的同质化，这种同质化与单一化的问题使得星球阁成员开始意识到转变的必要性。这也标志着转型运动第三阶段的开始。
 
