@@ -30,7 +30,7 @@ table {
 
 | 组织名    | 英文缩写 | 现领导人   | 建立日     | 备注 |
 | :-------------------- | :------- | :--------------------- | :--------- | :--------- |
-| [星球地理](./srpg.html) | SRPG     | [银杏](https://v.douyin.com/iJn8VSEf/) | 2023.05.07 | 正常运作   |
+| [星球地理](./srpg) | SRPG     | [银杏](https://v.douyin.com/iJn8VSEf/) | 2023.05.07 | 正常运作   |
 | [星球编程](https://github.com/SRPNGO) | SRPG     | [Nsakrty](https://v.douyin.com/hWfRVaA/) | 2021.03.03 | 正常运作   |
 | [星联阁](https://skdc.rth1.vip/)•星辰阁 | SRDC     | [KillpL佰玖](https://v.douyin.com/kE9RW8C/) | 2023.01.26 | 不稳定     |
 | [星球观测](https://srpn.top/sron) | SRON     | 新智彗星   | 2022.04.06 | 无比沉默   |
