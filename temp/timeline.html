@@ -1,5 +1,4 @@
 <!doctype html>
-
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8" />
@@ -11,7 +10,15 @@
       --textColor: #0f0f0f;
       --mutedColor: #6b6b6b;
       --linkColor: #1e90ff;
-      --accentColor: #9cc;
+
+      /* accent palette: same hue, different lightness */
+      --accent-1: #2f6f6a; /* very important */
+      --accent-2: #4f8f8a; /* important */
+      --accent-3: #74aaa6; /* normal */
+      --accent-4: #9cc;    /* minor */
+      --accent-5: #cfe7e5; /* trivial */
+
+      --accentColor: var(--accent-3);
       --mutedBorder: #0003;
       --cardBg: #ffffff;
       --maxWidth: 600px;
@@ -42,9 +49,7 @@
     p.lead{margin:0 0 16px 0;color:var(--mutedColor);font-size:13px}
 
     /* timeline */
-    .timeline{
-      position:relative;
-    }
+    .timeline{position:relative}
 
     .timeline ul{
       list-style:none;
@@ -53,7 +58,6 @@
       position:relative;
     }
 
-    /* vertical line */
     .timeline ul::before{
       content:"";
       position:absolute;
@@ -69,9 +73,9 @@
       position:relative;
       margin:10px 0 18px 0;
       padding-left:1.25rem;
+      --accentColor: var(--accent-3);
     }
 
-    /* dot */
     .timeline-item::before{
       content:"";
       position:absolute;
@@ -96,13 +100,6 @@
       border:1px solid var(--mutedBorder);
       border-radius:6px;
       padding:8px;
-      transition:transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .timeline-card:hover,
-    .timeline-card:focus-within{
-      transform:translateY(-4px);
-      box-shadow:0 6px 18px rgba(0,0,0,0.06);
     }
 
     .timeline-card h4{
@@ -111,193 +108,182 @@
       font-size:14px;
     }
 
-    .timeline-card p{
-      margin:0;
-      text-indent:0;
-      font-size:0.95em;
+    /* priority → accent 映射（不改原样式结构） */
+    .p1{--accentColor:var(--accent-1)}
+    .p2{--accentColor:var(--accent-2)}
+    .p3{--accentColor:var(--accent-3)}
+    .p4{--accentColor:var(--accent-4)}
+    .p5{--accentColor:var(--accent-5)}
+
+    /* viewlevel filter */
+    [data-level="1"] .p2,
+    [data-level="1"] .p3,
+    [data-level="1"] .p4,
+    [data-level="1"] .p5{display:none}
+
+    [data-level="2"] .p3,
+    [data-level="2"] .p4,
+    [data-level="2"] .p5{display:none}
+
+    [data-level="3"] .p4,
+    [data-level="3"] .p5{display:none}
+
+    [data-level="4"] .p5{display:none}
+
+    /* viewlevel buttons */
+    .viewlevel{
+      position:fixed;
+      top:12px;
+      right:12px;
+      display:flex;
+      gap:6px;
+      z-index:10;
     }
 
-    /* responsive */
+    .viewlevel button{
+      border:1px solid var(--mutedBorder);
+      background:#fff;
+      border-radius:999px;
+      padding:4px 10px;
+      font-size:12px;
+      cursor:pointer;
+    }
+
+    .viewlevel button.active{
+      background:#000;
+      color:#fff;
+    }
+
     @media (max-width:500px){
       .timeline ul::before{left:0.375rem}
       .timeline-item::before{left:-0.125rem;width:8px;height:8px;top:0.5rem}
       .timeline-card{padding:6px}
     }
-
-    /* reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      .timeline-card{transition:none}
-      .timeline-card:hover{transform:none;box-shadow:none}
-    }
   </style>
 </head>
 <body>
-  <main class="container">
+  <main class="container" data-level="2" id="app">
     <h1>星球阁 · 时间轴</h1>
     <p class="lead">JSON 驱动 · 单列 · 极简风</p>
 
-    <section class="timeline" aria-label="Timeline">
-      <ul id="timeline"></ul>
-    </section>
+    <div class="viewlevel">
+      <button data-l="1">最简</button>
+      <button data-l="2">精简</button>
+      <button data-l="3">适中</button>
+      <button data-l="4">详细</button>
+      <button data-l="5">全部</button>
+    </div>
+
+    <section class="timeline"><ul id="timeline"></ul></section>
   </main>
 
   <script>
-    /* const timelineData = {
-      "2019": [
-        {"month": "3", "event": "星零创建星球家族"},
-        {"month": "5", "event": "对外宣传"},
-        {"month": "6", "event": "审核制度的创立"},
-        {"month": "6~9", "event": "星球家族全盛时期"},
-        {"month": "10", "event": "星球家族解散"},
-        {"month": "10", "event": "前星球阁成立"}
-      ],
-      "2020": [
-        {"month": "2", "event": "Nsakrty担任阁主"},
-        {"month": "3", "event": "星球阁主群创立"},
-        {"month": "4", "event": "星球阁第二版Logo的制作"},
-        {"month": "4", "event": "试卷生成器的制作"},
-        {"month": "5", "event": "星零注销账号"},
-        {"month": "5", "event": "前星球阁解散"},
-        {"month": "5", "event": "新星球家族成立"},
-        {"month": "6", "event": "新星球家族改名为星球阁"},
-        {"month": "9", "event": "第一版《星球阁条例》"},
-        {"month": "9", "event": "第一版星球阁粉丝数统计"}
-      ],
-      "2021": [
-        {"month": "1", "event": "第二版星球阁官网"},
-        {"month": "2", "event": "狗头君花粉事件"},
-        {"month": "7", "event": "第二个审核员"},
-        {"month": "7~8", "event": "\"血泪\"事件"},
-        {"month": "8", "event": "恒星生命历程的爆火"},
-        {"month": "8", "event": "星球阁影响力的再次提升"}
-      ],
-      "2022": [
-        {"month": "2", "event": "星球圈的初步形成"},
-        {"month": "5", "event": "Earth-2停更恒星生命历程"},
-        {"month": "5", "event": "成员检测器的开发"},
-        {"month": "6", "event": "开始在b站审核"},
-        {"month": "6", "event": "dogepro事件"},
-        {"month": "7", "event": "一些星球阁成员的皮肤在《我的世界》上线"},
-        {"month": "10", "event": "一些星球阁成员入驻快手"},
-        {"month": "10", "event": "星球阁名声下跌的开始"},
-        {"month": "12", "event": "星球阁在b站受到更多反对"},
-        {"month": "12", "event": "SRPN首个破百万点赞的视频"}
-      ],
-      "2023": [
-        {"month": "1", "event": "\"新智彗星\"事件"},
-        {"month": "1", "event": "LESH事件"},
-        {"month": "1", "event": "低俗视频入侵星球圈"},
-        {"month": "4", "event": "\"星球圈低创危机\""},
-        {"month": "5", "event": "Earth-2成为星球阁粉丝数第一"},
-        {"month": "7", "event": "“科学商所长”事件"},
-        {"month": "7", "event": "“中子星”事件"},
-        {"month": "9~12", "event": "星球阁、军武阁冲突"},
-        {"month": "11", "event": "Acubens-A开始更新抽象科普视频"},
-        {"month": "12", "event": "星球阁废除试卷审核制度"}
-      ],
-      "2024": [
-        {"month": "2", "event": "星球阁高层更换"},
-        {"month": "2~5", "event": "星球圈组织间的冲突"},
-        {"month": "5", "event": "星球阁主群被封"},
-        {"month": "8", "event": "内外分层结构创立，二群建立"},
-        {"month": "8~12", "event": "转型运动(抽象科普阶段)"},
-        {"month": "11", "event": "Maugfy成为星球阁粉丝数第一"}
-      ],
-      "2025": [
-        {"month": "1", "event": "进一步简化审核"},
-        {"month": "1~7", "event": "转型运动(学科燃剪阶段)"},
-        {"month": "8~12", "event": "水益担任阁主，权力中心正式转移"},
-        {"month": "8~12", "event": "转型运动(受阻阶段)"}
-      ],
-      "2026": [
-        {"month": "1", "event": "二群职能结束，主群对外开放"}
-      ]
-    }; */
+    const app = document.getElementById('app');
+    document.querySelectorAll('.viewlevel button').forEach(btn=>{
+      btn.onclick=()=>{
+        document.querySelectorAll('.viewlevel button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        app.dataset.level = btn.dataset.l;
+      };
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+  const app = document.getElementById("app");
+  const level = app.dataset.level;
 
-const timelineData = {
+  document
+    .querySelectorAll(".viewlevel button")
+    .forEach(btn => {
+      btn.classList.toggle("active", btn.dataset.l === level);
+    });
+});
+
+
+    const timelineData = {
   "2019": [
     {"month": "3", "event": "星零于抖音创建星球家族（SRCN）", "priority": 1},
-    {"month": "4", "event": "Nsakrty加入星球家族", "priority": 2},
+    // {"month": "4", "event": "Nsakrty加入星球家族", "priority": 2},
     {"month": "5", "event": "星球家族对外正式宣传，启动成员招新", "priority": 3},
     {"month": "5", "event": "Nsakrty发布星球家族招人视频", "priority": 4},
-    {"month": "6", "event": "Nsakrty制定星球家族加入条件，创立审核制度", "priority": 2},
-    {"month": "6", "event": "Nsakrty制定星球家族调查问卷（入阁试卷雏形）", "priority": 4},
+    {"month": "6", "event": "制定星球家族加入条件，创立审核制度", "priority": 2},
+    {"month": "6", "event": "Nsakrty制定星球家族调查问卷", "priority": 4},
     {"month": "6~7", "event": "星球家族总粉丝数破10万，成员规模达70人，进入巅峰时期", "priority": 2},
     {"month": "7", "event": "星零粉丝破10万，Nsakrty粉丝达8万", "priority": 3},
-    {"month": "8", "event": "青芒君（最佳鸽子）创建星球家族群聊", "priority": 3},
-    {"month": "9", "event": "Nsakrty因个人原因停更3个月，星零失去创作动力", "priority": 2},
+    {"month": "8", "event": "最佳鸽子创建星球家族群聊", "priority": 3},
+    {"month": "9", "event": "Nsakrty因个人原因停更3个月，星零失去创作动力", "priority": 4},
     {"month": "9", "event": "星零将星球家族族长职位交接给Nsakrty", "priority": 1},
     {"month": "10", "event": "星球家族因内部斗争愈演愈烈解散", "priority": 1},
-    {"month": "10", "event": "原星球家族成员史小坑建立前星球阁（SRPN）", "priority": 1},
-    {"month": "11~12", "event": "Nsakrty、星零粉丝量下滑，星球阁发展停滞", "priority": 3}
+    {"month": "10", "event": "前星球阁创建", "priority": 1},
+    {"month": "11~12", "event": "Nsakrty、星零粉丝量下滑", "priority": 4},
   ],
   "2020": [
     {"month": "2", "event": "Nsakrty当选星球阁阁主", "priority": 1},
     {"month": "2", "event": "星球阁主群创建", "priority": 3},
-    {"month": "2", "event": "Nsakrty尝试制作粉丝数量统计视频失败", "priority": 4},
-    {"month": "3", "event": "Nsakrty设计星球阁第一代logo", "priority": 4},
-    {"month": "4", "event": "Nsakrty、天体君、水货等设计星球阁第二代logo", "priority": 4},
+    {"month": "2", "event": "Nsakrty尝试制作粉丝数量统计视频失败", "priority": 5},
+    {"month": "3", "event": "设计星球阁第一代Logo", "priority": 3},
+    {"month": "4", "event": "设计星球阁第二代Logo", "priority": 2},
     {"month": "4", "event": "星球阁自主研发试卷生成器（iPhone快捷指令运行）", "priority": 2},
-    {"month": "5", "event": "Nsakrty一条视频爆火，6月粉丝破10万，成员集体涨粉", "priority": 2},
-    {"month": "5", "event": "Nsakrty宣布解散星球阁，成员自发创建新星球家族", "priority": 1},
-    {"month": "5", "event": "星零注销12万粉丝账号", "priority": 2},
-    {"month": "6", "event": "新星球家族正式改名为星球阁（SRPN）", "priority": 1},
-    {"month": "7", "event": "星球阁搭建第一代官网（后停更下线）", "priority": 4},
-    {"month": "9", "event": "星球阁制定第一版《星球阁条例》", "priority": 2},
-    {"month": "9", "event": "Nsakrty成功制作第一版粉丝数量统计视频", "priority": 4},
+    {"month": "5", "event": "Nsakrty一条视频爆火，6月粉丝破10万，成员集体涨粉", "priority": 4},
+    {"month": "5", "event": "Nsakrty宣布解散前星球阁，成员自发创建新星球家族", "priority": 1},
+    {"month": "5", "event": "星零注销12万粉丝账号", "priority": 3},
+    {"month": "6", "event": "新星球家族正式改名为（后）星球阁", "priority": 1},
+    {"month": "7", "event": "搭建第一代官网", "priority": 4},
+    {"month": "9", "event": "制定第一版《星球阁条例》", "priority": 2},
+    {"month": "9", "event": "第一版粉丝数量统计视频", "priority": 4},
     {"month": "10", "event": "星球阁缩写正式定为SRPN，开始用于成员网名标记", "priority": 3},
-    {"month": "11", "event": "狗头君花粉（50万粉）申请加入星球阁", "priority": 3}
+    {"month": "11", "event": "狗头君花粉申请加入星球阁", "priority": 4}
   ],
   "2021": [
-    {"month": "1", "event": "SRPN网建立（第二代官网，网址srpn.rthe.xyz）", "priority": 4},
-    {"month": "2", "event": "星球阁总部迁移，建立新主群（使用至2022）", "priority": 3},
+    {"month": "1", "event": "搭建第二代官网", "priority": 4},
+    {"month": "2", "event": "星球阁总部迁移，建立新主群", "priority": 3},
     {"month": "2", "event": "血泪与星球阁合作创建分组织波兰星球（SRPB）", "priority": 4},
-    {"month": "2", "event": "波兰星球因规则与审核问题解散（成立不足一周）", "priority": 4},
+    {"month": "2", "event": "波兰星球解散", "priority": 4},
     {"month": "3", "event": "Nsakrty建立分组织星球编程（SRPG）", "priority": 4},
     {"month": "7", "event": "星球阁新增审核员Atpx", "priority": 3},
-    {"month": "7~8", "event": "血泪事件爆发（因管理制度不满与Maugfy矛盾，后冷处理）", "priority": 2},
-    {"month": "8", "event": "Nsakrty推出星球阁迁移计划，应对血泪事件", "priority": 3},
+    {"month": "7~8", "event": "血泪事件爆发", "priority": 2},
+    {"month": "8", "event": "Nsakrty推出星球阁迁移计划，应对血泪事件", "priority": 4},
     {"month": "8", "event": "Earth-2发布首个恒星生命历程视频，引发创作热潮", "priority": 1},
-    {"month": "12", "event": "Nsakrty将阁主职位交给qn", "priority": 1},
+    {"month": "12", "event": "Nsakrty将阁主职位交给qn（权力中心未实际转移）", "priority": 3},
     {"month": "12", "event": "《星球阁简史》重写完成", "priority": 4}
   ],
   "2022": [
-    {"month": "1", "event": "Nsakrty尝试更换群主时出现bug，重新建群邀请成员", "priority": 3},
-    {"month": "1", "event": "怀壹事件爆发", "priority": 3},
+    {"month": "1", "event": "星球阁主群因平台bug重建", "priority": 3},
+    {"month": "1", "event": "怀壹事件爆发", "priority": 4},
     {"month": "2", "event": "星球圈正式形成，多个类似组织涌现", "priority": 1},
     {"month": "2", "event": "Nsakrty完成试卷生成器安卓移植版", "priority": 4},
     {"month": "3", "event": "SRPN网进行大更新，优化样式并添加logo", "priority": 5},
     {"month": "4", "event": "分组织星球摄影（SRPY）成立，领导人新智彗星", "priority": 4},
     {"month": "4", "event": "SRPN网开始使用javascript，SRPY网同步成立", "priority": 5},
     {"month": "5", "event": "Earth-2宣布停止更新恒星生命历程系列", "priority": 3},
-    {"month": "5", "event": "qn创立星球阁二群", "priority": 4},
+    {"month": "5", "event": "星球阁二群创建", "priority": 4},
     {"month": "5", "event": "Nsakrty开发星球阁成员检测器，应对成员冒充现象", "priority": 3},
     {"month": "5~9", "event": "星球圈“画质爆炸”，青菜引发画技提升热潮", "priority": 2},
     {"month": "6", "event": "星球阁开始在Bilibili试行审核", "priority": 3},
     {"month": "6", "event": "Dogepro事件爆发（音乐授权争议，后协商解决）", "priority": 2},
     {"month": "7", "event": "新智彗星创建测试群，后转为临时主群", "priority": 4},
-    {"month": "7", "event": "青菜为Earth-2、星零等制作的《我的世界》皮肤上线", "priority": 4},
+    {"month": "7", "event": "青菜制作的星球阁成员《我的世界》皮肤上线", "priority": 4},
     {"month": "7", "event": "星球阁采用新审核标准，试卷拆分为两卷", "priority": 2},
-    {"month": "8", "event": "分组织星球历史（史书阁，SRPH）成立", "priority": 4},
-    {"month": "8", "event": "Nsakrty开发新一代试卷生成器（JavaScript编写）", "priority": 5},
+    {"month": "8", "event": "分组织星球历史（SRPH）成立", "priority": 4},
+    {"month": "8", "event": "Nsakrty开发新一代试卷生成器", "priority": 5},
     {"month": "9", "event": "星球摄影（SRPY）改名为星球观测（SRON）", "priority": 4},
     {"month": "10", "event": "部分成员入驻快手，推动快手星球动画圈成型", "priority": 2},
-    {"month": "10", "event": "成员因辱骂B站用户引发事件，星球阁名声开始下跌", "priority": 2},
-    {"month": "11", "event": "qn与Nsakrty共同担任阁主，7天后经投票Nsakrty单独担任", "priority": 1},
+    // {"month": "10", "event": "成员因辱骂B站用户引发事件，星球阁名声开始下跌", "priority": 2},
+    {"month": "10", "event": "星球阁名声开始下跌", "priority": 2},
+    {"month": "11", "event": "qn与Nsakrty共同担任阁主，7天后经投票Nsakrty单独担任", "priority": 4},
     {"month": "11", "event": "确定副阁主为qn和青菜", "priority": 3},
     {"month": "12", "event": "分组织星球理科（SRMP）成立", "priority": 4},
     {"month": "12", "event": "星球阁在B站知名度快速增长", "priority": 3},
-    {"month": "12", "event": "Earth-2在B站发布引战言论引发众怒，后宣布暂离B站", "priority": 3},
-    {"month": "12", "event": "青菜上架星球阁周边商品引发B站天文圈不满，后删除宣传视频", "priority": 3},
+    // {"month": "12", "event": "Earth-2在B站发布引战言论引发众怒，后宣布暂离B站", "priority": 3},
+    // {"month": "12", "event": "青菜上架星球阁周边商品引发B站天文圈不满，后删除宣传视频", "priority": 3},
+    {"month": "12", "event": "青菜上架星球阁周边商品", "priority": 3},
     {"month": "12", "event": "星球阁制定《对违反星球阁成员的处罚标准》", "priority": 2},
-    {"month": "12", "event": "星球阁首个破百万点赞视频出现（后被恶意举报删除）", "priority": 1},
-    {"month": "12", "event": "Hliva因账号绑定问题注销原账号，与Nsakrty约定1月1日回归", "priority": 2}
+    {"month": "12", "event": "星球阁首个破百万点赞视频出现", "priority": 1},
+    {"month": "12", "event": "Hliva因账号绑定问题注销原账号，与Nsakrty约定1月1日回归", "priority": 4}
   ],
   "2023": [
-    {"month": "1", "event": "新智彗星事件爆发，解散星球阁主群并退阁，带走SRON", "priority": 1},
+    {"month": "1", "event": "新智彗星事件爆发，星球阁主群被解散", "priority": 1},
     {"month": "1", "event": "星球阁审核暂停", "priority": 3},
-    {"month": "1", "event": "Mr.Liu退阁并发布视频质疑星球阁管理，引发LESH事件", "priority": 1},
-    {"month": "1", "event": "海稻退阁并发布视频指责星球阁“压榨小佬”", "priority": 3},
+    {"month": "1", "event": "LESH事件", "priority": 1},
+    // {"month": "1", "event": "海稻退阁并发布视频指责星球阁“压榨小佬”", "priority": 3},
     {"month": "1", "event": "SRPN网更换网址为www.srpn.top", "priority": 5},
     {"month": "1", "event": "分组织星辰阁（SRDC）成立，领导人佰玖", "priority": 4},
     {"month": "1", "event": "Maugfy成为星球阁首个B站万粉成员", "priority": 4},
@@ -307,47 +293,52 @@ const timelineData = {
     {"month": "2", "event": "星球阁试卷改良完成，恢复审核", "priority": 3},
     {"month": "2", "event": "LESH事件结束，新智彗星回归，反星球阁组织瓦解", "priority": 2},
     {"month": "3", "event": "SRPN网进行第二次样式更新，调整排版", "priority": 5},
-    {"month": "4", "event": "科学商所长事件爆发（发布低质量星球动画引发舆论冲突）", "priority": 2},
+    {"month": "4", "event": "科学商所长发布低质量星球动画引发舆论冲突", "priority": 3},
     {"month": "5", "event": "Earth-2成为星球阁粉丝数最高成员", "priority": 3},
     {"month": "5", "event": "Nsakrty制定《星球圈绘画守则(征求意见稿)》", "priority": 3},
     {"month": "6", "event": "新智彗星重建星球观测（SRON）", "priority": 4},
-    {"month": "6", "event": "Nsakrty因中考卸任阁主，qn接任（权力中心未转移）", "priority": 1},
+    {"month": "6", "event": "Nsakrty因中考卸任阁主，qn接任（权力中心未转移）", "priority": 4},
     {"month": "6", "event": "青菜开始制作3D星球视频，技术在阁内传播", "priority": 3},
     {"month": "7", "event": "星联阁成立（多个星球圈组织合并）", "priority": 2},
-    {"month": "7", "event": "科学商所长修改简介自称“星球阁阁主”，挂上星球阁logo", "priority": 2},
-    {"month": "7", "event": "科学商所长经交涉修改简介和背景图", "priority": 3},
-    {"month": "7", "event": "中子星被踢出星球阁，创建光启阁", "priority": 1},
+    {"month": "7", "event": "科学商所长事件爆发", "priority": 2},
+    {"month": "7", "event": "科学商所长修改简介自称“星球阁阁主”，挂上星球阁logo", "priority": 4},
+    {"month": "7", "event": "科学商所长经交涉修改简介和背景图", "priority": 4},
+    {"month": "7", "event": "中子星被踢出星球阁，创建光启阁", "priority": 4},
     {"month": "7", "event": "Zhang与中子星矛盾升级，引发星球阁与光启阁冲突", "priority": 2},
-    {"month": "8", "event": "星辰阁短暂解体，12天后重组", "priority": 4},
+    {"month": "7", "event": "中子星事件爆发", "priority": 1},
+    {"month": "8", "event": "星联阁短暂解体，12天后重组", "priority": 4},
     {"month": "8", "event": "中子星事件逐渐平息", "priority": 3},
-    {"month": "9", "event": "中子星发布星球阁负面言论，科普君响应引发科普君事件", "priority": 1},
-    {"month": "9", "event": "星零露脸照被军武阁挖出并传播", "priority": 2},
-    {"month": "9", "event": "Nsakrty被迫与科普君签订“和平条约”，第一次科普君事件结束", "priority": 2},
-    {"month": "10", "event": "因条约不平等，第二次科普君事件爆发", "priority": 2},
+    {"month": "9", "event": "中子星发布星球阁负面言论，科普君响应", "priority": 3},
+    {"month": "9", "event": "科普君事件", "priority": 1},
+    {"month": "9", "event": "星零露脸照被军武阁挖出并传播", "priority": 5},
+    {"month": "9", "event": "Nsakrty被迫与科普君签订“和平条约”", "priority": 4},
+    {"month": "9", "event": "第一次科普君事件结束", "priority": 2},
+    {"month": "10", "event": "第二次科普君事件爆发", "priority": 2},
     {"month": "11", "event": "星球阁停用试卷审核制度", "priority": 2},
-    {"month": "12", "event": "科普君策反水益，水益“假叛变”进入军武阁", "priority": 2},
-    {"month": "12", "event": "水益利用军武阁管理权限踢出217名成员，引发冲突", "priority": 2}
+    {"month": "12", "event": "科普君策反水益，水益“假叛变”进入军武阁", "priority": 4},
+    {"month": "12", "event": "军武阁主群被毁，第二次科普君事件结束", "priority": 4}
   ],
   "2024": [
-    {"month": "1", "event": "水益将粉丝群改造成“星水阁”（SWPN）", "priority": 3},
-    {"month": "1", "event": "星水阁加入星联阁，后因冲突被移出", "priority": 3},
-    {"month": "2", "event": "星球阁进行高层招新与职位调整，水益、天白、极光任副阁主，阁主空缺", "priority": 1},
-    {"month": "2", "event": "新智彗星担任副阁主", "priority": 3},
+    {"month": "1", "event": "水益将粉丝群改造成“星水阁”", "priority": 4},
+    {"month": "2", "event": "高层调整，水益、天白、极光、新智彗星任副阁主，阁主空缺", "priority": 1},
     {"month": "2", "event": "星球阁重新开放审核制度，取消入阁试卷", "priority": 2},
-    {"month": "2~5", "event": "星球圈多组织爆发冲突（联武战争、星联阁内战等）", "priority": 1},
+    {"month": "2~5", "event": "星球圈多组织爆发冲突", "priority": 3},
     {"month": "3", "event": "SRPN网进行第四次样式更新，改为图文并茂形式", "priority": 5},
-    {"month": "3", "event": "Earth-1发布LESH事件声明", "priority": 3},
-    {"month": "4", "event": "四三〇封号封群事件爆发，多名成员账号禁言，多个群聊被封", "priority": 1},
+    {"month": "3", "event": "Earth-1发布LESH事件声明", "priority": 5},
+    {"month": "4", "event": "四三〇封号封群事件爆发，星球圈多名成员账号禁言，多个群聊被封", "priority": 2},
     {"month": "5", "event": "星球阁主群被封，Nsakrty重建主群", "priority": 3},
     {"month": "8", "event": "星球阁完善审核制度，创立二群，招入十余位新成员", "priority": 3},
-    {"month": "8~12", "event": "转型运动第一阶段启动（Acubens-A抽象科普视频爆火）", "priority": 1},
-    {"month": "10", "event": "Maugfy发布《水循环》视频爆火，转型运动全面展开", "priority": 1},
+    {"month": "8~12", "event": "Acubens-A抽象科普视频爆火", "priority": 4},
+    {"month": "8~12", "event": "转型运动第一阶段启动", "priority": 1},
+    {"month": "10", "event": "Maugfy发布《水循环》视频爆火，", "priority": 3},
+    {"month": "10", "event": "转型运动全面展开", "priority": 1},
     {"month": "10", "event": "Earth-2粉丝突破20万", "priority": 4},
     {"month": "11", "event": "Maugfy粉丝突破10万", "priority": 4},
     {"month": "12", "event": "Maugfy粉丝突破30万，成为星球阁粉丝数最高成员", "priority": 4}
   ],
   "2025": [
-    {"month": "1", "event": "转型运动第二阶段启动（Nsakrty三角函数视频爆火，知识燃剪兴起）", "priority": 1},
+    {"month": "1", "event": "Nsakrty三角函数视频爆火，知识燃剪兴起", "priority": 3},
+    {"month": "1", "event": "转型运动第二阶段启动", "priority": 1},
     {"month": "1", "event": "Acubens-A发布物理科普视频，成为星球阁首个200万赞视频", "priority": 3},
     {"month": "1", "event": "星球阁简化审核，全面开放二群", "priority": 3},
     {"month": "2", "event": "SRPN网进行第五次样式更新，切换主题颜色", "priority": 5},
@@ -355,48 +346,46 @@ const timelineData = {
     {"month": "3", "event": "XF力学与压强系列视频爆火，三周涨粉近6万", "priority": 4},
     {"month": "4", "event": "Maugfy粉丝破50万", "priority": 4},
     {"month": "5", "event": "水益发布地理视频爆火，成为第六个百万赞视频，结束两年掉粉", "priority": 3},
-    {"month": "5", "event": "水益视频成为星球阁最快冲上百万赞的视频", "priority": 4},
+    {"month": "5", "event": "水益的第六个百万赞视频成为星球阁最快冲上百万赞的视频", "priority": 5},
     {"month": "6", "event": "水益接手星球阁粉丝数量统计系列制作", "priority": 4},
     {"month": "6", "event": "星球阁logo完成矢量化", "priority": 5},
-    {"month": "7", "event": "星球阁非官方文档汇总站(oc.srpn.top)上线", "priority": 5},
+    {"month": "7", "event": "星球阁非官方文档汇总站上线", "priority": 5},
     {"month": "7", "event": "水益成为非官方文档汇总站编辑", "priority": 5},
-    {"month": "7", "event": "转型运动第三阶段启动（流量负增长，同质化显现）", "priority": 1},
-    {"month": "7", "event": "星球阁群内围绕学习、视频创作、群务等话题活跃互动", "priority": 4},
-    {"month": "8", "event": "星球阁爆发内部矛盾，引发高层分裂", "priority": 1},
+    {"month": "7", "event": "转型运动第三阶段启动", "priority": 1},
+    {"month": "7", "event": "转型流量负增长，同质化显现", "priority": 3},
+    {"month": "8", "event": "星球阁爆发内部矛盾，引发高层分裂", "priority": 2},
     {"month": "9", "event": "水益担任星球阁新阁主，原高层群解散", "priority": 1},
-    {"month": "9", "event": "Earth-2发布控诉现状的小作文，矛头直指Acubens-A和SYUN", "priority": 2},
-    {"month": "9", "event": "Acubens-A发布长篇文章回击Earth-2", "priority": 3},
-    {"month": "10", "event": "Nsakrty与天白正式决裂", "priority": 1},
-    {"month": "10", "event": "Acubens-A、天白等提出退出星球阁，重组新组织SRCC", "priority": 1},
-    {"month": "10", "event": "Nsakrty与Acubens-A达成表面和解，Earth-2取关多人", "priority": 3},
+    {"month": "9", "event": "Earth-2发布控诉现状的小作文，矛头直指Acubens-A和SYUN", "priority": 4},
+    {"month": "9", "event": "Acubens-A发布长篇文章回击Earth-2", "priority": 4},
+    // {"month": "10", "event": "Nsakrty与天白正式决裂", "priority": 5},
+    // {"month": "10", "event": "Acubens-A、天白等提出退出星球阁", "priority": 4},
+    // {"month": "10", "event": "Nsakrty与Acubens-A达成表面和解，Earth-2取关多人", "priority": 3},
   ],
   "2026": [
-  {"month": "1", "event": "1月2日二群停止职能并无限期禁言，主群对外开放", "priority": 2},
-  {"month": "1", "event": "标志内外分层结构结束，审核进一步放宽", "priority": 1}
+  {"month": "1", "event": "二群停止职能并无限期禁言，主群对外开放", "priority": 2},
+  {"month": "1", "event": "内外分层结构结束，审核进一步放宽", "priority": 1}
   ]
 };
 
-
-    const list = [];
-    Object.keys(timelineData).forEach(year => {
-      timelineData[year].forEach(ev => list.push({ year, ...ev }));
+    const list=[];
+    Object.keys(timelineData).forEach(year=>{
+      timelineData[year].forEach(ev=>list.push({year,...ev}));
     });
 
-    const ul = document.getElementById('timeline');
-    list.forEach(item => {
-      const li = document.createElement('li');
-      li.className = 'timeline-item';
+    const ul=document.getElementById('timeline');
+    list.forEach(item=>{
+      const li=document.createElement('li');
+      li.className=`timeline-item p${item.priority}`;
 
-      const time = document.createElement('time');
-      time.className = 'timeline-time';
-      time.dateTime = `${item.year}-${item.month}`;
-      time.textContent = `${item.year} 年 ${item.month} 月`;
+      const time=document.createElement('time');
+      time.className='timeline-time';
+      time.textContent=`${item.year} 年 ${item.month} 月`;
 
-      const card = document.createElement('div');
-      card.className = 'timeline-card';
+      const card=document.createElement('div');
+      card.className='timeline-card';
 
-      const h4 = document.createElement('h4');
-      h4.textContent = item.event;
+      const h4=document.createElement('h4');
+      h4.textContent=item.event;
 
       card.appendChild(h4);
       li.appendChild(time);
@@ -406,4 +395,3 @@ const timelineData = {
   </script>
 </body>
 </html>
-
