@@ -71,6 +71,7 @@
         margin: 0;
         padding: 0 0 0 1.25rem;
         position: relative;
+        
       }
 
       .timeline ul::before {
@@ -82,6 +83,7 @@
         width: 2px;
         background: var(--mutedBorder);
         border-radius: 2px;
+        transform: translateX(-50%);
       }
 
       .timeline-item {
@@ -89,6 +91,8 @@
         margin: 10px 0 18px 0;
         padding-left: 1.25rem;
         --accentColor: var(--accent-3);
+        left: -1.25rem;
+        transform: translateX(5px);
       }
 
       .timeline-item::before{
@@ -126,6 +130,17 @@ border-radius: 50%;
         font-weight: 400;
         font-size: 14px;
       }
+
+      li.timeline-year {
+    font-size: 1.4rem;
+    position: sticky;
+    display: block;
+    top: 0;
+    background: #fff;
+    z-index: 99999;
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
 
       /* priority → accent 映射（不改原样式结构） */
       .p1 {
@@ -281,7 +296,7 @@ border-radius: 50%;
           { month: "4", event: "分组织星球摄影成立，领导人新智彗星", priority: 4 },
           { month: "4", event: "SRPN网开始使用javascript，SRPY网同步成立", priority: 5 },
           { month: "5", event: "Earth-2宣布停止更新恒星生命历程系列", priority: 3 },
-          { month: "5", event: "星球阁二群创建", priority: 4 },
+          { month: "5", event: "因一群人满星球阁二群创建", priority: 5 },
           { month: "5", event: "Nsakrty开发星球阁成员检测器，应对成员冒充现象", priority: 3 },
           { month: "5~9", event: "星球圈“画质爆炸”，青菜引发画技提升热潮", priority: 2 },
           { month: "6", event: "星球阁开始在Bilibili试行审核", priority: 3 },
@@ -293,6 +308,7 @@ border-radius: 50%;
           { month: "8", event: "Nsakrty开发新一代试卷生成器", priority: 5 },
           { month: "9", event: "星球摄影改名为星球观测", priority: 4 },
           { month: "10", event: "部分成员入驻快手，推动快手星球动画圈成型", priority: 2 },
+          { month: "10", event: "星球阁新主群由新智彗星创建，原二群荒废", priority: 3 },
           // {"month": "10", "event": "成员因辱骂B站用户引发事件，星球阁名声开始下跌", "priority": 2},
           { month: "10", event: "星球阁名声开始下跌", priority: 2 },
           { month: "11", event: "qn与Nsakrty共同担任阁主，7天后经投票Nsakrty单独担任", priority: 4 },
@@ -477,30 +493,34 @@ requestAnimationFrame(applyReadingFocus);
       /* === 页面加载时自动同步一次 === */
       document.addEventListener("DOMContentLoaded", syncActiveButtons);
 
-      const list = [];
-      Object.keys(timelineData).forEach((year) => {
-        timelineData[year].forEach((ev) => list.push({ year, ...ev }));
-      });
-
       const ul = document.getElementById("timeline");
-      list.forEach((item) => {
-        const li = document.createElement("li");
-        li.className = `timeline-item p${item.priority}`;
 
-        const time = document.createElement("time");
-        time.className = "timeline-time";
-        time.textContent = `${item.year} 年 ${item.month} 月`;
+      Object.keys(timelineData).forEach((year) => {
+        // 年份节点
+        const y = document.createElement("li");
+        y.className = "timeline-year";
+        y.textContent = year;
+        ul.appendChild(y);
 
-        const card = document.createElement("div");
-        card.className = "timeline-card";
+        timelineData[year].forEach((item) => {
+          const li = document.createElement("li");
+          li.className = `timeline-item p${item.priority}`;
 
-        const h4 = document.createElement("h4");
-        h4.textContent = item.event;
+          const time = document.createElement("time");
+          time.className = "timeline-time";
+          time.textContent = `${item.month} 月`;
 
-        card.appendChild(h4);
-        li.appendChild(time);
-        li.appendChild(card);
-        ul.appendChild(li);
+          const card = document.createElement("div");
+          card.className = "timeline-card";
+
+          const h4 = document.createElement("h4");
+          h4.textContent = item.event;
+
+          card.appendChild(h4);
+          li.appendChild(time);
+          li.appendChild(card);
+          ul.appendChild(li);
+        });
       });
     </script>
   </body>
