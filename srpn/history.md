@@ -488,7 +488,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 #### <a name="转型运动的兴起与受阻"></a>转型运动的兴起与受阻
 
-<img src="https://s1.imagehub.cc/images/2026/02/02/25c30816300b44ebca4b450d44eb7d10.jpg" alt="" style="float: right;width: 75%;max-width: none;">
+<img src="https://s1.imagehub.cc/images/2026/02/02/25c30816300b44ebca4b450d44eb7d10.jpg" alt="" style="width: 100%;max-width: none;">
 
 经历近两年动乱，星球阁已几乎丧失原先在星球圈的地位和话语权，这两年组织粉丝总量净增长不足5万，受星球动画挤压，几乎全部的成员都选择了淡圈或停更的道路。但与之不同的是，也有一些成员自发的去寻找新的出路，2023年末以来Acubens-A所创作的新型物理科普视频使得其流量与粉丝数量一直稳步增长，至转型运动前夕，Acubens-A已获得近10万粉丝。2024年8月末，[天白](https://v.douyin.com/iNemBHf7/)在原有的星球圈基础上作出转型尝试，发布了几期类似[B大附中](https://space.bilibili.com/499453755)的抽象鬼畜视频，获得了少量流量，取得了初步成效，走上了抽象的道路，标志着转型运动的开始。
 
