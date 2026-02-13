@@ -1,0 +1,54 @@
+# 编译输出
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# 依赖
+node_modules/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 环境变量
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# 临时文件
+temp/
+*temp*
+
+# 日志
+logs
+*.log
+
+# 备份
+*.bak
+*.old
+
+# 构建文件
+build/
+dist/
+
+# 测试
+coverage/
+.nyc_output/
+
+# 文档
+README*.md
+
+# 其他
+*.zip
+*.tar.gz
+*.rar
