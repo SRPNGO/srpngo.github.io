@@ -9,10 +9,13 @@ description: 星球阁的处罚条例
 h4{
     margin-bottom: -8px;
 }
-h1,h2{
+article h1,h2{
     text-align: center;
 }
 #description>p{
+    text-align: center;
+}
+footer > * {
     text-align: center;
 }
 </style>
@@ -26,6 +29,8 @@ h1,h2{
 下列处罚条例所对应的版本号是其对应的《星球阁条例》版本号。
 
 </div>
+
+- - -
 
 ## 星球阁处罚条例<small>(3.0.0 Alpha)</small>
 

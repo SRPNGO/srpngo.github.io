@@ -8,10 +8,13 @@ description: 星球阁的条例
 h4{
     margin-bottom: -8px;
 }
-h1,h2{
+article h1,h2{
     text-align: center;
 }
 #description>p{
+    text-align: center;
+}
+footer > * {
     text-align: center;
 }
 </style>
@@ -48,7 +51,7 @@ h1,h2{
 
 第3条 禁止越界和过度色情低俗。
 
-第4条 危急时刻，禁止煽动负面情绪，调拨成员关系。
+第4条 危急时刻，禁止煽动负面情绪，挑拨成员关系。
 
 第5条 所有星球阁成员均有义务维护组织和平与稳定，不得作出任何损害组织利益的行为。
 
