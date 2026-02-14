@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>星球阁时间轴</title>
+    <style>
+      :root {
+        /* --bgColor: #f4f4f4; */
+        /* --textColor: #0f0f0f; */
+        --mutedColor: #6b6b6b;
+        --linkColor: #1e90ff;
+
+        --accent-1: #2f6f6a; /* very important */
+        --accent-2: #4f8f8a; /* important */
+        --accent-3: #74aaa6; /* normal */
+        --accent-4: #9cc; /* minor */
+        --accent-5: #cfe7e5; /* trivial */
+
+        --accentColor: var(--accent-3);
+        --mutedBorder: #0003;
+        --cardBg: #ffffff;
+        --maxWidth: 600px;
+
+        scroll-behavior: unset;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      /* html {
+        scroll-behavior: smooth;
+      } */
+      body {
+        margin: 0;
+        font-family: sans-serif, Arial;
+        font-weight: 300;
+        line-height: 1.4;
+        /* color: var(--textColor); */
+        /* background: var(--bgColor); */
+        display: flex;
+        justify-content: center;
+        padding: 16px 8px 40px;
+      }
+
+      main.container {
+        max-width: var(--maxWidth);
+        width: 100%;
+        margin: 0 auto;
+        padding: 12px;
+      }
+
+      h1 {
+        font-size: 18px;
+        font-weight: 400;
+        margin: 0 0 6px 0;
+      }
+      p.lead {
+        margin: 0 0 16px 0;
+        color: var(--mutedColor);
+        font-size: 13px;
+      }
+
+      /* timeline */
+      .timeline {
+        position: relative;
+      }
+
+      .timeline ul {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 1.25rem;
+        position: relative;
+        
+      }
+
+      .timeline ul::before {
+        content: "";
+        position: absolute;
+        left: 0.5rem;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--mutedBorder);
+        border-radius: 2px;
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin: 10px 0 18px 0;
+        padding-left: 1.25rem;
+        --accentColor: var(--accent-3);
+        left: -1.25rem;
+        transform: translateX(5px);
+      }
+
+      .timeline-item::before{
+      content:"";
+      position:absolute;
+      left:-0.1rem;
+      top:0.4rem;
+      width:10px;
+      height:10px;
+border-radius: 50%;
+        background: var(--accentColor);
+        box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.03);
+      }
+
+    .timeline-item.is-focus::before{
+      box-shadow:0 0 0 4px color-mix(in srgb, var(--accentColor) 20%, rgba(0, 0, 0, 0.03));
+    }
+
+      time.timeline-time {
+        display: block;
+        font-size: 0.8em;
+        color: var(--mutedColor);
+        margin-bottom: 4px;
+      }
+
+      .timeline-card {
+        background: var(--cardBg);
+        border: 1px solid var(--mutedBorder);
+        border-radius: 6px;
+        padding: 8px;
+      }
+
+      .timeline-card h4 {
+        margin: 0 0 4px 0;
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      li.timeline-year {
+    font-size: 1.4rem;
+    position: sticky;
+    display: block;
+    top: 0;
+    background: #fff;
+    z-index: 99999;
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+      /* priority → accent 映射（不改原样式结构） */
+      .p1 {
+        --accentColor: var(--accent-1);
+      }
+      .p2 {
+        --accentColor: var(--accent-2);
+      }
+      .p3 {
+        --accentColor: var(--accent-3);
+      }
+      .p4 {
+        --accentColor: var(--accent-4);
+      }
+      .p5 {
+        --accentColor: var(--accent-5);
+      }
+
+      /* viewlevel filter */
+      [data-level="1"] .p2,
+      [data-level="1"] .p3,
+      [data-level="1"] .p4,
+      [data-level="1"] .p5 {
+        display: none;
+      }
+
+      [data-level="2"] .p3,
+      [data-level="2"] .p4,
+      [data-level="2"] .p5 {
+        display: none;
+      }
+
+      [data-level="3"] .p4,
+      [data-level="3"] .p5 {
+        display: none;
+      }
+
+      [data-level="4"] .p5 {
+        display: none;
+      }
+
+      /* viewlevel buttons */
+      .viewlevel {
+        position: fixed;
+        top: 12px;
+        right: 12px;
+        display: flex;
+        gap: 6px;
+        z-index: 10;
+      }
+
+      .viewlevel button {
+        border: 1px solid var(--mutedBorder);
+        background: #fff;
+        border-radius: 999px;
+        padding: 4px 10px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .viewlevel button.active {
+        background: #000;
+        color: #fff;
+      }
+
+      @media (max-width: 500px) {
+        .timeline ul::before {
+          left: 0.375rem;
+        }
+        .timeline-item::before {
+          left: -0.125rem;
+          width: 8px;
+          height: 8px;
+          top: 0.5rem;
+        }
+        .timeline-card {
+          padding: 6px;
+        }
+        .viewlevel{
+          zoom: 75%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container" data-level="2" id="app">
+      <div class="viewlevel">
+        <button data-l="1">最简</button>
+        <button data-l="2">精简</button>
+        <button data-l="3">适中</button>
+        <button data-l="4">详细</button>
+        <button data-l="5">全部</button>
+      </div>
+
+      <section class="timeline"><ul id="timeline"></ul></section>
+    </main>
+    <script>
+      const timelineData = {
+        2019: [
+          { month: "3", event: "星零于抖音创建星球家族（SRCN）", priority: 1 },
+          // {"month": "4", "event": "Nsakrty加入星球家族", "priority": 2},
+          { month: "5", event: "星球家族对外正式宣传，启动成员招新", priority: 3 },
+          { month: "5", event: "Nsakrty发布星球家族招人视频，制定加入条件", priority: 4 },
+          { month: "6", event: "创立审核制度", priority: 2 },
+          { month: "6", event: "Nsakrty制定星球家族调查问卷", priority: 4 },
+          { month: "6~7", event: "星球家族总粉丝数破10万，成员规模达70人", priority: 3 },
+          { month: "6~7", event: "星球家族全盛时期", priority: 2 },
+          { month: "7", event: "星零粉丝破10万，Nsakrty粉丝达8万", priority: 4 },
+          { month: "8", event: "最佳鸽子创建星球家族群聊", priority: 3 },
+          { month: "9", event: "Nsakrty因个人原因停更3个月，星零失去创作动力", priority: 4 },
+          { month: "9", event: "星零将星球家族族长职位交接给Nsakrty", priority: 2 },
+          { month: "10", event: "星球家族内部斗争愈演愈烈", priority: 2 },
+          { month: "10", event: "星球家族解散", priority: 1 },
+          { month: "10", event: "星球阁成立", priority: 1 },
+          { month: "11~12", event: "Nsakrty、星零粉丝量下滑", priority: 4 },
+        ],
+        2020: [
+          { month: "2", event: "Nsakrty当选星球阁阁主", priority: 1 },
+          { month: "2", event: "星球阁主群创建", priority: 3 },
+          { month: "2", event: "Nsakrty尝试制作粉丝数量统计视频失败", priority: 5 },
+          { month: "3", event: "设计星球阁第一代Logo", priority: 3 },
+          { month: "4", event: "设计星球阁第二代Logo", priority: 2 },
+          { month: "4", event: "第一版试卷生成器", priority: 2 },
+          { month: "5", event: "Nsakrty一条视频爆火，6月粉丝破10万，成员集体涨粉", priority: 4 },
+          { month: "5", event: "星零注销账号", priority: 3 },
+          { month: "5", event: "Nsakrty宣布解散前星球阁，成员自发创建新星球家族", priority: 1 },
+          { month: "6", event: "新星球家族正式改名为星球阁", priority: 1 },
+          { month: "7", event: "搭建第一代官网", priority: 4 },
+          { month: "9", event: "制定第一版《星球阁条例》", priority: 2 },
+          { month: "9", event: "第一版粉丝数量统计视频", priority: 4 },
+          { month: "10", event: "星球阁缩写正式定为SRPN，开始用于成员网名标记", priority: 3 },
+          { month: "11", event: "狗头君花粉申请加入星球阁", priority: 4 },
+        ],
+        2021: [
+          { month: "1", event: "搭建第二代官网", priority: 3 },
+          { month: "2", event: "星球阁总部迁移，建立新主群", priority: 3 },
+          { month: "2", event: "血泪与星球阁合作创建分组织波兰星球（SRPB）", priority: 4 },
+          { month: "2", event: "波兰星球解散", priority: 4 },
+          { month: "3", event: "Nsakrty建立分组织星球编程（SRPG）", priority: 4 },
+          { month: "7", event: "星球阁新增审核员Atpx", priority: 3 },
+          { month: "7~8", event: "血泪事件爆发", priority: 2 },
+          { month: "8", event: "Nsakrty推出星球阁迁移计划，应对血泪事件", priority: 4 },
+          { month: "8", event: "Earth-2发布首个恒星生命历程视频，引发创作热潮", priority: 1 },
+          { month: "12", event: "Nsakrty将阁主职位交给qn（权力中心未实际转移）", priority: 3 },
+          { month: "12", event: "《星球阁简史》重写完成", priority: 4 },
+        ],
+        2022: [
+          { month: "1", event: "星球阁主群因平台bug重建", priority: 3 },
+          { month: "1", event: "怀壹事件爆发", priority: 4 },
+          { month: "2", event: "星球圈正式形成，多个类似组织涌现", priority: 1 },
+          { month: "2", event: "Nsakrty完成试卷生成器安卓移植版", priority: 4 },
+          { month: "3", event: "SRPN网进行大更新，优化样式并添加logo", priority: 5 },
+          { month: "4", event: "分组织星球摄影成立，领导人新智彗星", priority: 4 },
+          { month: "4", event: "SRPN网开始使用javascript，SRPY网同步成立", priority: 5 },
+          { month: "5", event: "Earth-2宣布停止更新恒星生命历程系列", priority: 3 },
+          { month: "5", event: "因一群人满星球阁二群创建", priority: 5 },
+          { month: "5", event: "Nsakrty开发星球阁成员检测器，应对成员冒充现象", priority: 3 },
+          { month: "5~9", event: "星球圈“画质爆炸”，青菜引发画技提升热潮", priority: 2 },
+          { month: "6", event: "星球阁开始在Bilibili试行审核", priority: 3 },
+          { month: "6", event: "Dogepro事件爆发（音乐授权争议，后协商解决）", priority: 2 },
+          { month: "7", event: "新智彗星创建测试群，后转为临时主群", priority: 4 },
+          { month: "7", event: "青菜制作的星球阁成员《我的世界》皮肤上线", priority: 4 },
+          { month: "7", event: "星球阁采用新审核标准，试卷拆分为两卷", priority: 2 },
+          { month: "8", event: "分组织星球历史成立", priority: 4 },
+          { month: "8", event: "Nsakrty开发新一代试卷生成器", priority: 5 },
+          { month: "9", event: "星球摄影改名为星球观测", priority: 4 },
+          { month: "10", event: "部分成员入驻快手，推动快手星球动画圈成型", priority: 2 },
+          { month: "10", event: "星球阁新主群由新智彗星创建，原二群荒废", priority: 3 },
+          // {"month": "10", "event": "成员因辱骂B站用户引发事件，星球阁名声开始下跌", "priority": 2},
+          { month: "10", event: "星球阁名声开始下跌", priority: 2 },
+          { month: "11", event: "qn与Nsakrty共同担任阁主，7天后经投票Nsakrty单独担任", priority: 4 },
+          { month: "11", event: "确定副阁主为qn和青菜", priority: 3 },
+          { month: "12", event: "分组织星球理科成立", priority: 4 },
+          { month: "12", event: "星球阁在B站知名度快速增长", priority: 3 },
+          // {"month": "12", "event": "Earth-2在B站发布引战言论引发众怒，后宣布暂离B站", "priority": 3},
+          // {"month": "12", "event": "青菜上架星球阁周边商品引发B站天文圈不满，后删除宣传视频", "priority": 3},
+          { month: "12", event: "青菜上架星球阁周边商品", priority: 3 },
+          { month: "12", event: "星球阁制定《对违反星球阁成员的处罚标准》", priority: 2 },
+          { month: "12", event: "星球阁首个破百万点赞视频出现", priority: 1 },
+          { month: "12", event: "Hliva因账号绑定问题注销原账号，与Nsakrty约定1月1日回归", priority: 4 },
+        ],
+        2023: [
+          { month: "1", event: "新智彗星事件爆发，星球阁主群被解散", priority: 1 },
+          { month: "1", event: "星球阁审核暂停", priority: 3 },
+          { month: "1", event: "LESH事件", priority: 1 },
+          // {"month": "1", "event": "海稻退阁并发布视频指责星球阁“压榨小佬”", "priority": 3},
+          { month: "1", event: "SRPN网更换网址为www.srpn.top", priority: 5 },
+          { month: "1", event: "分组织星辰阁（SRDC）成立，领导人佰玖", priority: 4 },
+          { month: "1", event: "Maugfy成为星球阁首个B站万粉成员", priority: 4 },
+          { month: "1", event: "低俗“星球动画”视频开始在抖音、B站传播", priority: 1 },
+          { month: "2", event: "石浪建立新天文团", priority: 4 },
+          { month: "2", event: "LESH事件影响达峰值，主群开启为期两周禁言", priority: 3 },
+          { month: "2", event: "星球阁试卷改良完成，恢复审核", priority: 3 },
+          { month: "2", event: "LESH事件反星球阁组织瓦解", priority: 5 },
+          { month: "2", event: "LESH事件结束，新智彗星回归", priority: 2 },
+          { month: "3", event: "SRPN网进行第二次样式更新，调整排版", priority: 5 },
+          { month: "4", event: "科学商所长发布低质量星球动画引发舆论冲突", priority: 3 },
+          { month: "5", event: "Earth-2成为星球阁粉丝数最高成员", priority: 3 },
+          { month: "5", event: "Nsakrty制定《星球圈绘画守则(征求意见稿)》", priority: 3 },
+          { month: "6", event: "新智彗星重建星球观测（SRON）", priority: 4 },
+          { month: "6", event: "Nsakrty因中考卸任阁主，qn接任（权力中心未转移）", priority: 4 },
+          { month: "6", event: "青菜开始制作3D星球视频，技术在阁内传播", priority: 3 },
+          { month: "7", event: "星联阁成立（多个星球圈组织合并）", priority: 2 },
+          { month: "7", event: "科学商所长事件爆发", priority: 2 },
+          { month: "7", event: "科学商所长修改简介自称“星球阁阁主”，挂上星球阁logo", priority: 4 },
+          { month: "7", event: "科学商所长经交涉修改简介和背景图", priority: 4 },
+          { month: "7", event: "中子星被踢出星球阁，创建光启阁", priority: 4 },
+          { month: "7", event: "Zhang与中子星矛盾升级，引发星球阁与光启阁冲突", priority: 2 },
+          { month: "7", event: "中子星事件爆发", priority: 1 },
+          { month: "8", event: "星联阁短暂解体，12天后重组", priority: 4 },
+          { month: "8", event: "中子星事件逐渐平息", priority: 3 },
+          { month: "9", event: "中子星发布星球阁负面言论，科普君响应", priority: 3 },
+          { month: "9", event: "科普君事件", priority: 1 },
+          { month: "9", event: "星零露脸照被军武阁挖出并传播", priority: 5 },
+          { month: "9", event: "Nsakrty被迫与科普君签订“和平条约”", priority: 4 },
+          { month: "9", event: "第一次科普君事件结束", priority: 2 },
+          { month: "10", event: "第二次科普君事件爆发", priority: 2 },
+          { month: "11", event: "星球阁停用试卷审核制度", priority: 2 },
+          { month: "12", event: "科普君策反水益，水益“假叛变”进入军武阁", priority: 4 },
+          { month: "12", event: "军武阁主群被毁，第二次科普君事件结束", priority: 4 },
+        ],
+        2024: [
+          { month: "1", event: "水益将粉丝群改造成“星水阁”", priority: 4 },
+          { month: "2", event: "水益、天白、极光、新智彗星任副阁主，阁主空缺", priority: 1 },
+          { month: "2", event: "星球阁重新开放审核制度，取消入阁试卷", priority: 2 },
+          { month: "2~5", event: "星球圈多组织爆发冲突", priority: 3 },
+          { month: "3", event: "SRPN网进行第四次样式更新，改为图文并茂形式", priority: 5 },
+          { month: "3", event: "Earth-1发布LESH事件声明", priority: 5 },
+          { month: "4", event: "四三〇封号封群事件爆发，星球圈多名成员账号禁言，多个群聊被封", priority: 2 },
+          { month: "5", event: "星球阁主群被封，Nsakrty重建主群", priority: 3 },
+          { month: "8", event: "星球阁完善审核制度，创立二群，招入十余位新成员", priority: 3 },
+          { month: "8~12", event: "Acubens-A抽象科普视频爆火", priority: 4 },
+          { month: "8~12", event: "转型运动第一阶段启动", priority: 1 },
+          { month: "10", event: "Maugfy发布《水循环》视频爆火，", priority: 3 },
+          { month: "10", event: "转型运动全面展开", priority: 1 },
+          { month: "10", event: "Earth-2粉丝突破20万", priority: 4 },
+          { month: "11", event: "Maugfy粉丝突破10万", priority: 4 },
+          { month: "12", event: "Maugfy粉丝突破30万，成为星球阁粉丝数最高成员", priority: 4 },
+        ],
+        2025: [
+          { month: "1", event: "Nsakrty三角函数视频爆火，知识燃剪兴起", priority: 3 },
+          { month: "1", event: "转型运动第二阶段启动", priority: 1 },
+          { month: "1", event: "Acubens-A发布物理科普视频，成为星球阁首个200万赞视频", priority: 3 },
+          { month: "1", event: "星球阁简化审核，全面开放二群", priority: 3 },
+          { month: "2", event: "SRPN网进行第五次样式更新，切换主题颜色", priority: 5 },
+          { month: "3", event: "Acubens-A与Nsakrty共创视频成为第五个百万赞视频", priority: 4 },
+          { month: "3", event: "XF力学与压强系列视频爆火，三周涨粉近6万", priority: 4 },
+          { month: "4", event: "Maugfy粉丝破50万", priority: 4 },
+          { month: "5", event: "水益发布地理视频爆火，成为第六个百万赞视频，结束两年掉粉", priority: 3 },
+          { month: "5", event: "水益的第六个百万赞视频成为星球阁最快冲上百万赞的视频", priority: 5 },
+          { month: "6", event: "水益接手星球阁粉丝数量统计系列制作", priority: 4 },
+          { month: "6", event: "星球阁logo完成矢量化", priority: 5 },
+          { month: "7", event: "星球阁非官方文档汇总站上线", priority: 5 },
+          { month: "7", event: "水益成为非官方文档汇总站编辑", priority: 5 },
+          { month: "7", event: "转型运动第三阶段启动", priority: 1 },
+          { month: "7", event: "转型流量负增长，同质化显现", priority: 3 },
+          { month: "8", event: "星球阁爆发内部矛盾，引发高层分裂", priority: 2 },
+          { month: "9", event: "水益担任星球阁新阁主，原高层群解散", priority: 1 },
+          // { month: "9", event: "Earth-2发布控诉现状的小作文，矛头直指Acubens-A和SYUN", priority: 4 },
+          // { month: "9", event: "Acubens-A发布长篇文章回击Earth-2", priority: 4 },
+          // {"month": "10", "event": "Nsakrty与天白正式决裂", "priority": 5},
+          // {"month": "10", "event": "Acubens-A、天白等提出退出星球阁", "priority": 4},
+          {"month": "10", "event": "Nsakrty与Acubens-A达成表面和解，Earth-2取关多人", "priority": 3},
+        ],
+        2026: [
+          { month: "1", event: "二群停止职能并无限期禁言，主群对外开放", priority: 2 },
+          { month: "1", event: "内外分层结构结束，审核进一步放宽", priority: 1 },
+        ],
+      };
+    function getReadingFocus(){
+  const items=document.querySelectorAll('.timeline-item');
+  const lineY=window.innerHeight*0.25;
+  let best=null;
+  let min=Infinity;
+  items.forEach(el=>{
+    const r=el.getBoundingClientRect();
+    if(r.bottom<=0||r.top>=window.innerHeight)return;
+    const d=Math.abs(r.top-lineY);
+    if(d<min){min=d;best=el;}
+  });
+  return best;
+}
+
+function applyReadingFocus(){
+  const el=getReadingFocus();
+  if(!el)return;
+  document.querySelectorAll('.timeline-item.is-focus')
+    .forEach(n=>n.classList.remove('is-focus'));
+  el.classList.add('is-focus');
+}
+
+window.addEventListener('scroll',applyReadingFocus);
+requestAnimationFrame(applyReadingFocus);
+
+</script>
+    <script>
+      const app = document.getElementById("app");
+
+      /* === active 状态只认 data-level === */
+      function syncActiveButtons() {
+        const level = app.dataset.level;
+        document.querySelectorAll(".viewlevel button").forEach((btn) => {
+          btn.classList.toggle("active", btn.dataset.l === level);
+        });
+      }
+
+      /* 找到当前阅读锚点 */
+      function getAnchorItem() {
+        const items = document.querySelectorAll(".timeline-item");
+        const anchorLine = window.innerHeight * 0.25;
+
+        let anchor = null;
+        let minOffset = Infinity;
+
+        items.forEach((el, i) => {
+          const rect = el.getBoundingClientRect();
+          if (rect.bottom > 0 && rect.top < window.innerHeight) {
+            const offset = Math.abs(rect.top - anchorLine);
+            if (offset < minOffset) {
+              minOffset = offset;
+              anchor = el;
+            }
+          }
+        });
+
+        return anchor;
+      }
+
+      /* === 切换后把用户拉回刚刚在看的地方 === */
+      function restoreAnchor(anchor) {
+        if (!anchor) return;
+
+        requestAnimationFrame(() => {
+          const rect = anchor.getBoundingClientRect();
+          const y = window.scrollY + rect.top - window.innerHeight * 0.25;
+          window.scrollTo({ top: y, behavior: "auto" });
+        });
+      }
+
+      /* === viewlevel 切换（核心） === */
+      document.querySelectorAll(".viewlevel button").forEach((btn) => {
+        btn.onclick = () => {
+          const anchor = getAnchorItem();
+          app.dataset.level = btn.dataset.l;
+          syncActiveButtons();
+          restoreAnchor(anchor);
+        };
+      });
+
+      /* === 页面加载时自动同步一次 === */
+      document.addEventListener("DOMContentLoaded", syncActiveButtons);
+
+      const ul = document.getElementById("timeline");
+
+      Object.keys(timelineData).forEach((year) => {
+        // 年份节点
+        const y = document.createElement("li");
+        y.className = "timeline-year";
+        y.textContent = year;
+        ul.appendChild(y);
+
+        timelineData[year].forEach((item) => {
+          const li = document.createElement("li");
+          li.className = `timeline-item p${item.priority}`;
+
+          const time = document.createElement("time");
+          time.className = "timeline-time";
+          time.textContent = `${item.month} 月`;
+
+          const card = document.createElement("div");
+          card.className = "timeline-card";
+
+          const h4 = document.createElement("h4");
+          h4.textContent = item.event;
+
+          card.appendChild(h4);
+          li.appendChild(time);
+          li.appendChild(card);
+          ul.appendChild(li);
+        });
+      });
+    </script>
+  </body>
+</html>
