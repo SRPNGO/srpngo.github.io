@@ -1,68 +1,77 @@
+:root {
+  --welcome-bg-color: #eee;
+  --welcome-height: calc(100vh - 3em);
+  --logo-width: 50vmin;
+  --logo-top: 40%;
+}
+
 #welcome {
   width: 100%;
-  /* position: relative; */
-  --height: calc(100vh - 3em);
-  min-height: var(--height);
-  background-color: #eee;
-  --logoWidth: 50vmin;
-  --logoTop: 40%;
+  min-height: var(--welcome-height);
+  background-color: var(--welcome-bg-color);
+  opacity: 0;
 }
+
 hr {
   margin: 0;
 }
 .logo {
   position: absolute;
-  top: var(--logoTop);
+  top: var(--logo-top);
   left: 50%;
   overflow: hidden;
-  width: var(--logoWidth);
+  width: var(--logo-width);
   max-width: 600px;
   transform: translate(-50%, -50%);
   animation-fill-mode: backwards;
 }
+
 @keyframes fromLeftInto {
   0% {
     left: -100%;
     opacity: 0;
   }
 }
+
 @keyframes fromTopInto {
   0% {
     top: 100vh;
     opacity: 0;
   }
 }
+
 @keyframes opacityAdd {
   0% {
     opacity: 0;
   }
 }
+
 @keyframes tensile {
   0% {
     letter-spacing: 0.3em;
   }
 }
-#logo-main,
-.tt {
+#logo-main {
   position: absolute;
-  top: var(--logoTop);
+  top: var(--logo-top);
   left: 50%;
   transform: translate(-50%, -50%);
-  /* animation: fromLeftInto 2s; */
 }
-#logo-py {
-  opacity: 1;
-}
-#welcome .tt {
+
+.tt {
   position: absolute;
-  top: var(--logoTop);
-  right: 50%;
+  top: var(--logo-top);
   left: 50%;
   width: max-content;
   margin: 0;
-  transform: translate(-50%, calc(var(--logoWidth) / 2));
+  transform: translate(-50%, calc(var(--logo-width) / 2));
   opacity: 1;
 }
+
+#logo-py {
+  opacity: 1;
+}
+
 #loading {
   opacity: 1;
   font-size: 48px;
@@ -71,19 +80,14 @@ hr {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.animation-start #loading {
-  opacity: 0;
-}
 .animation-start #welcome {
   opacity: 1;
 }
-#welcome {
+
+.animation-start #loading {
   opacity: 0;
 }
-.animation-start .tt {
-  animation: opacityAdd 1s 2s;
-  animation-fill-mode: backwards;
-}
+
 .animation-start #logo-main {
   animation: fromLeftInto 2s;
 }
@@ -100,6 +104,11 @@ hr {
 
 .animation-start #logo-circle {
   animation: opacityAdd 1s 2.8s;
+  animation-fill-mode: backwards;
+}
+
+.animation-start .tt {
+  animation: opacityAdd 1s 2s;
   animation-fill-mode: backwards;
 }
 

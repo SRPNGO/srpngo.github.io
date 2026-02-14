@@ -1,10 +1,4 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-p,
-a {
+article :is(h1,h2,h3,h4,h5,p,a) {
   line-height: 1.4em;
   margin: 0;
   padding: 0;
@@ -13,14 +7,11 @@ a {
 article p {
   text-indent: 1cm;
 }
-body {
-  max-width: 600px;
-  margin: 0 auto;
-}
-/* article > div:has(img[style]){display: inline-block;} */
+
 article > div {
   display: inline-block;
 }
+
 h4 {
   z-index: 3;
 }
@@ -32,6 +23,7 @@ img {
   float: right;
   margin: 4px;
 }
+
 .imageContainer {
   display: inline-flex;
   flex-direction: column;
@@ -44,11 +36,13 @@ img {
   width: 40%;
   max-width: 200px;
 }
-.imageContainer>a{
+
+.imageContainer > a {
   font-size: small;
   text-align: center;
 }
-.imageContainer>img{
+
+.imageContainer > img {
   width: 100%;
   margin: 0;
   max-width: none;
