@@ -32,7 +32,7 @@ noscript {
 h4 {
   position: sticky;
   top: 0;
-  background-color: var(--bgColor);
+  background-color: var(--bg-color);
   display: block;
 }
 #START {

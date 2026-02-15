@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
@@ -37,7 +37,9 @@
         padding: 15px;
         margin-bottom: 15px;
         background-color: #fafafa;
-        transition: transform 0.2s, box-shadow 0.2s;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
       }
 
       .work-item:hover {
@@ -301,7 +303,7 @@
           const startItem = (this.currentPage - 1) * this.itemsPerPage + 1;
           const endItem = Math.min(
             this.currentPage * this.itemsPerPage,
-            this.data.length
+            this.data.length,
           );
           pageInfo.textContent = `显示 ${startItem}-${endItem} 项，共 ${this.data.length} 项`;
 
@@ -316,8 +318,8 @@
                     <div class="work-item">
                         <div class="work-title">
                             <a href="${work.url ?? ""}" target="_blank">${
-                work.title ?? ""
-              }</a>
+                              work.title ?? ""
+                            }</a>
                         </div>
                         <div class="work-meta">
                             <div>
@@ -336,7 +338,7 @@
                             </div>
                         </div>
                     </div>
-                `
+                `,
             )
             .join("");
         }
@@ -425,7 +427,7 @@
           } else if (type === "author") {
             // 按作者名称字母顺序排序
             this.data.sort((a, b) =>
-              (a.author || "").localeCompare(b.author || "")
+              (a.author || "").localeCompare(b.author || ""),
             );
           } else if (type === "class") {
             // 按第一级分类（-之前）字母顺序排序
@@ -459,6 +461,17 @@
       // 初始化分页器（每页显示10条，你可以根据需要修改）
       const worksPagination = new WorksPagination(works, 10);
     </script>
-    <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script>
+    <script>
+      const busuanzi = document.createElement("script");
+      busuanzi.src = "https://cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js";
+      busuanzi.defer = true;
+      const local =
+        window.location.origin.includes("localhost") ||
+        window.location.origin.includes("127.0.0.1") ||
+        window.location.origin.includes("file://");
+      if (!local) {
+        document.head.appendChild(busuanzi);
+      }
+    </script>
   </body>
 </html>
