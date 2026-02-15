@@ -1,62 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-cn">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>管理员抽奖机</title>
-  <link rel="stylesheet" href="css/basic.css">
-  <script>
-    let members = [
-      "水益",
-      "HLiva",
-      "Nsakrty",
-      "青龙",
-      "老泽486",
-      "Zhang",
-      "鲨鱼",
-      "鱼·SR",
-      "Acubens-A",
-      "Earth-5",
-      "依托XF",
-      "极光",
-      "室宿一",
-      "Maugfy",
-      "qn",
-      "海山二",
-      "银杏yx",
-      "青菜",
-      "Sw天白",
-      "Lan09",
-      "玖雪",
-      "小北菌",
-      "riceecirriceecir",
-      "Earth-2",
-      "最佳鸽子"
-    ]
-    function randomMember() {
-      return members[Math.floor(Math.random() * members.length)];
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>管理员抽奖机</title>
+    <link rel="stylesheet" href="css/basic.css" />
+    <script>
+let members = [
+    "水益",
+    "HLiva", 
+    "Nsakrty",
+    "青龙",
+    "老泽486",
+    "Zhang",
+    "鲨鱼",
+    "鱼·SR",
+    "Acubens-A",
+    "Earth-5",
+    "依托XF",
+    "极光",
+    "室宿一",
+    "Maugfy",
+    "qn",
+    "海山二",
+    "银杏yx",
+    "青菜",
+    "Sw天白",
+    "Lan09",
+    "玖雪",
+    "小北菌",
+    "riceecirriceecir",
+    "Earth-2",
+    "最佳鸽子",
+];
+
+function randomMember() {
+    return members[Math.floor(Math.random() * members.length)];
+}
+
+function start(number) {
+    // 检查抽取数量是否超过总人数
+    if (number > members.length) {
+        document.getElementById("info").innerText = `错误：抽取人数不能超过总人数(${members.length})`;
+        return;
     }
-    function start(number) {
-      const runTime = 2000;
-      const intervalTime = 20;
-      let result = [];
-      let j = 0;
-      let k = setInterval(() => {
+
+    const runTime = 2000;
+    const intervalTime = 20;
+    let result = [];
+    let selectedMembers = new Set(); // 用于查重的Set集合
+    let j = 0;
+    
+    let k = setInterval(() => {
+        // 清空本次循环的临时数组和Set
+        result = [];
+        selectedMembers.clear();
+        
+        // 抽取不重复的成员
         for (let i = 0; i < number; i++) {
-          result.push(randomMember());
+            let candidate;
+            do {
+                candidate = randomMember();
+            } while (selectedMembers.has(candidate)); // 如果已存在则重新抽取
+            
+            selectedMembers.add(candidate);
+            result.push(candidate);
         }
+        
+        // 显示结果
         document.getElementById("info").innerText = result.join("、");
+        
+        // 计时结束
         if ((j += intervalTime) >= runTime) {
-          clearInterval(k);
+            clearInterval(k);
         }
-        result = []
-      }, intervalTime);
-    }
-  </script>
-</head>
-<body>
-  <h1>管理员抽奖机</h1>
-  <p>新管理员名单:<a id="info"></a></p>
-  <button onclick="start(10)">开始</button>
-</body>
+    }, intervalTime);
+}
+    </script>
+  </head>
+  <body>
+    <h1>管理员抽奖机</h1>
+    <p>新管理员名单:<a id="info"></a></p>
+    <button onclick="start(10)">开始</button>
+  </body>
 </html>
