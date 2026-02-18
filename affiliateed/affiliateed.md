@@ -29,14 +29,15 @@ table {
 
 ---
 
-| 组织名                                  | 英文缩写 | 现领导人                                    | 建立日     | 备注     |
-| :-------------------------------------- | :------- | :------------------------------------------ | :--------- | :------- |
-| [星球地理](./srpg)                      | SRPG     | [银杏](https://v.douyin.com/iJn8VSEf/)      | 2023.05.07 | 正常运作 |
-| [星球编程](https://github.com/SRPNGO)   | SRPG     | [Nsakrty](https://v.douyin.com/hWfRVaA/)    | 2021.03.03 | 正常运作 |
-| [星联阁](https://skdc.rth1.vip/)•星辰阁 | SRDC     | [KillpL佰玖](https://v.douyin.com/kE9RW8C/) | 2023.01.26 | 无比沉默   |
-| [星球观测](https://srpn.top/sron)       | SRON     | 新智彗星                                    | 2022.04.06 | 无比沉默 |
-| 星球化学                                | SRCY     | [桃十四](https://v.douyin.com/iJn8PGaK/)    | 2023.07.28 | 无比沉默 |
-| 史书阁(星球历史)                        | SRPH     | [比邻星b-2](https://v.douyin.com/jkfKvgh/)  | 2022.08.14 | 无比沉默 |
+| 组织名                                  | 英文缩写 | 现领导人                                    | 建立日     | 备注       |
+| :-------------------------------------- | :------- | :------------------------------------------ | :--------- | :--------- |
+| [星球地理](./srpg)                      | SRPG     | [银杏](https://v.douyin.com/iJn8VSEf/)      | 2023.05.07 | 间歇活跃 |
+| [星球编程](https://github.com/SRPNGO)   | SRPNGO   | [Nsakrty](https://v.douyin.com/hWfRVaA/)    | 2021.03.03 | 持续运维 |
+| [星联阁](https://skdc.rth1.xyz/)•星辰阁 | SRDC     | [KillpL佰玖](https://v.douyin.com/kE9RW8C/) | 2023.01.26 | 现状未知   |
+| [星球观测](https://srpn.top/sron)       | SRON     | 新智彗星                                    | 2022.04.06 | 静默存续   |
+
+<!-- | 星球化学                                | SRCY     | [桃十四](https://v.douyin.com/iJn8PGaK/)    | 2023.07.28 | 现状未知   | -->
+<!-- | 史书阁(星球历史)                        | SRPH     | [比邻星b-2](https://v.douyin.com/jkfKvgh/)  | 2022.08.14 | 现状未知   | -->
 
 ---
 
