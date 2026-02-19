@@ -10,7 +10,8 @@ article :is(h1,h2,h3,h4,h5,p,a) {
   letter-spacing: 0.05em;
 }
 article p {
-  text-indent: 1cm;
+  text-indent: 2rem;
+  line-height: 200%;
 }
 
 article > div {
