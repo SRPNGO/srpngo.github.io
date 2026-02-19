@@ -1,5 +1,5 @@
 <div class="imageContainer" style="width: {{ include.width | default: '50%' }};max-width:none">
-  <img src="{{ include.src }}" alt="{{ include.alt | default: '' }}" style="max-width:none"/>
+  <img src="{{ include.src }}" style="max-width:none"/>
   {% if include.caption %}
   <a>{{ include.caption }}</a>
   {% endif %}
