@@ -406,13 +406,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 #### <a name="星球圈的低质低俗化与星球阁的圈内地位的下降"></a>星球圈的低质低俗化与星球阁的圈内地位的下降
 
-<span class="imageContainer" style="width: 50%; max-width: none">
-  <img
-    style="max-width: none"
-    src="https://s1.imagehub.cc/images/2025/06/22/24c9ff21702b5f9c7787da7ce33702d5.jpg"
-    alt="" />
-  <a>摘自</a><a href="https://nsak.srpn.top/art/ptgp.html">《论星球圈》</a>
-</span>
+{% include image-box src="https://s1.imagehub.cc/images/2025/06/22/24c9ff21702b5f9c7787da7ce33702d5.jpg" width="50%" %}
 
 自2022年11月起，一些来自星球动画圈的低创低俗视频在快手诞生。因新智慧星事件和LESH事件的影响，星球阁无瑕顾及此类低创视频的在抖音的传播，导致2023年1至3月期间，星球动画视频进入抖音，给圈子造成了极大的不良影响。部分星球阁成员开始发文、发视频抵制这些视频，但并未起到实际成效，在这之后，星球阁的近乎所有成员涨粉速度开始放缓，总粉丝数开始下跌。
 
@@ -496,12 +490,7 @@ Acubens-A和天白的转型虽在个人层面成效明显，但也仍未引发�
 
 巨大的流量前景在星球阁内拉开了转型的序幕，在这之后，天白吸收了科普的创作模式，Acubens-A则在视频内融入了部分搞笑、鬼畜音效，改进视频风格后的两人都获得了巨大的收益。10月26日，[Maugfy](https://v.douyin.com/SXo52ND/)所发布的一期同为抽象科普的《水循环》取得大火，在他11月2日突破10万粉丝的约一周后，这期视频也成为了星球阁历史上[第二个破百万点赞的视频](https://v.douyin.com/CeinsT8D/ 08/01)，给当时的其他星球阁成员带来了巨大的动力，真正颇具规模的转型运动开始展开，[水益](https://v.douyin.com/iNemFoES/)，[海山二](https://v.douyin.com/QCI08PdlBjs/)，[Earth-5](https://v.douyin.com/iJf3UUTu/)等都开始制作与之类似的视频。月末，Maugfy粉丝超过Earth-2，成为星球阁粉丝数最高的成员。12月15日，Maugfy在其[星球阁第三个破百万视频](https://v.douyin.com/b9eDz9SplFg)《海岸地貌》热度的加持下破了30万粉丝，星球阁粉丝增长速率创下自2022年以来的最高水平，整体流量呈现出一片繁荣景象。
 
-<span class="imageContainer" style="width: 50%">
-  <img
-    src="https://s1.imagehub.cc/images/2025/06/21/cb82ae6b58fc483340f5ccb640dc1fc0.gif"
-    alt="Acubens-A的学科动画视频" />
-  <a>Acubens-A的学科动画视频</a>
-</span>
+{% include image-box src="https://s1.imagehub.cc/images/2025/06/21/cb82ae6b58fc483340f5ccb640dc1fc0.gif" alt="Acubens-A的学科动画视频" caption="Acubens-A的学科动画视频" width="50%" %}
 
 但是，转型运动第一阶段的流量繁荣是属于少数人的，由于抽象鬼畜的创作模式并不适应所有创作者，早期参与转型的一些成员在视频创作上的投入与视频发布后获得的回报不成正比，这对转型而言本身就是一种打击。针对此类困境，一些成员开始寻求知识科普背景下新的出路并进行探索与尝试。
 
@@ -517,13 +506,7 @@ Acubens-A和天白的转型虽在个人层面成效明显，但也仍未引发�
 
 4月4日，Maugfy粉丝破50万。
 
-<span class="imageContainer" style="width: 60%; max-width: none">
-  <img
-    src="https://s1.imagehub.cc/images/2025/07/09/218f6cc9144ed4dbdbdefbf6fc1fb373.png"
-    style="max-width: none"
-    alt="" />
-  <a href="https://s1.imagehub.cc/images/2025/07/09/218f6cc9144ed4dbdbdefbf6fc1fb373.png">“转型运动”进程图</a>
-</span>
+{% include image-box src="https://s1.imagehub.cc/images/2025/07/09/218f6cc9144ed4dbdbdefbf6fc1fb373.png" caption="<a href='https://s1.imagehub.cc/images/2025/07/09/218f6cc9144ed4dbdbdefbf6fc1fb373.png'>'转型运动'进程图</a>" width="60%" %}
 
 5月18日，[星球阁第六个破百万点赞的视频](https://v.douyin.com/faiixYBJxBg/)，也是星球阁首个最快冲上百万点赞的视频诞生。视频作者水益也因此结束了长达两年的掉粉，一个月内涨粉8万。此视频一经发布在迅速爆火的同时也被许多创作者模仿。自此，此类视频似乎开始出现了同质化的趋势。同时Maugfy，Acubens-A等也逐渐放弃了原先的抽象科普视频风格，抽象科普几乎被后起的学科燃剪完全取代，新出现的转型视频内容逐渐走向同质化与单一化。这种同质化、单一化的视频模式为星球阁在之后的暑假流量遭受的巨大挫折埋下了祸根。
 
@@ -531,15 +514,7 @@ Acubens-A和天白的转型虽在个人层面成效明显，但也仍未引发�
 
 28日，星球阁logo完成[矢量化](../icon/SRPNlogo.svg)。
 
-<span
-  class="imageContainer"
-  style="max-width: none; width: calc(100% - 12px)">
-  <img
-    src="https://s1.imagehub.cc/images/2025/06/22/07a1a4c7390f4cacf04c5394aad5c86a.png"
-    style="max-width: none"
-    alt="" />
-  <a href="https://s1.imagehub.cc/images/2025/06/22/07a1a4c7390f4cacf04c5394aad5c86a.png">“转型运动”粉丝增长图</a>
-</span>
+{% include image-box src="https://s1.imagehub.cc/images/2025/06/22/07a1a4c7390f4cacf04c5394aad5c86a.png" caption="<a href='https://s1.imagehub.cc/images/2025/06/22/07a1a4c7390f4cacf04c5394aad5c86a.png'>'转型运动'粉丝增长图</a>" width="calc(100% - 12px)" %}
 
 7月19日，本站子站点[星球阁非官方文档汇总站(oc.srpn.top)](https://oc.srpn.top)正式上线，站长为Nsakrty，并将星球阁非官方立场的文章整理于此。这助推了星球阁网站生态内容的多元化和立场的丰富性，有助于对星球阁的进一步了解。24日，水益正式成为其编辑。
 

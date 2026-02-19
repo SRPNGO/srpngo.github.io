@@ -1,6 +1,6 @@
-<span class="imageContainer" style="width: {{ include.width | default: '50%' }}">
+<div class="imageContainer" style="width: {{ include.width | default: '50%' }}">
   <img src="{{ include.src }}" alt="{{ include.alt | default: '' }}" />
   {% if include.caption %}
   <a>{{ include.caption }}</a>
   {% endif %}
-</span>
+</div>
