@@ -406,7 +406,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 #### <a name="星球圈的低质低俗化与星球阁的圈内地位的下降"></a>星球圈的低质低俗化与星球阁的圈内地位的下降
 
-{% include image-box.html src="https://s1.imagehub.cc/images/2025/06/22/24c9ff21702b5f9c7787da7ce33702d5.jpg" caption="摘自<a href="https://nsak.srpn.top/art/ptgp.html">《论星球圈》</a>" %}
+{% include image-box.html src="https://s1.imagehub.cc/images/2025/06/22/24c9ff21702b5f9c7787da7ce33702d5.jpg" caption="摘自<a href='https://nsak.srpn.top/art/ptgp.html'>《论星球圈》</a>" %}
 
 自2022年11月起，一些来自星球动画圈的低创低俗视频在快手诞生。因新智慧星事件和LESH事件的影响，星球阁无瑕顾及此类低创视频的在抖音的传播，导致2023年1至3月期间，星球动画视频进入抖音，给圈子造成了极大的不良影响。部分星球阁成员开始发文、发视频抵制这些视频，但并未起到实际成效，在这之后，星球阁的近乎所有成员涨粉速度开始放缓，总粉丝数开始下跌。
 
