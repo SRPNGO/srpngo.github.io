@@ -28,15 +28,17 @@
         <a href="index.html" id="SRPN-logo">
           <img src="icon/SRPNlogo.svg" alt="SRPN的logo" />
         </a>
-        <span class="menu">
+        <span class="menu" id="main-menu">
           <a href="index.html">首页</a>
           <a href="srpn/TL.html">条例</a>
           <a href="srpn/history">历史</a>
           <a href="#join">加入方式</a>
-          <!-- <a href="srpn/MrDt.html">成员检测</a> -->
           <a href="#siteMap-title">SiteMap</a>
           <a href="https://oc.srpn.top/">子站点</a>
         </span>
+        <a class="more-btn" id="more-btn" href="javascript:void(0)" style="display: none;">更多</a>
+        <div class="more-dropdown" id="more-dropdown">
+        </div>
       </nav>
     </header>
     <p id="loading">加载中...</p>
@@ -500,6 +502,7 @@
       </p>
     </footer>
     <script src="script/update.js"></script>
+    <script src="script/responsive-nav.js"></script>
     <script>
       const busuanzi = document.createElement("script");
       busuanzi.src = "https://cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js";

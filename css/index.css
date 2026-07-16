@@ -8,21 +8,23 @@ a {
 }
 
 nav {
-  overflow-x: auto;
-  overflow-y: hidden;
+  position: relative;
+  overflow: visible;
   width: 100%;
   height: 3em;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
   background: #fff;
 }
 
 nav #logo {
-  position: sticky;
-  left: 0;
+  flex-shrink: 0;
 }
 
 nav span.menu {
-  color: #000;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 nav span.menu a {
@@ -32,12 +34,61 @@ nav span.menu a {
   transition: all 0.2s;
   vertical-align: top;
   text-decoration: none;
-  color: inherit;
+  color: #000;
 }
 
 nav span.menu a:hover {
   text-decoration: none;
   color: inherit;
+  background: #b0b0b0;
+}
+
+nav .more-btn {
+  flex-shrink: 0;
+  line-height: 3em;
+  display: inline-block;
+  padding: 0 1em;
+  transition: all 0.2s;
+  vertical-align: top;
+  text-decoration: none;
+  color: #000;
+}
+
+nav .more-btn:hover {
+  text-decoration: none;
+  color: inherit;
+  background: #b0b0b0;
+}
+
+/* 下拉菜单样式 */
+.more-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  min-width: 120px;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  border-top: none;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+
+.more-dropdown.show {
+  display: block;
+}
+
+.more-dropdown a {
+  display: block;
+  padding: 0.75em 1em;
+  text-decoration: none;
+  color: #000;
+  white-space: nowrap;
+}
+
+.more-dropdown a:hover {
   background: #b0b0b0;
 }
 
