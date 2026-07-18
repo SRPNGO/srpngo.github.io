@@ -8,7 +8,9 @@ a {
 }
 
 nav {
-  position: relative;
+  /* position: relative; */
+  position: fixed;
+  z-index: 1000;
   overflow: visible;
   width: 100%;
   height: 3em;
@@ -96,6 +98,8 @@ nav .more-btn:hover {
   height: 2.7em;
   padding: 0.15em 4px;
   background-color: #fff;
+  position: relative;
+  top: 0.15em;
 }
 
 main > div {

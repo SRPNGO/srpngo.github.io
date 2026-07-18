@@ -1,6 +1,7 @@
 :root {
   --welcome-bg-color: #eee;
-  --welcome-height: calc(100vh - 3em);
+  /* --welcome-height: calc(100vh - 3em); */
+  --welcome-height: 100vh;
   --logo-width: 50vmin;
   --logo-top: 40%;
 }
