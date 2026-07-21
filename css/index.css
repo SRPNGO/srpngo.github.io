@@ -3,6 +3,15 @@ body {
   padding: 0;
 }
 
+:root{
+  scroll-padding-top: 5em;
+}
+
+
+html {
+  scroll-padding-top: 5em;
+}
+
 a {
   overflow-wrap: break-word;
 }

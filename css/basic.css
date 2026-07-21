@@ -10,12 +10,8 @@
   --table-row-alt-bg: #e6e6e0;
   --link-disabled-color: #b84d4d;
   scroll-behavior: smooth;
-  scroll-padding-top: 5em;
 }
 
-html {
-  scroll-padding-top: 5em;
-}
 
 body {
   font-family: sans-serif, arial;

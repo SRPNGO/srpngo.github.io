@@ -53,3 +53,25 @@ img {
   margin: 0;
   max-width: none;
 }
+
+blockquote {
+  margin: 1em 0;
+  padding: 0.6em 1em;
+  background-color: #eef3f7;
+  border-left: 3px solid #7a9bc0;
+  border-radius: 0 4px 4px 0;
+  color: #4a5560;
+  font-size: 0.95em;
+  line-height: 1.8;
+}
+
+blockquote > p {
+  text-indent: 0;
+  margin: 0.3em 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px dashed #bbb;
+  margin: 1.5em 0;
+}
