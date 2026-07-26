@@ -3,10 +3,16 @@
   --text-color: #0f0f0f;
   --link-color: #1e90ff;
   --link-hover-color: #0066cc;
-  --button-color: #9cc;
-  --button-hover-color: #477;
-  --button-active-color: #255;
-  --button-text-color: #f0f0f0;
+  /* 方案D: 白底边框版 */
+  --button-color: #ffffff;
+  --button-hover-color: #f0f0f0;
+  --button-active-color: #e2e2e2;
+  --button-text-color: #0f0f0f;
+  /* 方案A: 蓝色系 (与链接色呼应) */
+  /* --button-color: #1e90ff;
+  --button-hover-color: #1a7de0;
+  --button-active-color: #0d5cb3;
+  --button-text-color: #ffffff; */
   --table-row-alt-bg: #e6e6e0;
   --link-disabled-color: #b84d4d;
   scroll-behavior: smooth;
@@ -16,6 +22,7 @@
 body {
   font-family: sans-serif, arial;
   font-weight: 300;
+  /* font-weight: 600; */
   color: var(--text-color);
   background-color: var(--bg-color);
 }
@@ -64,11 +71,12 @@ a[href="javascript:void(0)"] {
   color: var(--link-disabled-color);
 }
 button {
-  padding: 0.5em;
+  padding: 0.5em 1em;
   transition: all 0.2s;
   text-decoration: none;
+  filter: drop-shadow(3px 3px 2px #0002);
   color: var(--button-text-color);
-  border: none;
+  border: 1px solid color-mix(in srgb, var(--button-color) 80%, #000000 20%);
   border-radius: 8px;
   background: var(--button-color);
   cursor: pointer;
@@ -77,10 +85,16 @@ button {
 
 button:hover {
   background: var(--button-hover-color);
+  border-color: color-mix(in srgb, var(--button-hover-color) 70%, #000000 30%);
+  transform: translateY(-1px);
+  filter: drop-shadow(4px 4px 3px #0003);
 }
 
 button:active {
   background: var(--button-active-color);
+  border-color: color-mix(in srgb, var(--button-active-color) 60%, #000000 40%);
+  transform: translateY(1px);
+  filter: drop-shadow(2px 2px 1px #0002);
 }
 iframe[src] {
   border: none;

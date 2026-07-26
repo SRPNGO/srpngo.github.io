@@ -2,21 +2,87 @@
   --welcome-bg-color: #eee;
   /* --welcome-height: calc(100vh - 3em); */
   --welcome-height: 100vh;
-  --logo-width: 50vmin;
-  --logo-top: 40%;
+  --content-max-width: 800px;
+  --content-side-padding: 16px;
+  /* 当视口宽度超过 content-max-width + 2*padding 时，以下值不再随 vw 缩放 */
+  --max-logo-height: 10rem;
+  --logo-height: min(var(--max-logo-height), max(20vw, 7rem));
+  --max-title-font-size: 3.75rem;
+  --title-font-size: min(var(--max-title-font-size), max(7vw, 2rem));
 }
 
 #welcome {
   width: 100%;
   min-height: var(--welcome-height);
   background-color: var(--welcome-bg-color);
-  opacity: 0;
+  padding: 3em 0 1em;
+  /* opacity: 0; */
+}
+#welcome > div {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 0 var(--content-side-padding);
+}
+#welcome #jump-to-start {
+  color: #000;
+  transform: translateX(-50%) rotate(90deg);
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 600;
+  position: absolute;
+  left: 50%;
+}
+#welcome h1 {
+  font-weight: 900;
+  margin: 0;
+  font-size: var(--title-font-size);
+  line-height: 1.2;
+  max-width: calc(100% - var(--logo-height) - 1rem);
+}
+#welcome h2 {
+  text-align: left;
+  font-weight: 600;
+}
+#welcome .welcome-title {
+  position: relative;
+  min-height: var(--logo-height);
+  display: flex;
+  align-items: center;
+  margin-top: calc(var(--logo-height) / 6);
+  margin-bottom: calc(var(--logo-height) / 4);
+  /* transform: translate(0, 37%); */
+}
+#welcome .welcome-title #logo {
+  height: calc(var(--logo-height) * 1.2 - 8px);
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#welcome .welcome-introduction > p {
+  text-align: left;
+}
+.welcome-links > .link-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* gap: rem; */
+  max-width: 80%;
+}
+.data-title {
+  font-weight: 600;
+}
+.data-value {
+  font-size: 1.75rem;
+  font-weight: 900;
+  margin-left: 1rem;
 }
 
 hr {
   margin: 0;
 }
-.logo {
+/* .logo {
   position: absolute;
   top: var(--logo-top);
   left: 50%;
@@ -25,7 +91,7 @@ hr {
   max-width: 600px;
   transform: translate(-50%, -50%);
   animation-fill-mode: backwards;
-}
+} */
 
 @keyframes fromLeftInto {
   0% {
@@ -52,24 +118,14 @@ hr {
     letter-spacing: 0.3em;
   }
 }
-#logo-main {
+/* #logo-main {
   position: absolute;
   top: var(--logo-top);
   left: 50%;
   transform: translate(-50%, -50%);
-}
+} */
 
-.tt {
-  position: absolute;
-  top: var(--logo-top);
-  left: 50%;
-  width: max-content;
-  margin: 0;
-  transform: translate(-50%, calc(var(--logo-width) / 2));
-  opacity: 1;
-}
-
-#logo-py {
+/* #logo-py {
   opacity: 1;
 }
 
@@ -115,7 +171,7 @@ hr {
 
 .animation-start #welcome-title {
   animation: tensile 1s 1.8s;
-}
+} */
 
 @media (max-height: 350px) {
   .imgs {

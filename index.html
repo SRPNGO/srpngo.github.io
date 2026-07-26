@@ -47,55 +47,57 @@
         <div class="more-dropdown" id="more-dropdown"></div>
       </nav>
     </header>
-    <p id="loading">加载中...</p>
+    <!-- <p id="loading">加载中...</p> -->
     <div id="welcome">
-      <div id="imgs">
-        <img src="icon/SRPNlogo-main.svg" id="logo-main" class="logo" alt="" />
-        <img src="icon/SRPNlogo-py.svg" id="logo-py" class="logo" alt="" />
-        <img src="icon/SRPNlogo-time.svg" id="logo-time" class="logo" alt="" />
-        <img
-          src="icon/SRPNlogo-circle.svg"
-          id="logo-circle"
-          class="logo"
-          alt="SRPN的logo" />
+      <div>
+        <div class="welcome-title">
+          <h1>欢迎来到星球阁官网</h1>
+          <img src="icon/SRPNlogo.svg" alt="SRPN的logo" id="logo" />
+        </div>
+        <div class="welcome-content">
+          <div class="welcome-data">
+            <a class="data-title">成立日期</a>
+            <a class="data-value">2019.03.04</a>
+          </div>
+          <div class="welcome-data">
+            <a class="data-title">总粉丝数</a>
+            <a class="data-value">392.5万</a>
+          </div>
+          <div class="welcome-data">
+            <a class="data-title">总成员数</a>
+            <a class="data-value">230+</a>
+          </div>
+          <div class="welcome-data">
+            <a class="data-title">万粉以上创作者</a>
+            <a class="data-value">38</a>
+          </div>
+        </div>
+        <div class="welcome-links">
+          <h2>快速查阅</h2>
+          <div class="link-container">
+            <button onclick="window.location.href = 'srpn/history'">历史</button>
+            <button onclick="window.location.href = 'masterpiece.html'">作品</button>
+            <button onclick="window.location.href = 'https://oc.srpn.top/wiki/wiki_intro'">Wiki</button>
+            <button onclick="location.href = '#siteMap-title'">更多</button>
+          </div>
+        </div>
+        <div class="welcome-introduction">
+          <h2>组织介绍</h2>
+          <p>
+            星球阁(Star
+            Pavilion)是一个集绘画和天文爱好者的组织，目前在抖音与bilibili招人
+          </p>
+          <p>
+            星球阁成员曾主要更新星球视频，如星球小剧场和天文科普；如今主要更新(抽象)学科科普
+          </p>
+          <p>
+            星球阁是星球圈最早制作星球视频的组织，视频质量处于圈内中上水平。随着转型运动推进，星球阁进军知识区，部分成员也广受欢迎
+          </p>
+        </div>
+        <div class="jump-to-start">
+          <a href="#start" id="jump-to-start" >》</a>
+        </div>
       </div>
-      <div class="tt">
-        <h1 id="welcome-title">欢迎来到SRPN网！</h1>
-        <!-- <div style="display: flex; justify-content: center"><a href="#start" class="btn">开始探索吧</a></div> -->
-        <button class="center-button" onclick="location.href = '#start'">
-          开始探索吧
-        </button>
-      </div>
-      <script>
-        window.addEventListener("DOMContentLoaded", () => {
-          const imgIds = ["logo-main", "logo-py", "logo-time", "logo-circle"];
-          let loadedCount = 0;
-          let timeout = setTimeout(startAnimations, 3000);
-          imgIds.forEach((id) => {
-            const img = document.getElementById(id);
-            if (!img) return;
-            if (img.complete) {
-              loadedCount++;
-              if (loadedCount === imgIds.length) {
-                clearTimeout(timeout);
-                startAnimations();
-              }
-            } else {
-              img.addEventListener("load", () => {
-                loadedCount++;
-                if (loadedCount === imgIds.length) {
-                  clearTimeout(timeout);
-                  startAnimations();
-                }
-              });
-            }
-          });
-          function startAnimations() {
-            document.body.offsetHeight; // 触发重排
-            document.body.classList.add("animation-start");
-          }
-        });
-      </script>
     </div>
     <hr />
     <main id="start">
@@ -320,7 +322,9 @@
         </p>
         <button
           class="center-button"
-          onclick="window.location.href = 'https://v.douyin.com/group/631294233480'">
+          onclick="
+            window.location.href = 'https://v.douyin.com/group/631294233480'
+          ">
           加入
         </button>
       </div>
