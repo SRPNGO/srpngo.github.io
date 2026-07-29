@@ -213,3 +213,57 @@ footer {
     justify-content: center;
   }
 }
+
+@media (max-width: 1024px) {
+  main > * {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  main > * {
+    max-width: 95%;
+  }
+  .card {
+    width: 8em;
+    min-width: 120px;
+    margin: 0.5rem;
+    padding: 0.75rem;
+  }
+  .cardValue {
+    font-size: 1.5rem;
+  }
+  .cardLabel {
+    font-size: 0.85rem;
+  }
+  table {
+    font-size: 0.85rem;
+  }
+  main > div {
+    margin: 12px auto;
+    padding: 6px;
+    border-radius: 16px;
+  }
+  iframe {
+    height: 60vh !important;
+  }
+}
+
+@media (max-width: 380px) {
+  main > * {
+    max-width: 98%;
+  }
+  .card {
+    width: 7em;
+    min-width: 100px;
+  }
+  .cardValue {
+    font-size: 1.2rem;
+  }
+  table {
+    font-size: 0.75rem;
+  }
+  th, tr, td {
+    padding: 2px;
+  }
+}
