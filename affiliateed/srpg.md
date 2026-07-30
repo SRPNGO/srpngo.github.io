@@ -65,6 +65,6 @@ customExtraContent: | # 这个竖线|必须加，保留后续HTML格式
 
 ## 加入我们
 
-<button onclick="window.location.href='https:\/\/v.douyin.com/ifTUVRA6/'">联系社长</button>
+<button data-href="https://v.douyin.com/ifTUVRA6/">联系社长</button>
 
 ---

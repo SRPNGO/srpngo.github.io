@@ -72,16 +72,16 @@
           </div>
           <div class="welcome-data">
             <span class="data-title">万粉以上创作者 <span class="data-en">Members with fans 10k+</span></span>
-            <span class="data-value">38</span>
+            <span class="data-value">40</span>
           </div>
         </div>
         <div class="welcome-links">
           <h2>快速查阅</h2>
           <div class="link-container">
-            <button onclick="window.location.href = 'srpn/history'">历史</button>
-            <button onclick="window.location.href = 'masterpiece.html'">作品</button>
-            <button onclick="window.location.href = 'https://oc.srpn.top/wiki/wiki_intro'">Wiki</button>
-            <button onclick="location.href = '#join'">加入</button>
+            <button data-href="srpn/history">历史</button>
+            <button data-href="masterpiece.html">作品</button>
+            <button data-href="https://oc.srpn.top/wiki/wiki_intro">Wiki</button>
+            <button data-href="#join">加入</button>
           </div>
         </div>
         <div class="welcome-introduction">
@@ -119,7 +119,7 @@
           </p>
           <button
             class="center-button"
-            onclick="location.href = ' masterpiece.html'">
+            data-href="masterpiece.html">
             查看我们的代表作
           </button>
         </span>
@@ -283,7 +283,7 @@
         <!-- <div style="display: flex; justify-content: center"><a href="srpn/history" class="btn">探索</a></div> -->
         <button
           class="center-button"
-          onclick="window.location.href = 'srpn/history'">
+          data-href="srpn/history">
           探索
         </button>
       </div>
@@ -325,9 +325,7 @@
         </p>
         <button
           class="center-button"
-          onclick="
-            window.location.href = 'https://v.douyin.com/group/631294233480'
-          ">
+          data-href="https://v.douyin.com/group/631294233480">
           加入
         </button>
       </div>
@@ -526,18 +524,7 @@
     </footer>
     <script src="script/update.js"></script>
     <script src="script/responsive-nav.js"></script>
-    <script>
-      const busuanzi = document.createElement("script");
-      busuanzi.src = "https://cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js";
-      busuanzi.defer = true;
-      const local =
-        window.location.origin.includes("localhost") ||
-        window.location.origin.includes("127.0.0.1") ||
-        window.location.origin.includes("file://");
-      if (!local) {
-        document.head.appendChild(busuanzi);
-      }
-    </script>
-    <!-- <script src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js" defer></script> -->
+    <script src="script/main.js"></script>
+    <script src="script/busuanzi.js"></script>
   </body>
 </html>

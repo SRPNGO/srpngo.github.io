@@ -67,47 +67,7 @@ ul{
 }
 </style>
 
-<script>
-      var clickTimes = 0;
-      var menuHeight;
-      function fun() {
-        var menuStyle = document.getElementById("START").style;
-        menuStyle.display = "block";
-        if (clickTimes == 0) {
-          menuHeight = document.getElementById("START").clientHeight;
-          document.documentElement.style.setProperty("--toht", menuHeight);
-        }
-        menuStyle.height = menuHeight + "px";
-        if (++clickTimes % 2) {
-          document.getElementById("button").innerHTML = "收起目录";
-          {
-            menuStyle.animation = "expand 2s";
-            switchButtonState(2000);
-          }
-          menuStyle.display = "block";
-          menuStyle.height = menuHeight + "px";
-        } else {
-          document.getElementById("button").innerHTML = "展开目录";
-          {
-            menuStyle.animation = "shrink 2s";
-            switchButtonState(2000);
-          }
-          menuStyle.height = "0px";
-        }
-      }
-      function setFastJump() {
-        // 加载快速跳转区，若未开启就不会加载，一行noscript会代替它
-        document.getElementById("fastJump").style.display = "block";
-      }
-      function switchButtonState(time) {
-        // 让按钮禁用一段时间后恢复
-        var button = document.getElementById("button");
-        button.setAttribute("disabled", "");
-        setTimeout(() => {
-          button.removeAttribute("disabled");
-        }, time);
-      }
-    </script>
+<script src="../script/history-nav.js"></script>
 
 <div markdown="1">
   <h1>欢迎来到SRPN历史网!</h1>
@@ -118,7 +78,7 @@ ul{
 </div>
 <div id="fastJump" style="display: block">
   <h3>快捷跳转</h3>
-  <button onclick="fun()" id="button">展开目录</button>
+  <button data-nav-toggle id="button">展开目录</button>
 </div>
 <noscript style="color: red"
   >javascript不可用！您无法使用跳转功能!</noscript
@@ -580,6 +540,3 @@ Acubens-A和天白的转型虽在个人层面成效明显，但也仍未引发�
 
 <script src="../script/update.js"></script>
 <script src="../script/floatPhotos.js"></script>
-<script
-  src="//cdn.busuanzi.cc/busuanzi/3.6.9/busuanzi.min.js"
-  defer></script>

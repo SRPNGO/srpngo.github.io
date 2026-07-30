@@ -38,9 +38,9 @@
   font-weight: 600;
 }
 #welcome h1 {
-  font-weight: 900;
+  font-weight: 600;
   margin: 0;
-  font-size: var(--title-font-size);
+  font-size: calc(var(--title-font-size) * 0.9);
   line-height: 1.2;
   max-width: 100%;
   white-space: nowrap;
@@ -110,7 +110,7 @@
 }
 #welcome .data-value {
   font-size: 1.75rem;
-  font-weight: 900;
+  font-weight: 600;
   margin-left: 1rem;
   white-space: nowrap;
 }
@@ -146,6 +146,9 @@ hr {
   :root {
     --logo-height: min(9rem, max(18vw, 6.5rem));
     --title-font-size: min(2.8rem, max(5.5vw, 1.6rem));
+  }
+  #welcome h1 {
+    font-size: var(--title-font-size);
   }
   #welcome .welcome-title {
     margin-top: calc(var(--logo-height) / 5);
