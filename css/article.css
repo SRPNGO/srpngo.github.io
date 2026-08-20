@@ -14,6 +14,10 @@ article p {
   line-height: 200%;
 }
 
+article li>p{
+  text-indent: 0;
+}
+
 article > div {
   display: inline-block;
 }
