@@ -336,7 +336,7 @@ LESH事件发生的同时，1月中旬，有人开始在抖音发布了[带有�
 
 1月24日，SRPN网更换网址为www.srpn.top。
 
-1月26日，星球阁新增一个新的于1月3日由[佰玖](https://v.douyin.com/kE9RW8C/)创立的分组织：[星辰阁](javascript:void(0))(SRDC)。
+1月26日，星球阁新增一个新的于1月6日由[佰玖](https://v.douyin.com/kE9RW8C/)创立的分组织：[星辰阁](javascript:void(0))(SRDC)。
 
 1月27日15时，[Maugfy的b站账号](https://space.bilibili.com/1170714365)破一万粉丝，成为了在b站中第一个粉丝破万的星球阁成员。
 
